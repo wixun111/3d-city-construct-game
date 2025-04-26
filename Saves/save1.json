@@ -1,0 +1,256 @@
+{
+  "saveID": 1,
+  "saveName": "save1",
+  "currentCityId": 0,
+  "cityData": [
+    {
+      "cityId": 0,
+      "cityName": "阳翟",
+      "population": 5000,
+      "resources": {
+        "human": 199900,
+        "wood": 99000,
+        "stone": 79500,
+        "food": 119700
+      },
+      "economy": 30000,
+      "width": 100,
+      "length": 100,
+      "buildingsData": [
+        {
+          "uuid": "6bdbf48a-8103-4417-a6d8-9b20c01ebcae",
+          "buildingName": "民宅",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200,
+          "position": {
+            "x": 21,
+            "y": 0,
+            "z": 30,
+            "magnitude": 36.6196671,
+            "sqrMagnitude": 1341
+          }
+        },
+        {
+          "uuid": "5c10c37c-b9f4-4385-acc6-54b47a440ad0",
+          "buildingName": "民宅",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200,
+          "position": {
+            "x": 35,
+            "y": 0,
+            "z": 39,
+            "magnitude": 52.40229,
+            "sqrMagnitude": 2746
+          }
+        },
+        {
+          "uuid": "ef80ee1c-fbfd-4002-8f04-ada79288280b",
+          "buildingName": "民宅",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200,
+          "position": {
+            "x": 36,
+            "y": 0,
+            "z": 43,
+            "magnitude": 56.0803,
+            "sqrMagnitude": 3145
+          }
+        },
+        {
+          "uuid": "ca916a24-2291-4709-b8a9-124d3cf5b423",
+          "buildingName": "民宅",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200,
+          "position": {
+            "x": 37,
+            "y": 0,
+            "z": 38,
+            "magnitude": 53.0377235,
+            "sqrMagnitude": 2813
+          }
+        },
+        {
+          "uuid": "c2754dc0-ef34-4e0b-9721-e4f9ba06dd8a",
+          "buildingName": "民宅",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200,
+          "position": {
+            "x": 39,
+            "y": 0,
+            "z": 37,
+            "magnitude": 53.75872,
+            "sqrMagnitude": 2890
+          }
+        },
+        {
+          "uuid": "6265f3d9-ac12-4815-a6ac-a5d5fcc441c5",
+          "buildingName": "民宅",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200,
+          "position": {
+            "x": 40,
+            "y": 0,
+            "z": 40,
+            "magnitude": 56.5685425,
+            "sqrMagnitude": 3200
+          }
+        },
+        {
+          "uuid": "152c0cee-839b-432e-9aaa-30433490a871",
+          "buildingName": "民宅",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200,
+          "position": {
+            "x": 41,
+            "y": 0,
+            "z": 44,
+            "magnitude": 60.1415,
+            "sqrMagnitude": 3617
+          }
+        },
+        {
+          "uuid": "92e0c10e-cff5-4a12-bef7-d9fd2dc4e435",
+          "buildingName": "民宅",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200,
+          "position": {
+            "x": 42,
+            "y": 0,
+            "z": 40,
+            "magnitude": 58.0,
+            "sqrMagnitude": 3364
+          }
+        },
+        {
+          "uuid": "1908ad26-d433-4af4-adf1-cdb7ddac4ac1",
+          "buildingName": "民宅",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200,
+          "position": {
+            "x": 43,
+            "y": 0,
+            "z": 41,
+            "magnitude": 59.4138031,
+            "sqrMagnitude": 3530
+          }
+        },
+        {
+          "uuid": "0e71a1fd-3dcb-4c61-9798-b28032613226",
+          "buildingName": "民宅",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200,
+          "position": {
+            "x": 44,
+            "y": 0,
+            "z": 38,
+            "magnitude": 58.1377678,
+            "sqrMagnitude": 3380
+          }
+        }
+      ]
+    },
+    {
+      "cityId": 1,
+      "cityName": "晋阳",
+      "population": 5000,
+      "resources": {
+        "human": 2000,
+        "wood": 1000,
+        "stone": 800,
+        "food": 1200
+      },
+      "economy": 30000,
+      "width": 100,
+      "length": 100,
+      "buildingsData": []
+    },
+    {
+      "cityId": 2,
+      "cityName": "安邑",
+      "population": 5000,
+      "resources": {
+        "human": 2000,
+        "wood": 1000,
+        "stone": 800,
+        "food": 1200
+      },
+      "economy": 30000,
+      "width": 100,
+      "length": 100,
+      "buildingsData": []
+    },
+    {
+      "cityId": 3,
+      "cityName": "寿春",
+      "population": 5000,
+      "resources": {
+        "human": 2000,
+        "wood": 1000,
+        "stone": 800,
+        "food": 1200
+      },
+      "economy": 30000,
+      "width": 100,
+      "length": 100,
+      "buildingsData": []
+    },
+    {
+      "cityId": 4,
+      "cityName": "蓟",
+      "population": 5000,
+      "resources": {
+        "human": 2000,
+        "wood": 1000,
+        "stone": 800,
+        "food": 1200
+      },
+      "economy": 30000,
+      "width": 100,
+      "length": 100,
+      "buildingsData": []
+    },
+    {
+      "cityId": 5,
+      "cityName": "临淄",
+      "population": 5000,
+      "resources": {
+        "human": 2000,
+        "wood": 1000,
+        "stone": 800,
+        "food": 1200
+      },
+      "economy": 30000,
+      "width": 100,
+      "length": 100,
+      "buildingsData": []
+    },
+    {
+      "cityId": 6,
+      "cityName": "咸阳",
+      "population": 5000,
+      "resources": {
+        "human": 2000,
+        "wood": 1000,
+        "stone": 800,
+        "food": 1200
+      },
+      "economy": 30000,
+      "width": 100,
+      "length": 100,
+      "buildingsData": []
+    }
+  ],
+  "playerName": null,
+  "currentTime": 10.055891,
+  "timeScale": 1.0
+}

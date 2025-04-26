@@ -1,0 +1,203 @@
+﻿{
+  "1": {
+    "buildingId": 1,
+    "buildingName": "house",
+    "chineseName": "民宅",
+    "classType": "Buildings.Residential.House",
+    "cost":{
+      "wood": 100,
+      "stone": 50,
+      "food": 30,
+      "human": 10
+    },
+    "size": [1,1],
+    "maxLevel": 10,
+    "maxHealth": 200,
+    "residentsNumber": 0,
+    "residentsCapacity": 10,
+    "isProductive": false
+    
+  },
+  "2": {
+    "buildingId": 2,
+    "buildingName": "apartment",
+    "chineseName": "公寓",
+    "classType": "Buildings.Residential.Apartment",
+    "cost":{
+      "wood": 100,
+      "stone": 50,
+      "food": 30,
+      "human": 10
+    },
+    "size": [1,1],
+    "maxLevel": 10,
+    "maxHealth": 200,
+    "residentsNumber": 0,
+    "residentsCapacity": 10,
+    "isProductive": false
+  },
+  "3": {
+    "buildingId": 3,
+    "buildingName": "loggingCamp",
+    "chineseName": "木场",
+    "classType": "Buildings.Industrial.LoggingCamp",
+    "cost":{
+      "wood": 100,
+      "stone": 50,
+      "food": 30,
+      "human": 10
+    },
+    "maxLevel": 10,
+    "size": [1,1],
+    "produceResourceType":["wood"],
+    "productionRate":1,
+    "maxHealth": 200,
+    "residentsNumber": 0,
+    "residentsCapacity": 10,
+    "isProductive": false
+  },
+  "4": {
+    "buildingId": 4,
+    "buildingName": "government",
+    "chineseName": "政府大楼",
+    "classType": "Buildings.Industrial.Government",
+    "cost":{
+      "wood": 100,
+      "stone": 50,
+      "food": 30,
+      "human": 10
+    },
+    "size": [2,2],
+    "existLimit": 1,
+    "maxLevel": 10,
+    "maxHealth": 200,
+    "residentsNumber": 0,
+    "residentsCapacity": 10,
+    "isProductive": false
+  },
+  "5": {
+    "buildingId": 5,
+    "buildingName": "hospital",
+    "chineseName": "医院",
+    "classType": "Buildings.Industrial.hospital",
+    "cost":{
+      "wood": 100,
+      "stone": 50,
+      "food": 30,
+      "human": 10
+    },
+    "size": [1,1],
+    "maxLevel": 10,
+    "maxHealth": 200,
+    "residentsNumber": 0,
+    "residentsCapacity": 10,
+    "isProductive": false
+  },
+  "6": {
+    "buildingId": 6,
+    "buildingName": "school",
+    "chineseName": "学校",
+    "classType": "Buildings.Education.School",
+    "cost":{
+      "wood": 100,
+      "stone": 50,
+      "food": 30,
+      "human": 10
+    },
+    "size": [1,1],
+    "maxLevel": 10,
+    "maxHealth": 200,
+    "residentsNumber": 0,
+    "residentsCapacity": 10,
+    "isProductive": false
+  },
+  "7": {
+    "buildingId": 7,
+    "buildingName": "policeOffice",
+    "chineseName": "警局",
+    "classType": "Buildings.Industrial.loggingCamp",
+    "cost":{
+      "wood": 100,
+      "stone": 50,
+      "food": 30,
+      "human": 10
+    },
+    "size": [2,2],
+    "maxLevel": 10,
+    "maxHealth": 200,
+    "residentsNumber": 0,
+    "residentsCapacity": 10,
+    "isProductive": false
+  },
+  "8": {
+    "buildingId": 8,
+    "buildingName": "commercialCenter",
+    "chineseName": "商业中心",
+    "classType": "Buildings.Industrial.loggingCamp",
+    "cost":{
+      "wood": 100,
+      "stone": 50,
+      "food": 30,
+      "human": 10
+    },
+    "size": [1,1],
+    "maxLevel": 10,
+    "maxHealth": 200,
+    "residentsNumber": 0,
+    "residentsCapacity": 10,
+    "isProductive": false
+  },
+  "9": {
+    "buildingId": 9,
+    "buildingName": "airport",
+    "chineseName": "机场",
+    "classType": "Buildings.Industrial.loggingCamp",
+    "cost":{
+      "wood": 100,
+      "stone": 50,
+      "food": 30,
+      "human": 10
+    },
+    "size": [2,2],
+    "maxLevel": 10,
+    "maxHealth": 200,
+    "residentsNumber": 0,
+    "residentsCapacity": 10,
+    "isProductive": false
+  },
+  "10": {
+    "buildingId": 10,
+    "buildingName": "stadium",
+    "chineseName": "体育场",
+    "classType": "Buildings.Industrial.loggingCamp",
+    "cost":{
+      "wood": 100,
+      "stone": 50,
+      "food": 30,
+      "human": 10
+    },
+    "size": [2,2],
+    "maxLevel": 10,
+    "maxHealth": 200,
+    "residentsNumber": 0,
+    "residentsCapacity": 10,
+    "isProductive": false
+  },  "11": {
+  "buildingId": 11,
+  "buildingName": "road",
+  "chineseName": "道路",
+  "classType": "Buildings.Industrial.loggingCamp",
+  "cost":{
+    "wood": 100,
+    "stone": 50,
+    "food": 30,
+    "human": 10
+  },
+  "size": [2,2],
+  "maxLevel": 10,
+  "maxHealth": 200,
+  "residentsNumber": 0,
+  "residentsCapacity": 10,
+  "isProductive": false
+}
+}

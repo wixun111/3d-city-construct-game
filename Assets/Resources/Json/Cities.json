@@ -1,0 +1,100 @@
+﻿{
+  "0": {
+    "cityName": "阳翟",
+    "population": 5000,
+    "resources": {
+      "human": 200000,
+      "wood": 100000,
+      "stone": 80000,
+      "money": 120000,
+      "food": 120000
+    },
+    "economy": 30000,
+    "width": 100,
+    "length": 100
+  },
+  "1": {
+    "cityName": "晋阳",
+    "population": 5000,
+    "resources": {
+      "human": 2000,
+      "wood": 1000,
+      "stone": 800,
+      "money": 120000,
+      "food": 1200
+    },
+    "economy": 30000,
+    "width": 100,
+    "length": 100
+  },
+  "2": {
+    "cityName": "安邑",
+    "population": 5000,
+    "resources": {
+      "human": 2000,
+      "wood": 1000,
+      "stone": 800,
+      "money": 120000,
+      "food": 1200
+    },
+    "economy": 30000,
+    "width": 100,
+    "length": 100
+  },
+  "3": {
+    "cityName": "寿春",
+    "population": 5000,
+    "resources": {
+      "human": 2000,
+      "wood": 1000,
+      "stone": 800,
+      "money": 120000,
+      "food": 1200
+    },
+    "economy": 30000,
+    "width": 100,
+    "length": 100
+  },
+  "4": {
+    "cityName": "蓟",
+    "population": 5000,
+    "resources": {
+      "human": 2000,
+      "wood": 1000,
+      "stone": 800,
+      "money": 120000,
+      "food": 1200
+    },
+    "economy": 30000,
+    "width": 100,
+    "length": 100
+  },
+  "5": {
+    "cityName": "临淄",
+    "population": 5000,
+    "resources": {
+      "human": 2000,
+      "wood": 1000,
+      "stone": 800,
+      "money": 120000,
+      "food": 1200
+    },
+    "economy": 30000,
+    "width": 100,
+    "length": 100
+  },
+  "6": {
+    "cityName": "咸阳",
+    "population": 5000,
+    "resources": {
+      "human": 2000,
+      "wood": 1000,
+      "stone": 800,
+      "money": 120000,
+      "food": 1200
+    },
+    "economy": 30000,
+    "width": 100,
+    "length": 100
+  }
+}
