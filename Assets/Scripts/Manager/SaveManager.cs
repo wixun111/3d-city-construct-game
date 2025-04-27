@@ -38,7 +38,6 @@ namespace Manager
                 Formatting = Formatting.Indented
             };
             var json = JsonConvert.SerializeObject(data,settings);  // true: 格式化 JSON
-            Debug.Log(json);
             var path = ConvertPath(saveId);
             File.WriteAllText(path, json);
             Debug.Log("Game Saved: " + path);
@@ -70,6 +69,26 @@ namespace Manager
             {
                 Debug.LogWarning("File does not exist: " + path);
             }
+        }
+
+        public void SaveSetting(float volumeSliderValue)
+        {
+            var data = new Setting(volumeSliderValue);
+            if (!Directory.Exists("Json"))
+            {
+                Directory.CreateDirectory("Json");
+            }
+            var settings = new JsonSerializerSettings
+            {
+                ContractResolver = new DefaultContractResolver
+                {
+                    NamingStrategy = new CamelCaseNamingStrategy(),
+                },
+                Formatting = Formatting.Indented
+            };
+            var json = JsonConvert.SerializeObject(data,settings);  // true: 格式化 JSON
+            File.WriteAllText("Json" + "/Setting.json", json);
+            Debug.Log("Game Setting Saved: Json/Setting.json");
         }
     }
 }

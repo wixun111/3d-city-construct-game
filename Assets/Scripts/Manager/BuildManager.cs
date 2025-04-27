@@ -38,6 +38,7 @@ namespace Manager
             if (!currentCity.CanBuild(buildingInfo, position)) return;
             currentCity.Build(buildingInfo,position, SetBuilding(position, (string)buildingInfo["buildingName"]));
             CityUIController.Instance.UpdateCityInfo(currentCity);
+            CityUIController.Instance.UpdateCityInfo(currentCity);
         }
 
         public GameObject SetBuilding(Vector3 position,string buildingName)

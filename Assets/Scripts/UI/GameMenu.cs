@@ -10,7 +10,7 @@ namespace UI
         [SerializeField] private Button backGameButton; 
         [SerializeField] private Button quitMenuButton; 
         [SerializeField] private Button saveGameButton; 
-        [SerializeField] private Button loadGameButton; 
+        [SerializeField] private Button settingButton; 
         [SerializeField] private Button quitGameButton; 
 
         private void Start()
@@ -20,7 +20,7 @@ namespace UI
             closeButton.onClick.AddListener(HidePanel);
             backGameButton.onClick.AddListener(BackGame);
             quitMenuButton.onClick.AddListener(QuitMenu);
-            loadGameButton.onClick.AddListener(SaveGame);
+            settingButton.onClick.AddListener(Setting);
             quitGameButton.onClick.AddListener(QuitGame);
             saveGameButton.onClick.AddListener(SaveGame);
         }
@@ -47,6 +47,12 @@ namespace UI
         public void QuitGame()
         {
             Application.Quit();
+        }
+
+        public void Setting()
+        {
+            UIManager.Instance.ShowSettingPanel();
+            UIManager.Instance.HideGameMenu();
         }
         private void HidePanel()
         {

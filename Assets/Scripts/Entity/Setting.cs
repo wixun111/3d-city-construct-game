@@ -11,19 +11,23 @@ namespace Entity
         [SerializeField] private string language;   // 语言设置
         [SerializeField] private float volume;      // 音量（0.0 - 1.0）
         [SerializeField] private string controlMode; // 控制方式（键盘、手柄等）
-
+        [SerializeField] private bool aiControl; // 控制方式（键盘、手柄等）
         public Setting()
         {
             language = "English";
             volume = 1.0f;
             controlMode = "Keyboard";
         }
-
+        public Setting(float volume)
+        {
+            this.volume = volume;
+        }
         public Setting(Dictionary<string, object> settingData)
         {
             language = (string) settingData["language"];
             volume = JsonConvert.DeserializeObject<float>(settingData["volume"].ToString());
-            controlMode = (string) settingData["language"];
+            controlMode = (string) settingData["controlMode"];
+            aiControl = (bool) settingData["aiControl"];
         }
     
         public void PrintSettings()

@@ -15,6 +15,8 @@ namespace Manager
         [SerializeField] private GameObject gameMenu;
         [SerializeField] private GameObject buildingPanel;
         [SerializeField] private GameObject weatherPanel;
+        [SerializeField] private GameObject settingPanel;
+        [SerializeField] private GameObject aiSettingPanel;
         [SerializeField] private List<GameObject> displayUI;
 
 
@@ -66,6 +68,28 @@ namespace Manager
         {
             gameMenu.SetActive(false);
             displayUI.Remove(gameMenu);
+        }
+
+        public void ShowSettingPanel()
+        {
+            displayUI.Add(settingPanel);
+            settingPanel.SetActive(true);
+        }
+
+        public void HideSettingPanel()
+        {
+            settingPanel.SetActive(false);
+        }
+
+        public void ShowAISettingPanel()
+        {
+            displayUI.Add(aiSettingPanel);
+            aiSettingPanel.SetActive(true);
+        }
+
+        public void HideAISettingPanel()
+        {
+            aiSettingPanel.SetActive(false);
         }
 
         public void ShowWeatherPanel()
