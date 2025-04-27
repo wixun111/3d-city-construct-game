@@ -11,7 +11,7 @@ namespace Entity.Buildings
         [SerializeField][JsonProperty] protected string buildingName;
         [SerializeField][JsonProperty] protected int buildingId;
         [SerializeField][JsonProperty] protected int level;
-        [SerializeField][JsonProperty] protected int currentHealth;
+        [SerializeField][JsonProperty] protected float currentHealth;
         [SerializeField][JsonProperty] protected Vector3Int position;
         public BuildingData(){}
         public BuildingData(Building building)
@@ -49,7 +49,7 @@ namespace Entity.Buildings
             set => position = value;
         }
 
-        public int CurrentHealth
+        public float CurrentHealth
         {
             get => currentHealth;
             set => currentHealth = value;

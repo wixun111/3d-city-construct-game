@@ -15,6 +15,7 @@ namespace UI
         public void Start()
         {
             upgradeButton.onClick.AddListener(Upgrade);
+            repairButton.onClick.AddListener(Repair);
             dismantleButton.onClick.AddListener(Dismantle);
         }
 
@@ -27,6 +28,11 @@ namespace UI
         private void Upgrade()
         {
             BuildManager.Instance.Upgrade();
+        }
+        private void Repair()
+        {
+            CityManager.Instance.RepairBuilding();
+            UIManager.Instance.UpdateBuildingPanel();
         }
     }
 }

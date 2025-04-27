@@ -15,8 +15,8 @@ namespace Entity.Buildings
         protected Dictionary<string,int> cost; 
         [SerializeField] protected int level;
         [SerializeField] protected int maxLevel;
-        [SerializeField] protected int maxHealth;
-        [SerializeField] protected int currentHealth;
+        [SerializeField] protected float maxHealth;
+        [SerializeField] protected float currentHealth;
         [SerializeField] protected Vector3Int position;
         [SerializeField] protected bool isProductive;
         [SerializeField] protected List<string> produceResourceType;
@@ -140,13 +140,13 @@ namespace Entity.Buildings
             set => position = value;
         }
 
-        public int CurrentHealth
+        public float CurrentHealth
         {
             get => currentHealth;
             set => currentHealth = value;
         }
 
-        public int MaxHealth
+        public float MaxHealth
         {
             get => maxHealth;
             set => maxHealth = value;

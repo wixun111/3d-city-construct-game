@@ -27,7 +27,7 @@ namespace Controller
             infoText.text = $"人口: {city.Population}\n 经济: {city.Economy}";
             foreach (var resourceName in city.Resources.Keys)
             {
-                infoText.text += "\n  " +  resourceName + ": " + city.Resources[resourceName];
+                infoText.text += "\n  " +  resourceName + ": " + Mathf.RoundToInt(city.Resources[resourceName]);
             }
             cityPanel.SetActive(true);
         }
@@ -36,7 +36,7 @@ namespace Controller
             infoText.text = $"人口: {city.Population}\n 经济: {city.Economy}";
             foreach (var resourceName in city.Resources.Keys)
             {
-                infoText.text += "\n " +  resourceName + ": " + city.Resources[resourceName];
+                infoText.text += "\n " +  resourceName + ": " + Mathf.RoundToInt(city.Resources[resourceName]);
             }
         }
         

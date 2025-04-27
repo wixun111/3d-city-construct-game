@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Controller;
 using Entity.Buildings;
+using Loader;
 using Manager;
 using Newtonsoft.Json;
 using UnityEngine;
@@ -57,7 +58,7 @@ namespace Entity
         public bool CanBuild(Dictionary<string, object> buildingInfo,Vector3Int position)
         {
             // 判断是否满足建造条件，比如资源检查等
-            var cost = JsonConvert.DeserializeObject<Dictionary<string, int>>(buildingInfo["cost"].ToString());
+            var cost = JsonConvert.DeserializeObject<Dictionary<string, float>>(buildingInfo["cost"].ToString());
             var size = JsonConvert.DeserializeObject<int[]>(buildingInfo["size"].ToString());
             if (cost.Keys.Any(key => resources.ContainsKey(key) && resources[key] < cost[key]))
             {
@@ -92,12 +93,12 @@ namespace Entity
             ConsumeResource(buildingInfo);
         }
 
-        public void ConsumeResource(Dictionary<string, object> buildingInfo)
+        public void ConsumeResource(Dictionary<string, object> buildingInfo,float scale = 1)
         {
-            var cost = JsonConvert.DeserializeObject<Dictionary<string, int>>(buildingInfo["cost"].ToString());
+            var cost = JsonConvert.DeserializeObject<Dictionary<string, float>>(buildingInfo["cost"].ToString());
             foreach (var key in cost.Keys.Where(key => resources.ContainsKey(key)))
             {
-                resources[key] -= cost[key];
+                resources[key] -= cost[key] * scale;
             }
         }
 
@@ -278,10 +279,32 @@ namespace Entity
             get => buildings;
             set => buildings = value;
         }
+
+        public List<Building> BuildingList
+        {
+            get => buildingList;
+            set => buildingList = value;
+        }
         public int CityLevel
         {
             get => cityLevel;
             set => cityLevel = value;
+        }
+
+        public void RepairBuilding(Vector3Int getTilePosition)
+        {
+            var building = buildings[getTilePosition.x, getTilePosition.z];
+            var scale = (1 - building.CurrentHealth / building.MaxHealth)/2 + 0.2f;
+            var buildingInfo = BuildingLoader.Instance.BuildingsData[building.BuildingId];
+            ConsumeResource(buildingInfo,scale);
+            building.CurrentHealth = building.MaxHealth;
+        }
+        public void RepairBuilding(Building building)
+        {
+            var scale = (1 - building.CurrentHealth / building.MaxHealth)/2 + 0.2f;
+            var buildingInfo = BuildingLoader.Instance.BuildingsData[building.BuildingId];
+            ConsumeResource(buildingInfo,scale);
+            building.CurrentHealth = building.MaxHealth;
         }
     }
 }

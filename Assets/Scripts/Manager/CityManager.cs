@@ -107,5 +107,10 @@ namespace Manager
         {
             return CurrentCity.GetBuilding(position);
         }
+
+        public void RepairBuilding()
+        {
+            currentCity.RepairBuilding(PlaneManager.Instance.GetTilePosition());
+        }
     }
 }
