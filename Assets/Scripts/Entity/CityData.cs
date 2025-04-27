@@ -12,7 +12,7 @@ namespace Entity
         [SerializeField][JsonProperty] private int cityId;
         [SerializeField][JsonProperty] private string cityName;
         [SerializeField][JsonProperty] private int population;
-        [SerializeField][JsonProperty] private Dictionary<string,int> resources;
+        [SerializeField][JsonProperty] private Dictionary<string,float> resources;
         [SerializeField][JsonProperty] private int economy;
         [SerializeField][JsonProperty] private int width;
         [SerializeField][JsonProperty] private int length;
@@ -80,7 +80,7 @@ namespace Entity
             get => width;
             set => width = value;
         }
-        public Dictionary<string, int> Resources
+        public Dictionary<string, float> Resources
         {
             get => resources;
             set => resources = value;

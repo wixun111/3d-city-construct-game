@@ -25,6 +25,7 @@ namespace UI
             TimeManager.Instance.ShowTime();
             CityManager.Instance.CreateCity();
             PlaneManager.Instance.GenerateCity();
+            WeatherManager.Instance.Init();
             UIManager.Instance.ShowTimeControlPanel();
         }
         public void LoadGame()

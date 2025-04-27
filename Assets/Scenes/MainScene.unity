@@ -209,11 +209,9 @@ GameObject:
   m_Component:
   - component: {fileID: 18644025}
   - component: {fileID: 18644026}
-  - component: {fileID: 18644027}
   - component: {fileID: 18644028}
   - component: {fileID: 18644029}
   - component: {fileID: 18644031}
-  - component: {fileID: 18644030}
   - component: {fileID: 18644032}
   - component: {fileID: 18644033}
   - component: {fileID: 18644034}
@@ -258,18 +256,6 @@ MonoBehaviour:
   cities: []
   nextUpdateTime: 5
   updateInterval: 5
---- !u!114 &18644027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 18644023}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7eafd18c84e227a4bae0bfff396b3179, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &18644028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,23 +292,6 @@ MonoBehaviour:
   buildPanel: {fileID: 0}
   grid: {fileID: 1291417574}
   emptyTilePrefab: {fileID: 0}
---- !u!114 &18644030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 18644023}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dd565ecdd104f43b904b7b1b7efdb42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cityPrefab: {fileID: 8395698757809947019, guid: a35eeb468e8f46f47995cd7f2e0fdf08, type: 3}
-  currentCity: {fileID: 0}
-  cities: []
-  nextUpdateTime: 5
-  updateInterval: 14
 --- !u!114 &18644031
 MonoBehaviour:
   m_ObjectHideFlags: 0

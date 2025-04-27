@@ -54,7 +54,7 @@
     "maxHealth": 200,
     "residentsNumber": 0,
     "residentsCapacity": 10,
-    "isProductive": false
+    "isProductive": true
   },
   "4": {
     "buildingId": 4,

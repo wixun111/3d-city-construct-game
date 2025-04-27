@@ -15,7 +15,7 @@ namespace Entity
         [SerializeField] private int cityId;
         [SerializeField] private string cityName;
         [SerializeField] private int population;
-        [SerializeField] private Dictionary<string,int> resources;
+        [SerializeField] private Dictionary<string,float> resources;
         [SerializeField] private int economy;
         [SerializeField] private int width;
         [SerializeField] private int length;
@@ -70,12 +70,9 @@ namespace Entity
                 {
                     if (position.x - i < 0 || position.x - i>= length || position.z - j < 0 || position.z - j >= width)
                     {
-                        Debug.Log($"the position is outside the bounds of the city");
                         return false;
                     }
-                    Debug.Log($"the position can build ({position.x - i}, {position.z - j})：{canBuild[position.x - i, position.z - j]}");
                     if (canBuild[position.x - i, position.z - j]) continue;
-                    Debug.Log($"the position can't build {position.x - i}, {position.z - j}");
                     return false;
                 }
             }
@@ -122,15 +119,67 @@ namespace Entity
         }
         public void UpdateResources()
         {
-            foreach (var building in buildingList)
-            {
+            var weather = WeatherManager.Instance.CurrentWeather;
+            if (weather == null) return;
+            var center = weather.Center;
+            var radius = weather.Radius;
+            var weatherName = weather.WeatherName;
+            float scale = 1;
+            for(var i = 0; i < buildingList.Count; i++){
+                var building = buildingList[i];
+                if (Vector3Int.Distance(building.Position, center) <= radius)
+                {
+                    switch (weatherName)
+                    {
+                        case "snowy":
+                            scale = 0.8f;
+                            break;
+                        case "stormy":
+                            scale = 0.7f;
+                            if (ModifyBuildingHealth(-10, building))
+                            {
+                                i--;
+                            }
+                            break;
+                    }
+                }
                 if (!building.IsProductive) continue;
+                if (building.CurrentHealth <= building.MaxHealth / 2)
+                {
+                    scale /= 2;
+                }
                 foreach (var resourceName in building.ProduceResourceType)
                 {
-                    resources[resourceName] += building.ProductionRate;
+                    resources[resourceName] += building.ProductionRate * scale;
                 }
             }
         }
+
+        public bool ModifyBuildingHealth(int value,Building building)
+        {
+            building.CurrentHealth += value;
+            if (building.CurrentHealth > building.MaxHealth)
+            {
+                building.CurrentHealth = building.MaxHealth;
+            }
+            else if (building.CurrentHealth < 0)
+            {
+                buildingList.Remove(building);
+                var position = building.Position;
+                for (var i = 0; i < building.Size[0]; i++)
+                {
+                    for (var j = 0; j < building.Size[1]; j++)
+                    {
+                        canBuild[position.x - i, position.z - j] = true;
+                        buildings[position.x - i, position.z - j] = null;
+                    }
+                }
+                Destroy(building.gameObject);
+                return true;
+            }
+            return false;
+        }
+
         public void UpdateBuildingTile()
         {
             for (var i = 0; i < length; i++)
@@ -149,7 +198,7 @@ namespace Entity
             cityId = id;
             cityName = (string)cityData["cityName"];
             population = Convert.ToInt32(cityData["population"]);
-            resources = JsonConvert.DeserializeObject<Dictionary<string, int>>(cityData["resources"].ToString());
+            resources = JsonConvert.DeserializeObject<Dictionary<string, float>>(cityData["resources"].ToString());
             economy = Convert.ToInt32(cityData["economy"]);
             length = Convert.ToInt32(cityData["length"]);
             width = Convert.ToInt32(cityData["width"]);
@@ -162,6 +211,32 @@ namespace Entity
                     canBuild[i, j] = true;
                 }
             }
+        }
+        public Building GetBuilding(Vector3Int position)
+        {
+            return Buildings[position.x, position.z];
+        }
+
+        public void Dismantle(Vector3Int position)
+        {
+            var building = buildings[position.x, position.z];
+            position = building.Position;
+            buildingList.Remove(building);
+            for (var i = 0; i < building.Size[0]; i++)
+            {
+                for (var j = 0; j < building.Size[1]; j++)
+                {
+                    canBuild[position.x - i, position.z - j] = true;
+                    buildings[position.x - i, position.z - j] = null;
+                }
+            }
+            Debug.Log(building.BuildingName + " dismantled!");
+            Destroy(building.gameObject);
+        }
+
+        public string GetBuildingInfo(Vector3Int getTilePosition)
+        {
+            return Buildings[getTilePosition.x, getTilePosition.z].GetBuildingInfo();
         }
         public string CityName
         {
@@ -178,7 +253,7 @@ namespace Entity
             get => population;
             set => population = value;
         }
-        public Dictionary<string,int> Resources
+        public Dictionary<string,float> Resources
         {
             get => resources;
             set => resources = value;
@@ -207,24 +282,6 @@ namespace Entity
         {
             get => cityLevel;
             set => cityLevel = value;
-        }
-        public Building GetBuilding(Vector3Int position)
-        {
-            return Buildings[position.x, position.z];
-        }
-
-        public void Dismantle(Vector3Int position)
-        {
-            var building = buildings[position.x, position.z];
-            buildingList.Remove(building);
-            buildings[position.x, position.z] = null;
-            Debug.Log(building.BuildingName + " dismantled!");
-            Destroy(building.gameObject);
-        }
-
-        public string GetBuildingInfo(Vector3Int getTilePosition)
-        {
-            return Buildings[getTilePosition.x, getTilePosition.z].GetBuildingInfo();
         }
     }
 }

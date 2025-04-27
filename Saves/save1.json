@@ -8,153 +8,295 @@
       "cityName": "阳翟",
       "population": 5000,
       "resources": {
-        "human": 199900,
-        "wood": 99000,
-        "stone": 79500,
-        "food": 119700
+        "human": 199800.0,
+        "wood": 98000.0,
+        "stone": 79000.0,
+        "money": 120000.0,
+        "food": 119400.0
       },
       "economy": 30000,
       "width": 100,
       "length": 100,
+      "cityLevel": 0,
       "buildingsData": [
         {
-          "uuid": "6bdbf48a-8103-4417-a6d8-9b20c01ebcae",
-          "buildingName": "民宅",
-          "buildingId": 1,
+          "uuid": "993b1621-9dd5-44ea-82b9-4af2389aad9d",
+          "buildingName": "loggingCamp",
+          "buildingId": 3,
           "level": 1,
           "currentHealth": 200,
           "position": {
-            "x": 21,
+            "x": 26,
+            "y": 0,
+            "z": 27,
+            "magnitude": 37.48333,
+            "sqrMagnitude": 1405
+          }
+        },
+        {
+          "uuid": "a07b9f45-cf31-4a92-9dc1-cd8ce4ec089c",
+          "buildingName": "loggingCamp",
+          "buildingId": 3,
+          "level": 1,
+          "currentHealth": 200,
+          "position": {
+            "x": 26,
+            "y": 0,
+            "z": 28,
+            "magnitude": 38.2099457,
+            "sqrMagnitude": 1460
+          }
+        },
+        {
+          "uuid": "fbb5ab10-6c56-47db-8a94-34e0b3e9b4e4",
+          "buildingName": "loggingCamp",
+          "buildingId": 3,
+          "level": 1,
+          "currentHealth": 200,
+          "position": {
+            "x": 26,
+            "y": 0,
+            "z": 29,
+            "magnitude": 38.9486847,
+            "sqrMagnitude": 1517
+          }
+        },
+        {
+          "uuid": "f6b28115-5f71-432a-aaf5-26b7f02dc1cf",
+          "buildingName": "loggingCamp",
+          "buildingId": 3,
+          "level": 1,
+          "currentHealth": 200,
+          "position": {
+            "x": 26,
             "y": 0,
             "z": 30,
-            "magnitude": 36.6196671,
-            "sqrMagnitude": 1341
+            "magnitude": 39.6988678,
+            "sqrMagnitude": 1576
           }
         },
         {
-          "uuid": "5c10c37c-b9f4-4385-acc6-54b47a440ad0",
-          "buildingName": "民宅",
-          "buildingId": 1,
+          "uuid": "a3f237dc-0990-4835-8164-3c9f80854e6d",
+          "buildingName": "loggingCamp",
+          "buildingId": 3,
           "level": 1,
           "currentHealth": 200,
           "position": {
-            "x": 35,
+            "x": 27,
             "y": 0,
-            "z": 39,
-            "magnitude": 52.40229,
-            "sqrMagnitude": 2746
+            "z": 27,
+            "magnitude": 38.1837654,
+            "sqrMagnitude": 1458
           }
         },
         {
-          "uuid": "ef80ee1c-fbfd-4002-8f04-ada79288280b",
-          "buildingName": "民宅",
-          "buildingId": 1,
+          "uuid": "7a76fb90-9457-4188-a241-76999ae47d6b",
+          "buildingName": "loggingCamp",
+          "buildingId": 3,
           "level": 1,
           "currentHealth": 200,
           "position": {
-            "x": 36,
+            "x": 27,
             "y": 0,
-            "z": 43,
-            "magnitude": 56.0803,
-            "sqrMagnitude": 3145
+            "z": 28,
+            "magnitude": 38.8973,
+            "sqrMagnitude": 1513
           }
         },
         {
-          "uuid": "ca916a24-2291-4709-b8a9-124d3cf5b423",
-          "buildingName": "民宅",
-          "buildingId": 1,
+          "uuid": "9c55983f-dfc4-48e3-a022-e13302678e91",
+          "buildingName": "loggingCamp",
+          "buildingId": 3,
           "level": 1,
           "currentHealth": 200,
           "position": {
-            "x": 37,
+            "x": 27,
             "y": 0,
-            "z": 38,
-            "magnitude": 53.0377235,
-            "sqrMagnitude": 2813
+            "z": 29,
+            "magnitude": 39.6232262,
+            "sqrMagnitude": 1570
           }
         },
         {
-          "uuid": "c2754dc0-ef34-4e0b-9721-e4f9ba06dd8a",
-          "buildingName": "民宅",
-          "buildingId": 1,
+          "uuid": "14e8232a-6574-47a7-9209-58f4eafd1c76",
+          "buildingName": "loggingCamp",
+          "buildingId": 3,
           "level": 1,
           "currentHealth": 200,
           "position": {
-            "x": 39,
+            "x": 27,
             "y": 0,
-            "z": 37,
-            "magnitude": 53.75872,
-            "sqrMagnitude": 2890
+            "z": 30,
+            "magnitude": 40.36087,
+            "sqrMagnitude": 1629
           }
         },
         {
-          "uuid": "6265f3d9-ac12-4815-a6ac-a5d5fcc441c5",
-          "buildingName": "民宅",
-          "buildingId": 1,
+          "uuid": "de7116e0-57ab-4940-af24-613f308dc831",
+          "buildingName": "loggingCamp",
+          "buildingId": 3,
           "level": 1,
           "currentHealth": 200,
           "position": {
-            "x": 40,
+            "x": 28,
             "y": 0,
-            "z": 40,
-            "magnitude": 56.5685425,
-            "sqrMagnitude": 3200
+            "z": 27,
+            "magnitude": 38.8973,
+            "sqrMagnitude": 1513
           }
         },
         {
-          "uuid": "152c0cee-839b-432e-9aaa-30433490a871",
-          "buildingName": "民宅",
-          "buildingId": 1,
+          "uuid": "a8b80290-77fa-46ee-a908-c7032ea13279",
+          "buildingName": "loggingCamp",
+          "buildingId": 3,
           "level": 1,
           "currentHealth": 200,
           "position": {
-            "x": 41,
+            "x": 28,
             "y": 0,
-            "z": 44,
-            "magnitude": 60.1415,
-            "sqrMagnitude": 3617
+            "z": 28,
+            "magnitude": 39.59798,
+            "sqrMagnitude": 1568
           }
         },
         {
-          "uuid": "92e0c10e-cff5-4a12-bef7-d9fd2dc4e435",
-          "buildingName": "民宅",
-          "buildingId": 1,
+          "uuid": "8b2c2842-826b-4eab-b65c-e681fefa3f85",
+          "buildingName": "loggingCamp",
+          "buildingId": 3,
           "level": 1,
           "currentHealth": 200,
           "position": {
-            "x": 42,
+            "x": 28,
             "y": 0,
-            "z": 40,
-            "magnitude": 58.0,
-            "sqrMagnitude": 3364
+            "z": 29,
+            "magnitude": 40.3112869,
+            "sqrMagnitude": 1625
           }
         },
         {
-          "uuid": "1908ad26-d433-4af4-adf1-cdb7ddac4ac1",
-          "buildingName": "民宅",
-          "buildingId": 1,
+          "uuid": "777c6719-ef11-4be0-a0df-e088c64bbe80",
+          "buildingName": "loggingCamp",
+          "buildingId": 3,
           "level": 1,
           "currentHealth": 200,
           "position": {
-            "x": 43,
+            "x": 28,
             "y": 0,
-            "z": 41,
-            "magnitude": 59.4138031,
-            "sqrMagnitude": 3530
+            "z": 30,
+            "magnitude": 41.0365677,
+            "sqrMagnitude": 1684
           }
         },
         {
-          "uuid": "0e71a1fd-3dcb-4c61-9798-b28032613226",
-          "buildingName": "民宅",
-          "buildingId": 1,
+          "uuid": "94b70065-bedd-4bea-8c6a-30d23df51812",
+          "buildingName": "loggingCamp",
+          "buildingId": 3,
           "level": 1,
           "currentHealth": 200,
           "position": {
-            "x": 44,
+            "x": 29,
             "y": 0,
-            "z": 38,
-            "magnitude": 58.1377678,
-            "sqrMagnitude": 3380
+            "z": 27,
+            "magnitude": 39.6232262,
+            "sqrMagnitude": 1570
+          }
+        },
+        {
+          "uuid": "94abbcf8-3339-4d19-8752-546410fde43b",
+          "buildingName": "loggingCamp",
+          "buildingId": 3,
+          "level": 1,
+          "currentHealth": 200,
+          "position": {
+            "x": 29,
+            "y": 0,
+            "z": 28,
+            "magnitude": 40.3112869,
+            "sqrMagnitude": 1625
+          }
+        },
+        {
+          "uuid": "a55ae96f-22d2-4357-a686-2faeb1491449",
+          "buildingName": "loggingCamp",
+          "buildingId": 3,
+          "level": 1,
+          "currentHealth": 200,
+          "position": {
+            "x": 29,
+            "y": 0,
+            "z": 29,
+            "magnitude": 41.01219,
+            "sqrMagnitude": 1682
+          }
+        },
+        {
+          "uuid": "882cd8db-a4d9-470b-b6c5-2079ae6043ba",
+          "buildingName": "loggingCamp",
+          "buildingId": 3,
+          "level": 1,
+          "currentHealth": 200,
+          "position": {
+            "x": 29,
+            "y": 0,
+            "z": 30,
+            "magnitude": 41.7252922,
+            "sqrMagnitude": 1741
+          }
+        },
+        {
+          "uuid": "d339b4a1-5e1e-4024-9c5d-ca7ecba22abd",
+          "buildingName": "loggingCamp",
+          "buildingId": 3,
+          "level": 1,
+          "currentHealth": 200,
+          "position": {
+            "x": 30,
+            "y": 0,
+            "z": 27,
+            "magnitude": 40.36087,
+            "sqrMagnitude": 1629
+          }
+        },
+        {
+          "uuid": "f7940670-41c7-4cad-b9bd-db3aeb207839",
+          "buildingName": "loggingCamp",
+          "buildingId": 3,
+          "level": 1,
+          "currentHealth": 200,
+          "position": {
+            "x": 30,
+            "y": 0,
+            "z": 28,
+            "magnitude": 41.0365677,
+            "sqrMagnitude": 1684
+          }
+        },
+        {
+          "uuid": "11c98307-e149-4076-b65a-84575647301a",
+          "buildingName": "loggingCamp",
+          "buildingId": 3,
+          "level": 1,
+          "currentHealth": 200,
+          "position": {
+            "x": 30,
+            "y": 0,
+            "z": 29,
+            "magnitude": 41.7252922,
+            "sqrMagnitude": 1741
+          }
+        },
+        {
+          "uuid": "6ceb5056-09cb-43a8-a96d-66b9955719e9",
+          "buildingName": "loggingCamp",
+          "buildingId": 3,
+          "level": 1,
+          "currentHealth": 200,
+          "position": {
+            "x": 30,
+            "y": 0,
+            "z": 30,
+            "magnitude": 42.4264069,
+            "sqrMagnitude": 1800
           }
         }
       ]
@@ -164,14 +306,16 @@
       "cityName": "晋阳",
       "population": 5000,
       "resources": {
-        "human": 2000,
-        "wood": 1000,
-        "stone": 800,
-        "food": 1200
+        "human": 2000.0,
+        "wood": 1000.0,
+        "stone": 800.0,
+        "money": 120000.0,
+        "food": 1200.0
       },
       "economy": 30000,
       "width": 100,
       "length": 100,
+      "cityLevel": 0,
       "buildingsData": []
     },
     {
@@ -179,14 +323,16 @@
       "cityName": "安邑",
       "population": 5000,
       "resources": {
-        "human": 2000,
-        "wood": 1000,
-        "stone": 800,
-        "food": 1200
+        "human": 2000.0,
+        "wood": 1000.0,
+        "stone": 800.0,
+        "money": 120000.0,
+        "food": 1200.0
       },
       "economy": 30000,
       "width": 100,
       "length": 100,
+      "cityLevel": 0,
       "buildingsData": []
     },
     {
@@ -194,14 +340,16 @@
       "cityName": "寿春",
       "population": 5000,
       "resources": {
-        "human": 2000,
-        "wood": 1000,
-        "stone": 800,
-        "food": 1200
+        "human": 2000.0,
+        "wood": 1000.0,
+        "stone": 800.0,
+        "money": 120000.0,
+        "food": 1200.0
       },
       "economy": 30000,
       "width": 100,
       "length": 100,
+      "cityLevel": 0,
       "buildingsData": []
     },
     {
@@ -209,14 +357,16 @@
       "cityName": "蓟",
       "population": 5000,
       "resources": {
-        "human": 2000,
-        "wood": 1000,
-        "stone": 800,
-        "food": 1200
+        "human": 2000.0,
+        "wood": 1000.0,
+        "stone": 800.0,
+        "money": 120000.0,
+        "food": 1200.0
       },
       "economy": 30000,
       "width": 100,
       "length": 100,
+      "cityLevel": 0,
       "buildingsData": []
     },
     {
@@ -224,14 +374,16 @@
       "cityName": "临淄",
       "population": 5000,
       "resources": {
-        "human": 2000,
-        "wood": 1000,
-        "stone": 800,
-        "food": 1200
+        "human": 2000.0,
+        "wood": 1000.0,
+        "stone": 800.0,
+        "money": 120000.0,
+        "food": 1200.0
       },
       "economy": 30000,
       "width": 100,
       "length": 100,
+      "cityLevel": 0,
       "buildingsData": []
     },
     {
@@ -239,18 +391,20 @@
       "cityName": "咸阳",
       "population": 5000,
       "resources": {
-        "human": 2000,
-        "wood": 1000,
-        "stone": 800,
-        "food": 1200
+        "human": 2000.0,
+        "wood": 1000.0,
+        "stone": 800.0,
+        "money": 120000.0,
+        "food": 1200.0
       },
       "economy": 30000,
       "width": 100,
       "length": 100,
+      "cityLevel": 0,
       "buildingsData": []
     }
   ],
   "playerName": null,
-  "currentTime": 10.055891,
+  "currentTime": 59.0540581,
   "timeScale": 1.0
 }

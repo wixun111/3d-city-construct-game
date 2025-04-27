@@ -96,8 +96,6 @@ namespace Manager
 
             Debug.Log("点击到了物体: " + hit.collider.gameObject.name);
             var hitPosition = hit.point;
-            Debug.Log(hitPosition);
-
             // 计算点击位置的平面坐标（可以转换为相应的 Tile 位置）
             var tilePosition = new Vector3Int(Mathf.FloorToInt(hitPosition.x), 0, Mathf.FloorToInt(hitPosition.z));
             Debug.Log("点击 Tile 位置: " + tilePosition);

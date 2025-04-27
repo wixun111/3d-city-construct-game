@@ -20,7 +20,7 @@ namespace Entity.Buildings
         [SerializeField] protected Vector3Int position;
         [SerializeField] protected bool isProductive;
         [SerializeField] protected List<string> produceResourceType;
-        [SerializeField] protected int productionRate; // 每次生产的资源数量
+        [SerializeField] protected float productionRate; // 每次生产的资源数量
         [SerializeField] private int[] size;
         [SerializeField] private int existLimit;
         
@@ -110,7 +110,7 @@ namespace Entity.Buildings
             set => produceResourceType = value;
         }
 
-        public int ProductionRate
+        public float ProductionRate
         {
             get => productionRate;
             set => productionRate = value;
@@ -146,6 +146,11 @@ namespace Entity.Buildings
             set => currentHealth = value;
         }
 
+        public int MaxHealth
+        {
+            get => maxHealth;
+            set => maxHealth = value;
+        }
         public int[] Size
         {
             get => size;

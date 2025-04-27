@@ -5,11 +5,15 @@ namespace Entity
     public class Weather
     {
         [SerializeField] private string weatherName;
-        [SerializeField] private float duration;     // 天气持续时间
-        public Weather(string name, float duration)
+        [SerializeField] private float duration; 
+        [SerializeField] private Vector3Int center; 
+        [SerializeField] private float radius;
+        public Weather(string weatherName, float duration,Vector3Int center, float radius)
         {
-            this.weatherName = name;
+            this.weatherName = weatherName;
             this.duration = duration;
+            this.center = center;
+            this.radius = radius;
         }
         public void ApplyWeatherEffects()
         {
@@ -43,6 +47,18 @@ namespace Entity
         {
             get => weatherName;
             set => weatherName = value;
+        }
+
+        public Vector3Int Center
+        {
+            get => center;
+            set => center = value;
+        }
+
+        public float Radius
+        {
+            get => radius;
+            set => radius = value;
         }
     }
 }

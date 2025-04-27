@@ -24,21 +24,20 @@ namespace Manager
         }
         private void Update()
         {
-            if (!TimeManager.Instance.IsPaused)
+            if (!currentCity) return;
+            if (TimeManager.Instance.IsPaused) return;
+            var currentTime = TimeManager.Instance.CurrentTime;
+            if (currentTime >= nextUpdateTime)
             {
-                var currentTime = TimeManager.Instance.CurrentTime;
-                if (currentTime >= nextUpdateTime)
+                foreach (var city in cities)
                 {
-                    foreach (var city in cities)
-                    {
-                        city.UpdateResources();
-                    }
-                    // 计算下一次更新时间（基于游戏内时间）
-                    nextUpdateTime = currentTime + updateInterval;
-                    // Debug.Log(currentTime + " : " + nextUpdateTime);
+                    city.UpdateResources();
                 }
-                if(currentCity) CityUIController.Instance.UpdateCityInfo(currentCity);
+                // 计算下一次更新时间（基于游戏内时间）
+                nextUpdateTime = currentTime + updateInterval;
+                // Debug.Log(currentTime + " : " + nextUpdateTime);
             }
+            CityUIController.Instance.UpdateCityInfo(currentCity);
         }
 
         // 创建城市
