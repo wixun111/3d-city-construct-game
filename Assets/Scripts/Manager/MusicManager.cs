@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Loader;
+using UnityEngine;
 
 namespace Manager
 {
@@ -45,11 +46,10 @@ namespace Manager
             PlayMusic(nextIndex);
         }
 
-        private void LoadVolume()
+        public void LoadVolume()
         {
-            var savedVolume = PlayerPrefs.GetInt("Volume", 100) / 100f;
+            var savedVolume = SettingLoader.Instance.Setting.Volume;
             SetVolume(savedVolume);
         }
-
     }
 }

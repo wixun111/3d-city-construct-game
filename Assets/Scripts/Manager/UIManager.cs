@@ -27,7 +27,7 @@ namespace Manager
             Debug.Log(PlaneManager.Instance.GetTilePosition());
             buildingInfo.text = currentCity.GetBuildingInfo(PlaneManager.Instance.GetTilePosition());
         }
-        public void UpdateWeatherPanel(String weatherName)
+        public void UpdateWeatherPanel(string weatherName)
         {
             // var weatherImage = Resources.Load<Sprite>("Icons/Weather/stormy");
             var weatherImage = Resources.Load<Sprite>("Icons/Weather/"+ weatherName);
@@ -113,7 +113,7 @@ namespace Manager
         }
         public bool GetGameMenuActive()
         {
-            return gameMenu.activeSelf;
+            return gameMenu.activeInHierarchy;
         }
         public void ShowDisplayUI()
         {

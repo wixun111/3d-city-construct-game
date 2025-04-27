@@ -34,13 +34,13 @@ namespace Manager
             {
                 TimeManager.Instance.ResumeGame();
                 UIManager.Instance.HideGameMenu();
-                UIManager.Instance.ShowTimeControlPanel();
+                // UIManager.Instance.ShowTimeControlPanel();
             }
             else
             {
                 TimeManager.Instance.PauseGame();
+                // UIManager.Instance.HideTimeControlPanel();
                 UIManager.Instance.ShowGameMenu();
-                UIManager.Instance.HideTimeControlPanel();
             }
         }
     }

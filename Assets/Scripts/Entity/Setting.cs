@@ -17,6 +17,7 @@ namespace Entity
             language = "English";
             volume = 1.0f;
             controlMode = "Keyboard";
+            aiControl = false;
         }
         public Setting(float volume)
         {
@@ -27,7 +28,7 @@ namespace Entity
             language = (string) settingData["language"];
             volume = JsonConvert.DeserializeObject<float>(settingData["volume"].ToString());
             controlMode = (string) settingData["controlMode"];
-            aiControl = (bool) settingData["aiControl"];
+            // aiControl = (bool) settingData["aiControl"];
         }
     
         public void PrintSettings()

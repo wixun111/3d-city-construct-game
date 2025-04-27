@@ -16,13 +16,14 @@ namespace UI
             // 给按钮添加点击事件
             confirmButton.onClick.AddListener(SaveSetting);
             aiSettingButton.onClick.AddListener(AiSetting);
-            volumeSlider.value = JsonConvert.DeserializeObject<float>(SettingLoader.Instance.SettingData["volume"].ToString());
+            volumeSlider.value = SettingLoader.Instance.Setting.Volume;
         }
 
         private void SaveSetting()
         {
             SaveManager.Instance.SaveSetting(volumeSlider.value/100f);
             SettingLoader.Instance.LoadSaveData();
+            MusicManager.Instance.SetVolume(volumeSlider.value/100f);
         }
 
         private void AiSetting()

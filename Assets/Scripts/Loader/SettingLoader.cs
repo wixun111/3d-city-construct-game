@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using Entity;
 using Newtonsoft.Json;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ namespace Loader
     public class SettingLoader : Singleton<SettingLoader>
     {
         private Dictionary<string,object> settingData = new Dictionary<string,object>();
+        private Setting setting;
         public void Awake()
         {
             LoadSaveData();
@@ -24,12 +26,19 @@ namespace Loader
             {
                 Debug.LogError("Failed to load Setting.json");
             }
+            setting = new Setting(settingData);
         }
 
         public Dictionary<string, object> SettingData
         {
             get => settingData;
             set => settingData = value;
+        }
+
+        public Setting Setting
+        {
+            get => setting;
+            set => setting = value;
         }
     }
 }
