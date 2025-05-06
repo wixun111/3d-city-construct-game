@@ -102,11 +102,6 @@ namespace Entity
             }
         }
 
-        private void OnMouseDown()  // 点击城市
-        {
-            CityUIController.Instance.ShowCityPanel(this);
-        }
-
         public void AddBuilding(Building building,Vector3Int position)
         {
             for (var i = 0; i < building.Size[0]; i++)
@@ -205,6 +200,8 @@ namespace Entity
             width = Convert.ToInt32(cityData["width"]);
             buildings = new Building[length, width];
             canBuild = new bool[length,width];
+            cityLevel = 1;
+            buildingLimit = cityLevel * 100;
             for (var i = 0; i < length; i++)
             {
                 for (var j = 0; j < width; j++)
@@ -233,6 +230,21 @@ namespace Entity
             }
             Debug.Log(building.BuildingName + " dismantled!");
             Destroy(building.gameObject);
+        }
+        public void RepairBuilding(Vector3Int getTilePosition)
+        {
+            var building = buildings[getTilePosition.x, getTilePosition.z];
+            var scale = (1 - building.CurrentHealth / building.MaxHealth)/2 + 0.2f;
+            var buildingInfo = BuildingLoader.Instance.BuildingsData[building.BuildingId];
+            ConsumeResource(buildingInfo,scale);
+            building.CurrentHealth = building.MaxHealth;
+        }
+        public void RepairBuilding(Building building)
+        {
+            var scale = (1 - building.CurrentHealth / building.MaxHealth)/2 + 0.2f;
+            var buildingInfo = BuildingLoader.Instance.BuildingsData[building.BuildingId];
+            ConsumeResource(buildingInfo,scale);
+            building.CurrentHealth = building.MaxHealth;
         }
 
         public string GetBuildingInfo(Vector3Int getTilePosition)
@@ -291,20 +303,10 @@ namespace Entity
             set => cityLevel = value;
         }
 
-        public void RepairBuilding(Vector3Int getTilePosition)
+        public int BuildingLimit
         {
-            var building = buildings[getTilePosition.x, getTilePosition.z];
-            var scale = (1 - building.CurrentHealth / building.MaxHealth)/2 + 0.2f;
-            var buildingInfo = BuildingLoader.Instance.BuildingsData[building.BuildingId];
-            ConsumeResource(buildingInfo,scale);
-            building.CurrentHealth = building.MaxHealth;
-        }
-        public void RepairBuilding(Building building)
-        {
-            var scale = (1 - building.CurrentHealth / building.MaxHealth)/2 + 0.2f;
-            var buildingInfo = BuildingLoader.Instance.BuildingsData[building.BuildingId];
-            ConsumeResource(buildingInfo,scale);
-            building.CurrentHealth = building.MaxHealth;
+            get => buildingLimit;
+            set => buildingLimit = value;
         }
     }
 }

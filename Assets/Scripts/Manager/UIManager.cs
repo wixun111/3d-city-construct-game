@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using Entity;
+using UI;
 using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -9,6 +11,8 @@ namespace Manager
 {
     public class UIManager : Singleton<UIManager>
     {
+        [SerializeField] private GameObject cityUI;
+        [SerializeField] private GameObject cityPanel;
         [SerializeField] private GameObject savePanel;
         [SerializeField] private GameObject startMenu;
         [SerializeField] private GameObject timeControlPanel;
@@ -27,6 +31,22 @@ namespace Manager
             Debug.Log(PlaneManager.Instance.GetTilePosition());
             buildingInfo.text = currentCity.GetBuildingInfo(PlaneManager.Instance.GetTilePosition());
         }
+        public void UpdateCityUI(City currentCity)
+        {
+            var ui = cityUI.GetComponentInChildren<CityUI>();
+            ui.UpdateCityUI(currentCity);
+        }
+        public void UpdateCityPanel()
+        {
+            var currentCity = CityManager.Instance.CurrentCity;
+            var ui = cityPanel.GetComponentInChildren<CityPanel>();
+            ui.ShowCity(currentCity);
+        }
+        public void ShowCityUI(City currentCity)
+        {
+            var ui = cityUI.GetComponentInChildren<CityUI>();
+            ui.ShowCityUI(currentCity);
+        }
         public void UpdateWeatherPanel(string weatherName)
         {
             // var weatherImage = Resources.Load<Sprite>("Icons/Weather/stormy");
@@ -36,12 +56,38 @@ namespace Manager
         }
         public void ShowSavePanel()
         {
+            displayUI.Add(savePanel);
             savePanel.SetActive(true);
         }
         public void HideSavePanel()
         {
+            displayUI.Remove(savePanel);
             savePanel.SetActive(false);
         }
+
+        public void ShowCityPanel()
+        {
+            displayUI.Add(cityPanel);
+            UpdateCityPanel();
+            cityPanel.SetActive(true);
+        }
+
+        public void HideCityPanel()
+        {
+            displayUI.Remove(cityPanel);
+            cityPanel.SetActive(false);
+        }
+
+        public void ShowCityUI()
+        {
+            cityUI.SetActive(true);
+        }
+
+        public void HideCityUI()
+        {
+            cityUI.SetActive(false);
+        }
+
         public void ShowStartMenu()
         {
             startMenu.SetActive(true);
@@ -142,5 +188,7 @@ namespace Manager
         {
             return displayUI.Count != 0;
         }
+
+
     }
 }

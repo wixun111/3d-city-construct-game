@@ -37,7 +37,7 @@ namespace Manager
                 nextUpdateTime = currentTime + updateInterval;
                 // Debug.Log(currentTime + " : " + nextUpdateTime);
             }
-            CityUIController.Instance.UpdateCityInfo(currentCity);
+            UIManager.Instance.UpdateCityUI(currentCity);
         }
 
         // 创建城市
@@ -56,7 +56,7 @@ namespace Manager
                 cities.Add(cityScript);
             }
             currentCity = cities[0];
-            CityUIController.Instance.ShowCityPanel(currentCity);
+            UIManager.Instance.UpdateCityUI(currentCity);
         }
 
         public City CurrentCity
@@ -91,7 +91,7 @@ namespace Manager
             }
             PlaneManager.Instance.GenerateCity();
             currentCity.UpdateBuildingTile();
-            CityUIController.Instance.ShowCityPanel(currentCity);
+            UIManager.Instance.ShowCityUI(currentCity);
         }
 
         public void Clear()

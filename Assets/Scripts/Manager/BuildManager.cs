@@ -37,8 +37,7 @@ namespace Manager
             // 判断是否可以建造（例如，检查是否有足够资源等）
             if (!currentCity.CanBuild(buildingInfo, position)) return;
             currentCity.Build(buildingInfo,position, SetBuilding(position, (string)buildingInfo["buildingName"]));
-            CityUIController.Instance.UpdateCityInfo(currentCity);
-            CityUIController.Instance.UpdateCityInfo(currentCity);
+            UIManager.Instance.UpdateCityUI(currentCity);
         }
 
         public GameObject SetBuilding(Vector3 position,string buildingName)
