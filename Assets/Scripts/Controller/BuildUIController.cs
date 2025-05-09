@@ -126,6 +126,7 @@ namespace Controller
             exitBuildButton.gameObject.SetActive(true);
             buildPanel.SetActive(true);
             BuildManager.Instance.ExitBuildingMode();
+            
         }
         private void Update()
         {

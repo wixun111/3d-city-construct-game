@@ -13,12 +13,17 @@ namespace Manager
         [SerializeField] private GameObject buildingPrefab;
         [SerializeField] private Dictionary<int, Dictionary<string, object>> buildingData = new Dictionary<int, Dictionary<string, object>>();
         [SerializeField] private int selectedBuildingId;
+        [SerializeField] private bool isRoadMode = false;
+        [SerializeField] private RoadManager roadManager;
+
         private void Start()
         {
             // 获取建筑数据
             buildingData = BuildingLoader.Instance.GetBuildingData();
             selectedBuildingId = -1;
+            roadManager = FindObjectOfType<RoadManager>();
         }
+
         public void SelectBuilding(GameObject buildingPrefab)
         {
             if (previewInstance != null) Destroy(previewInstance);
@@ -65,9 +70,33 @@ namespace Manager
             // 这里可以隐藏建筑预览等
         }
 
+        public void StartRoadMode()
+        {
+            isRoadMode = true;
+            selectedBuildingId = -1;
+            Debug.Log("进入道路建造模式");
+        }
+
+        public void ExitRoadMode()
+        {
+            isRoadMode = false;
+            Debug.Log("退出道路建造模式");
+        }
+
+        public bool IsRoadMode()
+        {
+            return isRoadMode;
+        }
+
         public void BuildJudge()
         {
-            if (selectedBuildingId != -1)
+            if (isRoadMode)
+            {
+                Debug.Log("正在建造！");
+                var position = PlaneManager.Instance.GetTilePosition();
+                roadManager.PlaceRoad(position);
+            }
+            else if (selectedBuildingId != -1)
             {
                 Build();
             }
@@ -75,8 +104,9 @@ namespace Manager
 
         public bool IsBuildMode()
         {
-            return selectedBuildingId != -1;
+            return selectedBuildingId != -1 || isRoadMode;
         }
+
         private Type GetBuildingTypeByName(string typeName)
         {
             return Type.GetType(typeName);
