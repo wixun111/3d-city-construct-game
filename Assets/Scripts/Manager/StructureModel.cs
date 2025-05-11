@@ -19,7 +19,7 @@ public class StructureModel : MonoBehaviour
             Destroy(child.gameObject);
         }
         var structure = Instantiate(model, transform);
-        structure.transform.localPosition = new Vector3(0, yHeight, 0);
+        structure.transform.localPosition = new Vector3(0.5f, yHeight, 0.5f);
         structure.transform.localRotation = rotation;
     }
 }

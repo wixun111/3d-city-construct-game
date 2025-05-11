@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlacementManager : MonoBehaviour
 {
     public int width, height;
-    CityGrid placementGrid;
+    private CityGrid placementGrid;
 
     private Dictionary<Vector3Int, StructureModel> temporaryRoadobjects = new Dictionary<Vector3Int, StructureModel>();
 
@@ -22,11 +23,7 @@ public class PlacementManager : MonoBehaviour
 
     internal bool CheckIfPositionInBound(Vector3Int position)
     {
-        if(position.x >= 0 && position.x < width && position.z >=0 && position.z < height)
-        {
-            return true;
-        }
-        return false;
+        return position.x >= 0 && position.x < width && position.z >=0 && position.z < height;
     }
 
     internal bool CheckIfPositionIsFree(Vector3Int position)
@@ -42,24 +39,19 @@ public class PlacementManager : MonoBehaviour
     internal void PlaceTemporaryStructure(Vector3Int position, GameObject structurePrefab, CellType type)
     {
         placementGrid[position.x, position.z] = type;
-        StructureModel structure = CreateANewStructureModel(position, structurePrefab, type);
+        var structure = CreateANewStructureModel(position, structurePrefab, type);
         temporaryRoadobjects.Add(position, structure);
     }
 
     internal List<Vector3Int> GetNeighboursOfTypeFor(Vector3Int position, CellType type)
     {
         var neighbourVertices = placementGrid.GetAdjacentCellsOfType(position.x, position.z, type);
-        List<Vector3Int> neighbours = new List<Vector3Int>();
-        foreach (var point in neighbourVertices)
-        {
-            neighbours.Add(new Vector3Int(point.X, 0, point.Y));
-        }
-        return neighbours;
+        return neighbourVertices.Select(point => new Vector3Int(point.X, 0, point.Y)).ToList();
     }
 
     private StructureModel CreateANewStructureModel(Vector3Int position, GameObject structurePrefab, CellType type)
     {
-        GameObject structure = new GameObject(type.ToString());
+        var structure = new GameObject(type.ToString());
         structure.transform.SetParent(transform);
         structure.transform.localPosition = position;
         var structureModel = structure.AddComponent<StructureModel>();
