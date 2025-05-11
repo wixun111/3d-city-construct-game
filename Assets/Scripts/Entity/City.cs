@@ -27,7 +27,7 @@ namespace Entity
         [SerializeField] private int cityLevel;
         public Sprite citySprite;
 
-        public void Load(CityData cityData)
+        public void Load(CityData cityData,int currentCityId)
         {
             cityId = cityData.CityId;
             cityName = cityData.CityName;
@@ -38,6 +38,10 @@ namespace Entity
             length = cityData.Length;
             buildings = new Building[length, width];
             canBuild = new bool[length,width];
+            if (cityId == currentCityId)
+            {
+                CityManager.Instance.CurrentCity = this;
+            }
             for (var i = 0; i < length; i++)
             {
                 for (var j = 0; j < width; j++)
@@ -48,7 +52,8 @@ namespace Entity
             foreach (var buildingData in cityData.BuildingsData)
             {
                 var pos = buildingData.Position;
-                var building = gameObject.AddComponent<Building>();
+                var buildingObject = cityId == currentCityId ? BuildManager.Instance.SetBuilding(buildingData.Position,buildingData.BuildingName) : gameObject;
+                var building = buildingObject.AddComponent<Building>();
                 building.Load(buildingData);
                 buildingList.Add(building);
                 AddBuilding(building,pos);
@@ -174,20 +179,6 @@ namespace Entity
                 return true;
             }
             return false;
-        }
-
-        public void UpdateBuildingTile()
-        {
-            for (var i = 0; i < length; i++)
-            {
-                for (var j = 0; j < width; j++)
-                {
-                    var building = buildings[i, j];
-                    if (!building) continue;
-                    BuildManager.Instance.SetBuilding(building.Position,building.BuildingName);
-                    Debug.Log(building.BuildingName);
-                }
-            }
         }
         public void InitData(Dictionary<string, object> cityData,int id)
         {

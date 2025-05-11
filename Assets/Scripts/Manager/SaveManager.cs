@@ -45,10 +45,10 @@ namespace Manager
 
         public void LoadGame(int saveId)
         {
-            
             var saveData = SaveLoader.Instance.SaveDataDict[saveId];
             var cityData = JsonConvert.DeserializeObject<List<CityData>>(saveData["cityData"].ToString());
             CityManager.Instance.Load(cityData,JsonConvert.DeserializeObject<int>(saveData["currentCityId"].ToString()));
+            BuildManager.Instance.FixRoads(1);
             TimeManager.Instance.Load( JsonConvert.DeserializeObject<float>(saveData["currentTime"].ToString()),JsonConvert.DeserializeObject<float>(saveData["timeScale"].ToString()));
         }
 

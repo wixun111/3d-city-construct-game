@@ -5,298 +5,326 @@
   "cityData": [
     {
       "cityId": 0,
-      "cityName": "阳翟",
+      "cityName": "深圳",
       "population": 5000,
       "resources": {
-        "human": 199800.0,
-        "wood": 98000.0,
-        "stone": 79000.0,
+        "human": 199780.0,
+        "wood": 97800.0,
+        "stone": 78900.0,
         "money": 120000.0,
-        "food": 119400.0
+        "food": 119340.0
       },
       "economy": 30000,
       "width": 100,
       "length": 100,
-      "cityLevel": 0,
+      "cityLevel": 1,
       "buildingsData": [
         {
-          "uuid": "993b1621-9dd5-44ea-82b9-4af2389aad9d",
-          "buildingName": "loggingCamp",
-          "buildingId": 3,
+          "uuid": "c7a5267e-332c-43d9-b63d-a73b01fd6c1b",
+          "buildingName": "road",
+          "buildingId": 1,
           "level": 1,
-          "currentHealth": 200,
+          "currentHealth": 200.0,
           "position": {
-            "x": 26,
+            "x": 32,
             "y": 0,
             "z": 27,
-            "magnitude": 37.48333,
-            "sqrMagnitude": 1405
+            "magnitude": 41.8688431,
+            "sqrMagnitude": 1753
           }
         },
         {
-          "uuid": "a07b9f45-cf31-4a92-9dc1-cd8ce4ec089c",
-          "buildingName": "loggingCamp",
-          "buildingId": 3,
+          "uuid": "f72bc554-c726-408a-9831-fa35af398387",
+          "buildingName": "road",
+          "buildingId": 1,
           "level": 1,
-          "currentHealth": 200,
+          "currentHealth": 200.0,
           "position": {
-            "x": 26,
+            "x": 32,
             "y": 0,
             "z": 28,
-            "magnitude": 38.2099457,
-            "sqrMagnitude": 1460
+            "magnitude": 42.5205841,
+            "sqrMagnitude": 1808
           }
         },
         {
-          "uuid": "fbb5ab10-6c56-47db-8a94-34e0b3e9b4e4",
-          "buildingName": "loggingCamp",
-          "buildingId": 3,
+          "uuid": "d63e79c5-5c9c-47bd-a3db-4901b5ee031d",
+          "buildingName": "road",
+          "buildingId": 1,
           "level": 1,
-          "currentHealth": 200,
+          "currentHealth": 200.0,
           "position": {
-            "x": 26,
-            "y": 0,
-            "z": 29,
-            "magnitude": 38.9486847,
-            "sqrMagnitude": 1517
-          }
-        },
-        {
-          "uuid": "f6b28115-5f71-432a-aaf5-26b7f02dc1cf",
-          "buildingName": "loggingCamp",
-          "buildingId": 3,
-          "level": 1,
-          "currentHealth": 200,
-          "position": {
-            "x": 26,
-            "y": 0,
-            "z": 30,
-            "magnitude": 39.6988678,
-            "sqrMagnitude": 1576
-          }
-        },
-        {
-          "uuid": "a3f237dc-0990-4835-8164-3c9f80854e6d",
-          "buildingName": "loggingCamp",
-          "buildingId": 3,
-          "level": 1,
-          "currentHealth": 200,
-          "position": {
-            "x": 27,
+            "x": 33,
             "y": 0,
             "z": 27,
-            "magnitude": 38.1837654,
-            "sqrMagnitude": 1458
+            "magnitude": 42.6380119,
+            "sqrMagnitude": 1818
           }
         },
         {
-          "uuid": "7a76fb90-9457-4188-a241-76999ae47d6b",
-          "buildingName": "loggingCamp",
-          "buildingId": 3,
+          "uuid": "583ebb93-e59c-4f35-a94c-22e7246a843d",
+          "buildingName": "road",
+          "buildingId": 1,
           "level": 1,
-          "currentHealth": 200,
+          "currentHealth": 200.0,
           "position": {
-            "x": 27,
+            "x": 34,
             "y": 0,
-            "z": 28,
-            "magnitude": 38.8973,
-            "sqrMagnitude": 1513
+            "z": 25,
+            "magnitude": 42.2018967,
+            "sqrMagnitude": 1781
           }
         },
         {
-          "uuid": "9c55983f-dfc4-48e3-a022-e13302678e91",
-          "buildingName": "loggingCamp",
-          "buildingId": 3,
+          "uuid": "19c496a0-96d6-4ff2-bd55-7feedd2740fa",
+          "buildingName": "road",
+          "buildingId": 1,
           "level": 1,
-          "currentHealth": 200,
+          "currentHealth": 200.0,
           "position": {
-            "x": 27,
+            "x": 34,
             "y": 0,
-            "z": 29,
-            "magnitude": 39.6232262,
-            "sqrMagnitude": 1570
+            "z": 26,
+            "magnitude": 42.80187,
+            "sqrMagnitude": 1832
           }
         },
         {
-          "uuid": "14e8232a-6574-47a7-9209-58f4eafd1c76",
-          "buildingName": "loggingCamp",
-          "buildingId": 3,
+          "uuid": "b50aa4b7-1d48-4044-9a86-436f4b2a60bb",
+          "buildingName": "road",
+          "buildingId": 1,
           "level": 1,
-          "currentHealth": 200,
+          "currentHealth": 200.0,
           "position": {
-            "x": 27,
-            "y": 0,
-            "z": 30,
-            "magnitude": 40.36087,
-            "sqrMagnitude": 1629
-          }
-        },
-        {
-          "uuid": "de7116e0-57ab-4940-af24-613f308dc831",
-          "buildingName": "loggingCamp",
-          "buildingId": 3,
-          "level": 1,
-          "currentHealth": 200,
-          "position": {
-            "x": 28,
+            "x": 34,
             "y": 0,
             "z": 27,
-            "magnitude": 38.8973,
-            "sqrMagnitude": 1513
+            "magnitude": 43.4165878,
+            "sqrMagnitude": 1885
           }
         },
         {
-          "uuid": "a8b80290-77fa-46ee-a908-c7032ea13279",
-          "buildingName": "loggingCamp",
-          "buildingId": 3,
+          "uuid": "2af6a275-eaa3-4ca6-9cf0-1217b330c1f9",
+          "buildingName": "road",
+          "buildingId": 1,
           "level": 1,
-          "currentHealth": 200,
+          "currentHealth": 200.0,
           "position": {
-            "x": 28,
+            "x": 34,
             "y": 0,
             "z": 28,
-            "magnitude": 39.59798,
-            "sqrMagnitude": 1568
+            "magnitude": 44.04543,
+            "sqrMagnitude": 1940
           }
         },
         {
-          "uuid": "8b2c2842-826b-4eab-b65c-e681fefa3f85",
-          "buildingName": "loggingCamp",
-          "buildingId": 3,
+          "uuid": "faf169ea-e23e-4c1d-8842-8a10c65e6879",
+          "buildingName": "road",
+          "buildingId": 1,
           "level": 1,
-          "currentHealth": 200,
+          "currentHealth": 200.0,
           "position": {
-            "x": 28,
+            "x": 34,
             "y": 0,
             "z": 29,
-            "magnitude": 40.3112869,
-            "sqrMagnitude": 1625
+            "magnitude": 44.6878052,
+            "sqrMagnitude": 1997
           }
         },
         {
-          "uuid": "777c6719-ef11-4be0-a0df-e088c64bbe80",
-          "buildingName": "loggingCamp",
-          "buildingId": 3,
+          "uuid": "f6477d2e-b6c8-4b43-b146-2aa7cc82ae09",
+          "buildingName": "road",
+          "buildingId": 1,
           "level": 1,
-          "currentHealth": 200,
+          "currentHealth": 200.0,
           "position": {
-            "x": 28,
+            "x": 35,
             "y": 0,
-            "z": 30,
-            "magnitude": 41.0365677,
-            "sqrMagnitude": 1684
+            "z": 25,
+            "magnitude": 43.0116272,
+            "sqrMagnitude": 1850
           }
         },
         {
-          "uuid": "94b70065-bedd-4bea-8c6a-30d23df51812",
-          "buildingName": "loggingCamp",
-          "buildingId": 3,
+          "uuid": "473a63bf-147e-41c6-9617-7e8909fa79f9",
+          "buildingName": "road",
+          "buildingId": 1,
           "level": 1,
-          "currentHealth": 200,
+          "currentHealth": 200.0,
           "position": {
-            "x": 29,
+            "x": 35,
+            "y": 0,
+            "z": 29,
+            "magnitude": 45.4532738,
+            "sqrMagnitude": 2066
+          }
+        },
+        {
+          "uuid": "0b991cda-01f2-494f-8ae1-07eb17386fc2",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 36,
+            "y": 0,
+            "z": 25,
+            "magnitude": 43.8292122,
+            "sqrMagnitude": 1921
+          }
+        },
+        {
+          "uuid": "4510d579-0522-471c-8d56-1940d3ae6186",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 36,
+            "y": 0,
+            "z": 29,
+            "magnitude": 46.2276955,
+            "sqrMagnitude": 2137
+          }
+        },
+        {
+          "uuid": "96a9230a-15f6-401d-86b6-c403d2e06c27",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 37,
+            "y": 0,
+            "z": 24,
+            "magnitude": 44.1021538,
+            "sqrMagnitude": 1945
+          }
+        },
+        {
+          "uuid": "35b57283-325d-4be6-82b3-a8d0e026d0cd",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 37,
+            "y": 0,
+            "z": 25,
+            "magnitude": 44.65423,
+            "sqrMagnitude": 1994
+          }
+        },
+        {
+          "uuid": "1fa66952-049e-4788-b6d5-b24c426dbe4e",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 37,
+            "y": 0,
+            "z": 26,
+            "magnitude": 45.2216759,
+            "sqrMagnitude": 2045
+          }
+        },
+        {
+          "uuid": "a9cb120e-0bb4-4520-aa7f-b2b3e5d5efae",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 37,
+            "y": 0,
+            "z": 29,
+            "magnitude": 47.0106354,
+            "sqrMagnitude": 2210
+          }
+        },
+        {
+          "uuid": "19854de7-beff-4359-8c68-9fd42438c556",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 38,
+            "y": 0,
+            "z": 25,
+            "magnitude": 45.4862633,
+            "sqrMagnitude": 2069
+          }
+        },
+        {
+          "uuid": "e3952805-31bc-4df9-9d5a-db892abac068",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 38,
             "y": 0,
             "z": 27,
-            "magnitude": 39.6232262,
-            "sqrMagnitude": 1570
+            "magnitude": 46.615448,
+            "sqrMagnitude": 2173
           }
         },
         {
-          "uuid": "94abbcf8-3339-4d19-8752-546410fde43b",
-          "buildingName": "loggingCamp",
-          "buildingId": 3,
+          "uuid": "34f7de44-17a3-4d7e-89db-ac4df115dc97",
+          "buildingName": "road",
+          "buildingId": 1,
           "level": 1,
-          "currentHealth": 200,
+          "currentHealth": 200.0,
           "position": {
-            "x": 29,
+            "x": 38,
             "y": 0,
             "z": 28,
-            "magnitude": 40.3112869,
-            "sqrMagnitude": 1625
+            "magnitude": 47.2016945,
+            "sqrMagnitude": 2228
           }
         },
         {
-          "uuid": "a55ae96f-22d2-4357-a686-2faeb1491449",
-          "buildingName": "loggingCamp",
-          "buildingId": 3,
+          "uuid": "a03bcad6-5971-4200-9256-3dfd6e57d190",
+          "buildingName": "road",
+          "buildingId": 1,
           "level": 1,
-          "currentHealth": 200,
+          "currentHealth": 200.0,
           "position": {
-            "x": 29,
+            "x": 38,
             "y": 0,
             "z": 29,
-            "magnitude": 41.01219,
-            "sqrMagnitude": 1682
+            "magnitude": 47.8016739,
+            "sqrMagnitude": 2285
           }
         },
         {
-          "uuid": "882cd8db-a4d9-470b-b6c5-2079ae6043ba",
-          "buildingName": "loggingCamp",
-          "buildingId": 3,
+          "uuid": "37d5bc13-9d45-4aaa-830b-87d9308e1c47",
+          "buildingName": "road",
+          "buildingId": 1,
           "level": 1,
-          "currentHealth": 200,
+          "currentHealth": 200.0,
           "position": {
-            "x": 29,
-            "y": 0,
-            "z": 30,
-            "magnitude": 41.7252922,
-            "sqrMagnitude": 1741
-          }
-        },
-        {
-          "uuid": "d339b4a1-5e1e-4024-9c5d-ca7ecba22abd",
-          "buildingName": "loggingCamp",
-          "buildingId": 3,
-          "level": 1,
-          "currentHealth": 200,
-          "position": {
-            "x": 30,
+            "x": 39,
             "y": 0,
             "z": 27,
-            "magnitude": 40.36087,
-            "sqrMagnitude": 1629
+            "magnitude": 47.434166,
+            "sqrMagnitude": 2250
           }
         },
         {
-          "uuid": "f7940670-41c7-4cad-b9bd-db3aeb207839",
-          "buildingName": "loggingCamp",
-          "buildingId": 3,
+          "uuid": "2142c978-5e6c-4e39-868f-5b93a0c9fd2e",
+          "buildingName": "road",
+          "buildingId": 1,
           "level": 1,
-          "currentHealth": 200,
+          "currentHealth": 200.0,
           "position": {
-            "x": 30,
+            "x": 39,
             "y": 0,
             "z": 28,
-            "magnitude": 41.0365677,
-            "sqrMagnitude": 1684
-          }
-        },
-        {
-          "uuid": "11c98307-e149-4076-b65a-84575647301a",
-          "buildingName": "loggingCamp",
-          "buildingId": 3,
-          "level": 1,
-          "currentHealth": 200,
-          "position": {
-            "x": 30,
-            "y": 0,
-            "z": 29,
-            "magnitude": 41.7252922,
-            "sqrMagnitude": 1741
-          }
-        },
-        {
-          "uuid": "6ceb5056-09cb-43a8-a96d-66b9955719e9",
-          "buildingName": "loggingCamp",
-          "buildingId": 3,
-          "level": 1,
-          "currentHealth": 200,
-          "position": {
-            "x": 30,
-            "y": 0,
-            "z": 30,
-            "magnitude": 42.4264069,
-            "sqrMagnitude": 1800
+            "magnitude": 48.0104141,
+            "sqrMagnitude": 2305
           }
         }
       ]
@@ -315,7 +343,7 @@
       "economy": 30000,
       "width": 100,
       "length": 100,
-      "cityLevel": 0,
+      "cityLevel": 1,
       "buildingsData": []
     },
     {
@@ -332,7 +360,7 @@
       "economy": 30000,
       "width": 100,
       "length": 100,
-      "cityLevel": 0,
+      "cityLevel": 1,
       "buildingsData": []
     },
     {
@@ -349,7 +377,7 @@
       "economy": 30000,
       "width": 100,
       "length": 100,
-      "cityLevel": 0,
+      "cityLevel": 1,
       "buildingsData": []
     },
     {
@@ -366,7 +394,7 @@
       "economy": 30000,
       "width": 100,
       "length": 100,
-      "cityLevel": 0,
+      "cityLevel": 1,
       "buildingsData": []
     },
     {
@@ -383,7 +411,7 @@
       "economy": 30000,
       "width": 100,
       "length": 100,
-      "cityLevel": 0,
+      "cityLevel": 1,
       "buildingsData": []
     },
     {
@@ -400,11 +428,11 @@
       "economy": 30000,
       "width": 100,
       "length": 100,
-      "cityLevel": 0,
+      "cityLevel": 1,
       "buildingsData": []
     }
   ],
   "playerName": null,
-  "currentTime": 59.0540581,
+  "currentTime": 13.3337593,
   "timeScale": 1.0
 }

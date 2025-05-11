@@ -1,22 +1,22 @@
 ﻿{
   "1": {
     "buildingId": 1,
-    "buildingName": "house",
-    "chineseName": "民宅",
+    "buildingName": "road",
+    "chineseName": "道路",
     "classType": "Buildings.Residential.House",
     "cost":{
-      "wood": 100,
-      "stone": 50,
-      "food": 30,
-      "human": 10
+      "wood": 10,
+      "stone": 5,
+      "food": 3,
+      "human": 1
     },
     "size": [1,1],
     "maxLevel": 10,
     "maxHealth": 200,
     "residentsNumber": 0,
     "residentsCapacity": 10,
+    "buildable": true,
     "isProductive": false
-    
   },
   "2": {
     "buildingId": 2,
@@ -34,6 +34,7 @@
     "maxHealth": 200,
     "residentsNumber": 0,
     "residentsCapacity": 10,
+    "buildable": true,
     "isProductive": false
   },
   "3": {
@@ -54,6 +55,7 @@
     "maxHealth": 200,
     "residentsNumber": 0,
     "residentsCapacity": 10,
+    "buildable": true,
     "isProductive": true
   },
   "4": {
@@ -73,6 +75,7 @@
     "maxHealth": 200,
     "residentsNumber": 0,
     "residentsCapacity": 10,
+    "buildable": true,
     "isProductive": false
   },
   "5": {
@@ -91,6 +94,7 @@
     "maxHealth": 200,
     "residentsNumber": 0,
     "residentsCapacity": 10,
+    "buildable": true,
     "isProductive": false
   },
   "6": {
@@ -109,6 +113,7 @@
     "maxHealth": 200,
     "residentsNumber": 0,
     "residentsCapacity": 10,
+    "buildable": true,
     "isProductive": false
   },
   "7": {
@@ -127,6 +132,7 @@
     "maxHealth": 200,
     "residentsNumber": 0,
     "residentsCapacity": 10,
+    "buildable": true,
     "isProductive": false
   },
   "8": {
@@ -145,6 +151,7 @@
     "maxHealth": 200,
     "residentsNumber": 0,
     "residentsCapacity": 10,
+    "buildable": true,
     "isProductive": false
   },
   "9": {
@@ -163,6 +170,7 @@
     "maxHealth": 200,
     "residentsNumber": 0,
     "residentsCapacity": 10,
+    "buildable": true,
     "isProductive": false
   },
   "10": {
@@ -181,11 +189,13 @@
     "maxHealth": 200,
     "residentsNumber": 0,
     "residentsCapacity": 10,
+    "buildable": true,
     "isProductive": false
-  },  "11": {
+  }, 
+  "11": {
   "buildingId": 11,
-  "buildingName": "road",
-  "chineseName": "道路",
+  "buildingName": "house",
+  "chineseName": "民宅",
   "classType": "Buildings.Industrial.loggingCamp",
   "cost":{
     "wood": 100,
@@ -193,11 +203,31 @@
     "food": 30,
     "human": 10
   },
-  "size": [2,2],
+  "size": [1,1],
   "maxLevel": 10,
   "maxHealth": 200,
   "residentsNumber": 0,
   "residentsCapacity": 10,
+    "buildable": true,
   "isProductive": false
-}
+  },
+  "12": {
+    "buildingId": 12,
+    "buildingName": "water",
+    "chineseName": "水域",
+    "classType": "Buildings.Industrial.loggingCamp",
+    "cost":{
+      "wood": 10,
+      "stone": 5,
+      "food": 3,
+      "human": 1
+    },
+    "size": [1,1],
+    "maxLevel": 10,
+    "maxHealth": 200,
+    "residentsNumber": 0,
+    "residentsCapacity": 10,
+    "buildable": true,
+    "isProductive": false
+  }
 }

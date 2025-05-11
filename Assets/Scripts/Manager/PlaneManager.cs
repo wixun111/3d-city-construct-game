@@ -104,7 +104,7 @@ namespace Manager
             if (BuildManager.Instance.IsBuildMode() && Input.mousePosition.y < 300) return;
 
             // 如果点击到建筑物，处理建筑物选择
-            if (hit.collider.gameObject.name == "BuildingCollider")
+            if (hit.collider.gameObject.name == "BuildingCollider"||hit.collider.gameObject.name.Contains("Street"))
             {
                 UIManager.Instance.ShowBuildingPanel();
             }

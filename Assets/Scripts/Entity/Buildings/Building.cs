@@ -21,6 +21,7 @@ namespace Entity.Buildings
         [SerializeField] protected bool isProductive;
         [SerializeField] protected List<string> produceResourceType;
         [SerializeField] protected float productionRate; // 每次生产的资源数量
+        [SerializeField] protected bool buildable; // 每次生产的资源数量
         [SerializeField] private int[] size;
         [SerializeField] private int existLimit;
         
@@ -72,7 +73,6 @@ namespace Entity.Buildings
         public void LoadData(Dictionary<string, object> data)
         {
             var fields = GetType().GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
-
             foreach (var field in fields)
             {
                 if (!data.TryGetValue(field.Name, out var value)) continue;

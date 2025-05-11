@@ -37,10 +37,10 @@ namespace Manager
         {
             weatherOptions = new List<Weather>
             {
-                // CreateWeather("sunny"),
+                CreateWeather("sunny"),
                 // CreateWeather("rainy"),
                 // CreateWeather("snowy"),
-                CreateWeather("stormy")
+                // CreateWeather("stormy")
             };
         }
         private Weather CreateWeather(string type)

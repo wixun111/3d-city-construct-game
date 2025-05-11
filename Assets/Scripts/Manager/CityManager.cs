@@ -82,18 +82,12 @@ namespace Manager
                 // 获取 `City.cs` 组件并设置属性
                 var cityScript = cityObj.GetComponent<City>();
                 if (cityScript == null) continue;
-                cityScript.Load(city);
+                cityScript.Load(city,currentCityId);
                 cities.Add(cityScript);
-                if (cityScript.CityId == currentCityId)
-                {
-                    currentCity = cityScript;
-                }
             }
             PlaneManager.Instance.GenerateCity();
-            currentCity.UpdateBuildingTile();
             UIManager.Instance.ShowCityUI(currentCity);
         }
-
         public void Clear()
         {
             foreach (var city in cities)
