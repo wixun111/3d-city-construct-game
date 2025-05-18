@@ -7,11 +7,13 @@ namespace Loader
     public class CityLoader : Singleton<CityLoader>
     {
         private Dictionary<int, Dictionary<string, object>> _cityData = new Dictionary<int, Dictionary<string, object>>();
+        private List<Dictionary<string, int>> _cityBuildingData = new List<Dictionary<string, int>>();
         private readonly Dictionary<int, Sprite> _cityIcons = new Dictionary<int, Sprite>();
         
         public void Awake()
         {
             LoadCityData();
+            LoadCityBuildingData();
         }
         private void LoadCityData()
         {
@@ -25,6 +27,20 @@ namespace Loader
             else
             {
                 Debug.LogError("Failed to load Cities.json");
+            }
+        }
+        private void LoadCityBuildingData()
+        {
+            var jsonFile = Resources.Load<TextAsset>("Json/CityBuildings");
+            if (jsonFile != null)
+            {
+                _cityBuildingData = JsonConvert.DeserializeObject<List<Dictionary<string, int>>>(jsonFile.text);
+                Debug.Log("City Building data loaded successfully.");
+                LoadCityIcons(); // 加载图标
+            }
+            else
+            {
+                Debug.LogError("Failed to load CityBuildings.json");
             }
         }
         private void LoadCityIcons()
@@ -49,6 +65,12 @@ namespace Loader
         {
             get => _cityData;
             set => _cityData = value;
+        }
+
+        public List<Dictionary<string, int>> CityBuildingData
+        {
+            get => _cityBuildingData;
+            set => _cityBuildingData = value;
         }
     }
 }

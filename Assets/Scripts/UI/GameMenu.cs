@@ -10,6 +10,7 @@ namespace UI
         [SerializeField] private Button backGameButton; 
         [SerializeField] private Button quitMenuButton; 
         [SerializeField] private Button saveGameButton; 
+        [SerializeField] private Button saveBuildingButton; 
         [SerializeField] private Button settingButton; 
         [SerializeField] private Button quitGameButton; 
 
@@ -23,8 +24,14 @@ namespace UI
             settingButton.onClick.AddListener(Setting);
             quitGameButton.onClick.AddListener(QuitGame);
             saveGameButton.onClick.AddListener(SaveGame);
+            saveBuildingButton.onClick.AddListener(SaveBuilding);
         }
-        
+
+        private void SaveBuilding()
+        {
+            SaveManager.Instance.SaveBuilding();
+        }
+
         public void BackGame()
         {
             gameObject.SetActive(false);

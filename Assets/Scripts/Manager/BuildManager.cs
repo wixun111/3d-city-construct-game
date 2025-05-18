@@ -48,7 +48,20 @@ namespace Manager
         public GameObject SetBuilding(Vector3 position,string buildingName)
         {
             buildingPrefab = Resources.Load<GameObject>("Prefabs/Buildings/" + buildingName);
-            if (buildingPrefab == null)
+            if (!buildingPrefab)
+            {
+                buildingPrefab = Resources.Load<GameObject>("Prefabs/Buildings/default");
+            }
+            print(buildingPrefab);
+            var newBuilding = Instantiate(buildingPrefab, position, Quaternion.identity);
+            newBuilding.transform.SetParent(CityManager.Instance.CurrentCity.gameObject.transform);
+            return newBuilding;
+        }
+        public GameObject SetBuilding(Vector3 position,int buildingId)
+        {
+            var buildingName = buildingData[buildingId]["buildingName"].ToString();
+            buildingPrefab = Resources.Load<GameObject>("Prefabs/Buildings/" + buildingName);
+            if (!buildingPrefab)
             {
                 buildingPrefab = Resources.Load<GameObject>("Prefabs/Buildings/default");
             }

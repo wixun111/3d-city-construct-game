@@ -56,6 +56,8 @@ namespace Manager
                 cities.Add(cityScript);
             }
             currentCity = cities[0];
+            currentCity.InitBuilding(CityLoader.Instance.CityBuildingData);
+            BuildManager.Instance.FixRoads(1);
             UIManager.Instance.UpdateCityUI(currentCity);
         }
 

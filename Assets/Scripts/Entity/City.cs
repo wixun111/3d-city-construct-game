@@ -59,7 +59,25 @@ namespace Entity
                 AddBuilding(building,pos);
             }
         }
-
+        public void InitBuilding(List<Dictionary<string,int>> cityBuildingData)
+        {
+            for (var i = 0; i < length; i++)
+            {
+                for (var j = 0; j < width; j++)
+                {
+                    canBuild[i, j] = true;
+                }
+            }
+            foreach (var buildingData in cityBuildingData)
+            {
+                var pos = new Vector3Int(buildingData["x"],0,buildingData["y"]);
+                var buildingObject = BuildManager.Instance.SetBuilding(pos,buildingData["buildingId"]);
+                var building = buildingObject.AddComponent<Building>();
+                building.InitData(BuildingLoader.Instance.BuildingsData[buildingData["buildingId"]],pos);
+                buildingList.Add(building);
+                AddBuilding(building,pos);
+            }
+        }
         public bool CanBuild(Dictionary<string, object> buildingInfo,Vector3Int position)
         {
             // 判断是否满足建造条件，比如资源检查等

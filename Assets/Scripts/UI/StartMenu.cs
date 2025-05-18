@@ -21,12 +21,7 @@ namespace UI
         public void StartGame()
         {
             gameObject.SetActive(false);
-            TimeManager.Instance.InitTime();
-            TimeManager.Instance.ShowTime();
-            CityManager.Instance.CreateCity();
-            PlaneManager.Instance.GenerateCity();
-            WeatherManager.Instance.Init();
-            UIManager.Instance.ShowTimeControlPanel();
+            GameManager.Instance.StartGame();
         }
         public void LoadGame()
         {

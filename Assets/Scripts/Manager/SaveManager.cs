@@ -15,7 +15,6 @@ namespace Manager
 
         public void SaveGame(int saveId, string saveName)
         {
-            
             var data = new SaveData
             {
                 SaveID = saveId,
@@ -41,6 +40,42 @@ namespace Manager
             var path = ConvertPath(saveId);
             File.WriteAllText(path, json);
             Debug.Log("Game Saved: " + path);
+        }
+
+        public void SaveBuilding()
+        {
+            var currentCity = CityManager.Instance.CurrentCity;
+            var buildings = currentCity.Buildings;
+            var width = currentCity.Width;
+            var length = currentCity.Length;
+            List<BuildingInfo> buildingList = new();
+
+            for (var x = 0; x < width; x++)
+            {
+                for (var y = 0; y < length; y++)
+                {
+                    var building = buildings[x, y];
+                    if (building != null && building.BuildingId != 0)
+                    {
+                        buildingList.Add(new BuildingInfo
+                        {
+                            X = x,
+                            Y = y,
+                            BuildingId = building.BuildingId
+                        });
+                    }
+                }
+            }
+            var settings = new JsonSerializerSettings
+            {
+                ContractResolver = new DefaultContractResolver
+                {
+                    NamingStrategy = new CamelCaseNamingStrategy(),
+                },
+                Formatting = Formatting.Indented
+            };
+            var json = JsonConvert.SerializeObject(buildingList, settings);
+            File.WriteAllText("Assets/Resources/Json/CityBuildings.json", json);
         }
 
         public void LoadGame(int saveId)
@@ -86,5 +121,11 @@ namespace Manager
             File.WriteAllText("Assets/Resources/Json/Setting.json", json);
             Debug.Log("Game Setting Saved: Json/Setting.json");
         }
+    }
+    public struct BuildingInfo
+    {
+        public int X;
+        public int Y;
+        public int BuildingId;
     }
 }
