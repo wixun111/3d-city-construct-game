@@ -242,6 +242,7 @@ namespace Manager
             var position = PlaneManager.Instance.GetTilePosition();
             var currentCity = CityManager.Instance.CurrentCity;
             currentCity.Dismantle(position);
+            FixRoads();
         }
 
         public void Upgrade()

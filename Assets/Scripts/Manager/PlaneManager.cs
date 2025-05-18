@@ -102,16 +102,15 @@ namespace Manager
 
             // 判断是否点击到合适的物体
             if (BuildManager.Instance.IsBuildMode() && Input.mousePosition.y < 300) return;
-
+            if (EventSystem.current.IsPointerOverGameObject()) return;
+            // 记录选择的 Tile
+            selectedTilePosition = tilePosition;
+            isTileSelected = true;
             // 如果点击到建筑物，处理建筑物选择
             if (hit.collider.gameObject.name == "BuildingCollider"||hit.collider.gameObject.name.Contains("Street"))
             {
                 UIManager.Instance.ShowBuildingPanel();
             }
-            if (EventSystem.current.IsPointerOverGameObject()) return;
-            // 记录选择的 Tile
-            selectedTilePosition = tilePosition;
-            isTileSelected = true;
             // 调用建筑管理器进行建造判断
             BuildManager.Instance.BuildJudge();
         }

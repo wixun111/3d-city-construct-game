@@ -500,9 +500,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 150530e2c7a54136a658fbcdc74da728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carPrefabs: []
-  maxCarCount: 20
-  spawnInterval: 3
+  carsContainer: {fileID: 275981946}
+  carPrefabs:
+  - {fileID: 4808481445193257280, guid: 4a04e86e614ff3c448a223cc090d7b56, type: 3}
+  - {fileID: 8060450605271171983, guid: eac27948fa6154244982bcbec71c0704, type: 3}
+  - {fileID: 7136899831238577631, guid: f84cf68c8818c9b419205bdcefac8ae0, type: 3}
+  - {fileID: 6662413835317383398, guid: 58a87ce986ce55c469363bee0d5c8283, type: 3}
+  - {fileID: 6514893805240553878, guid: e6a67ba93326f6b4d8b86d96a69da3bf, type: 3}
+  - {fileID: 4666976948935602182, guid: e0cb33f1093453242a437102a3c6a542, type: 3}
+  - {fileID: 9203215177520823966, guid: 965b17000fd579641b9009c57eddef87, type: 3}
+  - {fileID: 3675430459418146267, guid: 11f6fa4ae0c8675428bc84bfef592494, type: 3}
+  - {fileID: 2092380822746634531, guid: 66d8dcc729897cc42a8be7a87ea4d0d8, type: 3}
+  - {fileID: 8915724785573250915, guid: 44009922e2d791e429b92d7cd4137e4a, type: 3}
+  - {fileID: 6068122808322527947, guid: 3c4ae5ae072a500449801a15fd3f6f8b, type: 3}
+  - {fileID: 8049000976369487943, guid: 62eff6af780aa614fb98ae39cedd002c, type: 3}
+  - {fileID: 6068122808322527947, guid: 3c4ae5ae072a500449801a15fd3f6f8b, type: 3}
+  - {fileID: 4636482881163758570, guid: cbc6364ef4b830b4b8c2055fbffd559c, type: 3}
+  - {fileID: 6798407226179263407, guid: 59a00626ffdc89e4b920576556095918, type: 3}
+  - {fileID: 5289235659668573508, guid: e47a7f7e5ae296d45bb6c73ae7dea606, type: 3}
+  - {fileID: 3543267107903025519, guid: 6a97648995fbf564fb8d61953ec50390, type: 3}
+  - {fileID: 1586334959360519947, guid: d7b799b7260c27c41ae5f2247076a38a, type: 3}
+  - {fileID: 3459943297488821090, guid: 382530f7edc04c84caa254da3645369f, type: 3}
+  - {fileID: 7290462172319653990, guid: d7b32c2525065f14ebd1b933360a9fbf, type: 3}
+  - {fileID: 9098241587463343295, guid: debe4d5ec12f3514aa5f9389b9800cbb, type: 3}
+  maxCarCount: 50
+  spawnInterval: 1
+  currentCarCount: 0
 --- !u!1 &29418259
 GameObject:
   m_ObjectHideFlags: 0
@@ -1608,6 +1631,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 268710164}
   m_CullTransparentMesh: 1
+--- !u!1 &275981946
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 275981947}
+  m_Layer: 0
+  m_Name: CarsContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &275981947
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275981946}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 52.5, y: 0.003947078, z: 30.4755}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &302064563
 GameObject:
   m_ObjectHideFlags: 0
@@ -4806,7 +4860,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &1119389258
 Light:
   m_ObjectHideFlags: 0
@@ -8126,7 +8180,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &1708870084
 Light:
   m_ObjectHideFlags: 0
@@ -9796,4 +9850,5 @@ SceneRoots:
   - {fileID: 18644025}
   - {fileID: 1455933335}
   - {fileID: 114943575}
+  - {fileID: 275981947}
   - {fileID: 1653319853}

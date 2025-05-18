@@ -61,6 +61,8 @@ namespace Entity
         }
         public void InitBuilding(List<Dictionary<string,int>> cityBuildingData)
         {
+            buildings = new Building[length, width];
+            canBuild = new bool[length,width];
             for (var i = 0; i < length; i++)
             {
                 for (var j = 0; j < width; j++)
