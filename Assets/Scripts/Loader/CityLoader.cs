@@ -7,7 +7,7 @@ namespace Loader
     public class CityLoader : Singleton<CityLoader>
     {
         private Dictionary<int, Dictionary<string, object>> _cityData = new Dictionary<int, Dictionary<string, object>>();
-        private List<Dictionary<string, int>> _cityBuildingData = new List<Dictionary<string, int>>();
+        private List<Dictionary<string, object>> _cityBuildingData = new List<Dictionary<string, object>>();
         private readonly Dictionary<int, Sprite> _cityIcons = new Dictionary<int, Sprite>();
         
         public void Awake()
@@ -29,12 +29,12 @@ namespace Loader
                 Debug.LogError("Failed to load Cities.json");
             }
         }
-        private void LoadCityBuildingData()
+        public void LoadCityBuildingData()
         {
             var jsonFile = Resources.Load<TextAsset>("Json/CityBuildings");
             if (jsonFile != null)
             {
-                _cityBuildingData = JsonConvert.DeserializeObject<List<Dictionary<string, int>>>(jsonFile.text);
+                _cityBuildingData = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(jsonFile.text);
                 Debug.Log("City Building data loaded successfully.");
                 LoadCityIcons(); // 加载图标
             }
@@ -67,7 +67,7 @@ namespace Loader
             set => _cityData = value;
         }
 
-        public List<Dictionary<string, int>> CityBuildingData
+        public List<Dictionary<string, object>> CityBuildingData
         {
             get => _cityBuildingData;
             set => _cityBuildingData = value;

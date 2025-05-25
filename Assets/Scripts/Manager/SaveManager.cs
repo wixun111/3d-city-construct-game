@@ -45,27 +45,15 @@ namespace Manager
         public void SaveBuilding()
         {
             var currentCity = CityManager.Instance.CurrentCity;
-            var buildings = currentCity.Buildings;
-            var width = currentCity.Width;
-            var length = currentCity.Length;
-            List<BuildingInfo> buildingList = new();
-
-            for (var x = 0; x < width; x++)
+            var buildingList = currentCity.BuildingList;
+            var buildingInfoList = buildingList.Select(building => new BuildingInfo
             {
-                for (var y = 0; y < length; y++)
-                {
-                    var building = buildings[x, y];
-                    if (building != null && building.BuildingId != 0)
-                    {
-                        buildingList.Add(new BuildingInfo
-                        {
-                            X = x,
-                            Y = y,
-                            BuildingId = building.BuildingId
-                        });
-                    }
-                }
-            }
+                position = new int[] { building.Position.x, building.Position.z },
+                rotation = new float[] { building.Rotation.eulerAngles.x,
+                    building.Rotation.eulerAngles.y,
+                    building.Rotation.eulerAngles.z },
+                BuildingId = building.BuildingId
+            }).ToList();
             var settings = new JsonSerializerSettings
             {
                 ContractResolver = new DefaultContractResolver
@@ -74,8 +62,9 @@ namespace Manager
                 },
                 Formatting = Formatting.Indented
             };
-            var json = JsonConvert.SerializeObject(buildingList, settings);
+            var json = JsonConvert.SerializeObject(buildingInfoList, settings);
             File.WriteAllText("Assets/Resources/Json/CityBuildings.json", json);
+            CityLoader.Instance.LoadCityBuildingData();
         }
 
         public void LoadGame(int saveId)
@@ -83,6 +72,7 @@ namespace Manager
             var saveData = SaveLoader.Instance.SaveDataDict[saveId];
             var cityData = JsonConvert.DeserializeObject<List<CityData>>(saveData["cityData"].ToString());
             CityManager.Instance.Load(cityData,JsonConvert.DeserializeObject<int>(saveData["currentCityId"].ToString()));
+            TrafficManager.Instance.Init();
             BuildManager.Instance.FixRoads(1);
             TimeManager.Instance.Load( JsonConvert.DeserializeObject<float>(saveData["currentTime"].ToString()),JsonConvert.DeserializeObject<float>(saveData["timeScale"].ToString()));
         }
@@ -124,8 +114,8 @@ namespace Manager
     }
     public struct BuildingInfo
     {
-        public int X;
-        public int Y;
+        public int[] position;
+        public float[] rotation;
         public int BuildingId;
     }
 }

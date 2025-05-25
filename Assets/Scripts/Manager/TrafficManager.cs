@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Entity;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Random = UnityEngine.Random;
 
 namespace Manager
 {
@@ -9,11 +11,33 @@ namespace Manager
     {
         public GameObject carsContainer;
         public GameObject[] carPrefabs;
+        public List<GameObject> cars;
         public int maxCarCount = 40;
         public float spawnInterval = 2f;
         private bool[,] road;
         private float timer;
         [SerializeField] private int currentCarCount;
+
+        public void Awake()
+        {
+            cars = new List<GameObject>();
+        }
+
+        public void Init()
+        {
+            foreach (var car in cars)
+            {
+                Destroy(car);
+            }
+            InitRoad();
+            currentCarCount = 0;
+            timer = 0;
+            for (var i = 0; i < 100; i++)
+            {
+                TrySpawnCar();
+            }
+        }
+
         public void InitRoad()
         {
             var city = CityManager.Instance.CurrentCity;
@@ -26,16 +50,12 @@ namespace Manager
                     road[i, j] = city.Buildings[i, j].BuildingId == 1;
                 }
             }
-            for (var i = 0; i < 40; i++)
-            {
-                TrySpawnCar();
-            }
         }
-        void Update()
+        void Update()   
         {
             if (currentCarCount >= maxCarCount) return;
             timer += Time.deltaTime;
-            if (!(timer >= spawnInterval)) return;
+            if (timer < spawnInterval) return;
             TrySpawnCar();
             timer = 0f;
         }
@@ -69,6 +89,7 @@ namespace Manager
             var prefab = carPrefabs[Random.Range(0, carPrefabs.Length)];
             var car = Instantiate(prefab, carsContainer.transform, true);
             car.GetComponent<Car>().Init(path);
+            cars.Add(car);
             currentCarCount++;
         }
         List<Vector3> FindPath(Vector2Int start, Vector2Int end)
@@ -137,7 +158,7 @@ namespace Manager
         }
         Vector3 GridToWorld(Vector2Int gridPos)
         {
-            return new Vector3(gridPos.x + 0.5f, 0.06f, gridPos.y + 0.5f);
+            return new Vector3(gridPos.x, 0.06f, gridPos.y);
         }
 
         public int CurrentCarCount

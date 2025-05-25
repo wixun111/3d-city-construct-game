@@ -5,10 +5,8 @@
     "chineseName": "道路",
     "classType": "Buildings.Residential.House",
     "cost":{
-      "wood": 10,
-      "stone": 5,
-      "food": 3,
-      "human": 1
+      "money": 10,
+      "time": 1
     },
     "size": [1,1],
     "maxLevel": 10,
@@ -24,10 +22,8 @@
     "chineseName": "公寓",
     "classType": "Buildings.Residential.Apartment",
     "cost":{
-      "wood": 100,
-      "stone": 50,
-      "food": 30,
-      "human": 10
+      "money": 10,
+      "time": 1
     },
     "size": [1,1],
     "maxLevel": 10,
@@ -43,10 +39,8 @@
     "chineseName": "木场",
     "classType": "Buildings.Industrial.LoggingCamp",
     "cost":{
-      "wood": 100,
-      "stone": 50,
-      "food": 30,
-      "human": 10
+      "money": 10,
+      "time": 1
     },
     "maxLevel": 10,
     "size": [1,1],
@@ -64,10 +58,8 @@
     "chineseName": "政府大楼",
     "classType": "Buildings.Industrial.Government",
     "cost":{
-      "wood": 100,
-      "stone": 50,
-      "food": 30,
-      "human": 10
+      "money": 10,
+      "time": 1
     },
     "size": [2,2],
     "existLimit": 1,
@@ -84,10 +76,8 @@
     "chineseName": "医院",
     "classType": "Buildings.Industrial.hospital",
     "cost":{
-      "wood": 100,
-      "stone": 50,
-      "food": 30,
-      "human": 10
+      "money": 10,
+      "time": 1
     },
     "size": [1,1],
     "maxLevel": 10,
@@ -103,10 +93,8 @@
     "chineseName": "学校",
     "classType": "Buildings.Education.School",
     "cost":{
-      "wood": 100,
-      "stone": 50,
-      "food": 30,
-      "human": 10
+      "money": 10,
+      "time": 1
     },
     "size": [1,1],
     "maxLevel": 10,
@@ -122,10 +110,8 @@
     "chineseName": "警局",
     "classType": "Buildings.Industrial.loggingCamp",
     "cost":{
-      "wood": 100,
-      "stone": 50,
-      "food": 30,
-      "human": 10
+      "money": 10,
+      "time": 1
     },
     "size": [2,2],
     "maxLevel": 10,
@@ -141,10 +127,8 @@
     "chineseName": "商业中心",
     "classType": "Buildings.Industrial.loggingCamp",
     "cost":{
-      "wood": 100,
-      "stone": 50,
-      "food": 30,
-      "human": 10
+      "money": 10,
+      "time": 1
     },
     "size": [1,1],
     "maxLevel": 10,
@@ -160,10 +144,8 @@
     "chineseName": "机场",
     "classType": "Buildings.Industrial.loggingCamp",
     "cost":{
-      "wood": 100,
-      "stone": 50,
-      "food": 30,
-      "human": 10
+      "money": 10,
+      "time": 1
     },
     "size": [2,2],
     "maxLevel": 10,
@@ -179,10 +161,8 @@
     "chineseName": "体育场",
     "classType": "Buildings.Industrial.loggingCamp",
     "cost":{
-      "wood": 100,
-      "stone": 50,
-      "food": 30,
-      "human": 10
+      "money": 10,
+      "time": 1
     },
     "size": [2,2],
     "maxLevel": 10,
@@ -198,10 +178,8 @@
   "chineseName": "民宅",
   "classType": "Buildings.Industrial.loggingCamp",
   "cost":{
-    "wood": 100,
-    "stone": 50,
-    "food": 30,
-    "human": 10
+    "money": 10,
+    "time": 1
   },
   "size": [1,1],
   "maxLevel": 10,
@@ -217,10 +195,8 @@
     "chineseName": "水域",
     "classType": "Buildings.Industrial.loggingCamp",
     "cost":{
-      "wood": 10,
-      "stone": 5,
-      "food": 3,
-      "human": 1
+      "money": 10,
+      "time": 1
     },
     "size": [1,1],
     "maxLevel": 10,

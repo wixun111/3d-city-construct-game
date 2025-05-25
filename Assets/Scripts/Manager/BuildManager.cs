@@ -15,22 +15,35 @@ namespace Manager
         [SerializeField] private GameObject roadStraight, deadEnd, corner, threeWay, fourWay;
         [SerializeField] private Dictionary<int, Dictionary<string, object>> buildingData = new Dictionary<int, Dictionary<string, object>>();
         [SerializeField] private int selectedBuildingId;
-        [SerializeField] private bool isRoadMode = false;
-
+        [SerializeField] private int styleIndex;
+        [SerializeField] private int buildingStyleCount;
+        [SerializeField] private Quaternion currentRotation = Quaternion.identity;
         private void Start()
         {
             // 获取建筑数据
             buildingData = BuildingLoader.Instance.GetBuildingData();
             selectedBuildingId = -1;
+            buildingStyleCount = 1;
         }
 
-        public void SelectBuilding(GameObject buildingPrefab)
+        public void SetBuildingPrefab()
         {
-            if (previewInstance != null) Destroy(previewInstance);
-            previewInstance = Instantiate(buildingPrefab);
-            previewInstance.GetComponent<Renderer>().material.color = new Color(1, 1, 1, 0.5f); // 半透明
+            var buildingName = buildingData[selectedBuildingId]["buildingName"].ToString();
+            styleIndex = 1;
+            buildingStyleCount = GetBuildingStyleCount(buildingName);
+            if (buildingStyleCount == 1) {
+                buildingPrefab = Resources.Load<GameObject>("Prefabs/Buildings/" + buildingName);
+            }
+            else {
+                buildingPrefab = Resources.Load<GameObject>("Prefabs/Buildings/" + buildingName + styleIndex);
+            }
         }
-
+        public int GetBuildingStyleCount(string buildingName)
+        {
+            var allPrefabs = Resources.LoadAll<GameObject>("Prefabs/Buildings");
+            var count = allPrefabs.Count(go => go.name.StartsWith(buildingName));
+            return count;
+        }
         public void Build()
         {
             // 获取建筑的数据
@@ -41,32 +54,32 @@ namespace Manager
             Debug.Log(position);
             // 判断是否可以建造（例如，检查是否有足够资源等）
             if (!currentCity.CanBuild(buildingInfo, position)) return;
-            currentCity.Build(buildingInfo,position, SetBuilding(position, (string)buildingInfo["buildingName"]));
+            currentCity.Build(buildingInfo,position, SetBuilding(position,currentRotation, (string)buildingInfo["buildingName"]));
             UIManager.Instance.UpdateCityUI(currentCity);
         }
 
-        public GameObject SetBuilding(Vector3 position,string buildingName)
+        public GameObject SetBuilding(Vector3 position,Quaternion rotation,string buildingName)
         {
-            buildingPrefab = Resources.Load<GameObject>("Prefabs/Buildings/" + buildingName);
-            if (!buildingPrefab)
-            {
-                buildingPrefab = Resources.Load<GameObject>("Prefabs/Buildings/default");
-            }
-            print(buildingPrefab);
-            var newBuilding = Instantiate(buildingPrefab, position, Quaternion.identity);
-            newBuilding.transform.SetParent(CityManager.Instance.CurrentCity.gameObject.transform);
-            return newBuilding;
+            
+            return InstantiatePrefab(position,rotation,buildingName);
         }
-        public GameObject SetBuilding(Vector3 position,int buildingId)
+        public GameObject SetBuilding(Vector3 position,Quaternion rotation,int buildingId)
         {
             var buildingName = buildingData[buildingId]["buildingName"].ToString();
-            buildingPrefab = Resources.Load<GameObject>("Prefabs/Buildings/" + buildingName);
-            if (!buildingPrefab)
-            {
+            return InstantiatePrefab(position,rotation,buildingName);
+        }
+
+        private GameObject InstantiatePrefab(Vector3 position, Quaternion rotation, string buildingName) {
+            if (buildingStyleCount == 1) {
+                buildingPrefab = Resources.Load<GameObject>("Prefabs/Buildings/" + buildingName);
+            }
+            else {
+                buildingPrefab = Resources.Load<GameObject>("Prefabs/Buildings/" + buildingName + styleIndex);
+            }
+            if (!buildingPrefab) {
                 buildingPrefab = Resources.Load<GameObject>("Prefabs/Buildings/default");
             }
-            print(buildingPrefab);
-            var newBuilding = Instantiate(buildingPrefab, position, Quaternion.identity);
+            var newBuilding = Instantiate(buildingPrefab, position, rotation);
             newBuilding.transform.SetParent(CityManager.Instance.CurrentCity.gameObject.transform);
             return newBuilding;
         }
@@ -74,34 +87,20 @@ namespace Manager
         public void StartBuildingMode(int buildingId)
         {
             selectedBuildingId = buildingId;
+            SetBuildingPrefab();
+            previewInstance = Instantiate(buildingPrefab,PlaneManager.Instance.GetTilePosition(), currentRotation);
+            DisableCollider();
             Debug.Log("进入建造模式: " + buildingId);
             // 这里可以显示建筑预览，或者改变鼠标光标等
         }
         public void ExitBuildingMode()
         {
+            Destroy(previewInstance);
             selectedBuildingId = -1;
+            TrafficManager.Instance.InitRoad();
             Debug.Log("退出建造模式");
             // 这里可以隐藏建筑预览等
         }
-
-        public void StartRoadMode()
-        {
-            isRoadMode = true;
-            selectedBuildingId = -1;
-            Debug.Log("进入道路建造模式");
-        }
-
-        public void ExitRoadMode()
-        {
-            isRoadMode = false;
-            Debug.Log("退出道路建造模式");
-        }
-
-        public bool IsRoadMode()
-        {
-            return isRoadMode;
-        }
-
         public void BuildJudge()
         {
             if (selectedBuildingId == 1)
@@ -223,13 +222,13 @@ namespace Manager
                 var newModel = Instantiate(prefab, building.transform.position, rot);
                 var model = newModel.transform.GetChild(0);
                 model.SetParent(building.transform);
-                model.localPosition = new Vector3(0.5f, 0f, 0.5f);
+                model.localPosition = new Vector3(0f, 0f, 0f);
                 Destroy(newModel);
             }
         }
         public bool IsBuildMode()
         {
-            return selectedBuildingId != -1 || isRoadMode;
+            return selectedBuildingId != -1;
         }
 
         private Type GetBuildingTypeByName(string typeName)
@@ -250,6 +249,38 @@ namespace Manager
             var position = PlaneManager.Instance.GetTilePosition();
             CityManager.Instance.GetBuilding(position).Upgrade();
             UIManager.Instance.UpdateBuildingPanel();
+        }
+
+        public void RotatingBuilding()
+        {
+            currentRotation *= Quaternion.Euler(0, 90, 0);
+            previewInstance.transform.rotation = currentRotation;
+        }
+        public void ChangeBuildingStyle()
+        {
+            styleIndex = styleIndex % buildingStyleCount + 1;
+            var buildingName = buildingData[selectedBuildingId]["buildingName"].ToString();
+            buildingPrefab = Resources.Load<GameObject>("Prefabs/Buildings/" + buildingName + styleIndex);
+            var oldInstace = previewInstance;
+            previewInstance = Instantiate(buildingPrefab, oldInstace.transform.position, oldInstace.transform.rotation);
+            previewInstance.transform.rotation = currentRotation;
+            DisableCollider();
+            Destroy(oldInstace);
+        }
+        public void SetPreviewPosition(Vector3 position)
+        {
+            previewInstance.transform.position = position;
+        }
+
+        public void DisableCollider()
+        {
+            var boxCollider = previewInstance.GetComponentInChildren<BoxCollider>();
+            if (boxCollider) {
+                boxCollider.enabled = false;
+            }
+            else {
+                previewInstance.GetComponentInChildren<MeshCollider>().enabled = false;
+            }
         }
     }
 }

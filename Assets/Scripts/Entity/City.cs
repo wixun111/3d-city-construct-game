@@ -52,14 +52,15 @@ namespace Entity
             foreach (var buildingData in cityData.BuildingsData)
             {
                 var pos = buildingData.Position;
-                var buildingObject = cityId == currentCityId ? BuildManager.Instance.SetBuilding(buildingData.Position,buildingData.BuildingName) : gameObject;
+                var rot = Quaternion.Euler(buildingData.Rotation[0], buildingData.Rotation[1], buildingData.Rotation[2]);
+                var buildingObject = cityId == currentCityId ? BuildManager.Instance.SetBuilding(pos,rot,buildingData.BuildingName) : gameObject;
                 var building = buildingObject.AddComponent<Building>();
                 building.Load(buildingData);
                 buildingList.Add(building);
                 AddBuilding(building,pos);
             }
         }
-        public void InitBuilding(List<Dictionary<string,int>> cityBuildingData)
+        public void InitBuilding(List<Dictionary<string,object>> cityBuildingData)
         {
             buildings = new Building[length, width];
             canBuild = new bool[length,width];
@@ -72,10 +73,13 @@ namespace Entity
             }
             foreach (var buildingData in cityBuildingData)
             {
-                var pos = new Vector3Int(buildingData["x"],0,buildingData["y"]);
-                var buildingObject = BuildManager.Instance.SetBuilding(pos,buildingData["buildingId"]);
+                var posData = JsonConvert.DeserializeObject<int[]>(buildingData["position"].ToString());
+                var pos = new Vector3Int(posData[0],0,posData[1]);
+                var rotData = JsonConvert.DeserializeObject<float[]>(buildingData["rotation"].ToString());
+                var rot = Quaternion.Euler(rotData[0], rotData[1], rotData[2]);
+                var buildingObject = BuildManager.Instance.SetBuilding(pos,rot, JsonConvert.DeserializeObject<int>(buildingData["buildingId"].ToString()));
                 var building = buildingObject.AddComponent<Building>();
-                building.InitData(BuildingLoader.Instance.BuildingsData[buildingData["buildingId"]],pos);
+                building.InitData(BuildingLoader.Instance.BuildingsData[JsonConvert.DeserializeObject<int>(buildingData["buildingId"].ToString())],pos);
                 buildingList.Add(building);
                 AddBuilding(building,pos);
             }

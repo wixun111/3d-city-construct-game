@@ -29,10 +29,10 @@ namespace Manager
             var mesh = new Mesh();
             var vertices = new Vector3[4]
             {
-                new Vector3(0, 0, 0),
-                new Vector3(cityLength, 0, 0),
-                new Vector3(cityLength, 0, cityWidth),
-                new Vector3(0, 0, cityWidth)
+                new Vector3(0.5f, 0, 0.5f),
+                new Vector3(cityLength + 0.5f, 0, 0.5f),
+                new Vector3(cityLength + 0.5f, 0, cityWidth + 0.5f),
+                new Vector3(0.5f, 0, cityWidth + 0.5f)
             };
 
             var triangles = new int[6]
@@ -91,13 +91,12 @@ namespace Manager
         public void HandleClick()
         {
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition); // 生成射线
-            RaycastHit hit;
-            if (!Physics.Raycast(ray, out hit)) return; // 进行射线检测
+            if (!Physics.Raycast(ray, out var hit)) return; // 进行射线检测
 
             Debug.Log("点击到了物体: " + hit.collider.gameObject.name);
             var hitPosition = hit.point;
             // 计算点击位置的平面坐标（可以转换为相应的 Tile 位置）
-            var tilePosition = new Vector3Int(Mathf.FloorToInt(hitPosition.x), 0, Mathf.FloorToInt(hitPosition.z));
+            var tilePosition = new Vector3Int(Mathf.RoundToInt(hitPosition.x), 0, Mathf.RoundToInt(hitPosition.z));
             Debug.Log("点击 Tile 位置: " + tilePosition);
 
             // 判断是否点击到合适的物体
@@ -107,12 +106,23 @@ namespace Manager
             selectedTilePosition = tilePosition;
             isTileSelected = true;
             // 如果点击到建筑物，处理建筑物选择
-            if (hit.collider.gameObject.name == "BuildingCollider"||hit.collider.gameObject.name.Contains("Street"))
+            if (hit.collider.gameObject.name != "PlaneBox")
             {
                 UIManager.Instance.ShowBuildingPanel();
             }
             // 调用建筑管理器进行建造判断
             BuildManager.Instance.BuildJudge();
+        }
+
+        public void HandleMove()
+        {
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (!Physics.Raycast(ray, out var hit)) return;
+            var hitPosition = hit.point;
+            var tilePosition = new Vector3Int(Mathf.RoundToInt(hitPosition.x), 0, Mathf.RoundToInt(hitPosition.z));
+            if (BuildManager.Instance.IsBuildMode() && Input.mousePosition.y < 300) return;
+            if (EventSystem.current.IsPointerOverGameObject()) return;
+            BuildManager.Instance.SetPreviewPosition(tilePosition);
         }
 
         private void OnDrawGizmos()
@@ -121,7 +131,7 @@ namespace Manager
 
             Gizmos.color = Color.green;
             var worldPos = new Vector3(selectedTilePosition.x, 0, selectedTilePosition.z);
-            Gizmos.DrawWireCube(worldPos + grid.cellSize/2, grid.cellSize); // 绘制一个简单的立方体
+            Gizmos.DrawWireCube(worldPos, grid.cellSize); // 绘制一个简单的立方体
         }
 
         // 获取选中的 Tile 位置
@@ -135,5 +145,6 @@ namespace Manager
             get => groundPlane;
             set => groundPlane = value;
         }
+        
     }
 }

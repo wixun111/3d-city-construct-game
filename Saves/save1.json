@@ -17,10 +17,10 @@
       "economy": 30000,
       "width": 100,
       "length": 100,
-      "cityLevel": 1,
+      "cityLevel": 0,
       "buildingsData": [
         {
-          "uuid": "c7a5267e-332c-43d9-b63d-a73b01fd6c1b",
+          "uuid": "5b1be56c-6e71-4d4e-900b-56af50c0ca94",
           "buildingName": "road",
           "buildingId": 1,
           "level": 1,
@@ -31,10 +31,15 @@
             "z": 27,
             "magnitude": 41.8688431,
             "sqrMagnitude": 1753
-          }
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
         },
         {
-          "uuid": "f72bc554-c726-408a-9831-fa35af398387",
+          "uuid": "de565491-9c1f-4740-8ada-c8096bd27dda",
           "buildingName": "road",
           "buildingId": 1,
           "level": 1,
@@ -45,10 +50,15 @@
             "z": 28,
             "magnitude": 42.5205841,
             "sqrMagnitude": 1808
-          }
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
         },
         {
-          "uuid": "d63e79c5-5c9c-47bd-a3db-4901b5ee031d",
+          "uuid": "0277dbda-8621-41cc-8c75-0413e639a2be",
           "buildingName": "road",
           "buildingId": 1,
           "level": 1,
@@ -59,10 +69,15 @@
             "z": 27,
             "magnitude": 42.6380119,
             "sqrMagnitude": 1818
-          }
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
         },
         {
-          "uuid": "583ebb93-e59c-4f35-a94c-22e7246a843d",
+          "uuid": "51285fd8-e39d-4dd5-b8a9-15849cc82fb3",
           "buildingName": "road",
           "buildingId": 1,
           "level": 1,
@@ -73,10 +88,15 @@
             "z": 25,
             "magnitude": 42.2018967,
             "sqrMagnitude": 1781
-          }
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
         },
         {
-          "uuid": "19c496a0-96d6-4ff2-bd55-7feedd2740fa",
+          "uuid": "8d9541fb-606d-43d2-ae02-63a1aa7e38b1",
           "buildingName": "road",
           "buildingId": 1,
           "level": 1,
@@ -87,10 +107,15 @@
             "z": 26,
             "magnitude": 42.80187,
             "sqrMagnitude": 1832
-          }
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
         },
         {
-          "uuid": "b50aa4b7-1d48-4044-9a86-436f4b2a60bb",
+          "uuid": "e16f3c7e-7e1a-4a9c-9aa4-4e30e4122be2",
           "buildingName": "road",
           "buildingId": 1,
           "level": 1,
@@ -101,10 +126,15 @@
             "z": 27,
             "magnitude": 43.4165878,
             "sqrMagnitude": 1885
-          }
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
         },
         {
-          "uuid": "2af6a275-eaa3-4ca6-9cf0-1217b330c1f9",
+          "uuid": "4475b2bf-a5cf-417b-b55c-3dc173ae8988",
           "buildingName": "road",
           "buildingId": 1,
           "level": 1,
@@ -115,10 +145,15 @@
             "z": 28,
             "magnitude": 44.04543,
             "sqrMagnitude": 1940
-          }
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
         },
         {
-          "uuid": "faf169ea-e23e-4c1d-8842-8a10c65e6879",
+          "uuid": "cc2740fe-ecfa-4585-9051-a7d659651470",
           "buildingName": "road",
           "buildingId": 1,
           "level": 1,
@@ -129,10 +164,15 @@
             "z": 29,
             "magnitude": 44.6878052,
             "sqrMagnitude": 1997
-          }
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
         },
         {
-          "uuid": "f6477d2e-b6c8-4b43-b146-2aa7cc82ae09",
+          "uuid": "3a8432d7-8acf-4525-a728-e6499184116e",
           "buildingName": "road",
           "buildingId": 1,
           "level": 1,
@@ -143,10 +183,15 @@
             "z": 25,
             "magnitude": 43.0116272,
             "sqrMagnitude": 1850
-          }
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
         },
         {
-          "uuid": "473a63bf-147e-41c6-9617-7e8909fa79f9",
+          "uuid": "83c20f6a-152a-431f-9d91-5a2dfb047235",
           "buildingName": "road",
           "buildingId": 1,
           "level": 1,
@@ -157,10 +202,15 @@
             "z": 29,
             "magnitude": 45.4532738,
             "sqrMagnitude": 2066
-          }
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
         },
         {
-          "uuid": "0b991cda-01f2-494f-8ae1-07eb17386fc2",
+          "uuid": "b9ad56a4-2ac7-44d9-8f5d-178df8248288",
           "buildingName": "road",
           "buildingId": 1,
           "level": 1,
@@ -171,10 +221,15 @@
             "z": 25,
             "magnitude": 43.8292122,
             "sqrMagnitude": 1921
-          }
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
         },
         {
-          "uuid": "4510d579-0522-471c-8d56-1940d3ae6186",
+          "uuid": "d69b6748-fd92-4b07-96b9-e5a353217cf9",
           "buildingName": "road",
           "buildingId": 1,
           "level": 1,
@@ -185,10 +240,15 @@
             "z": 29,
             "magnitude": 46.2276955,
             "sqrMagnitude": 2137
-          }
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
         },
         {
-          "uuid": "96a9230a-15f6-401d-86b6-c403d2e06c27",
+          "uuid": "146979d2-1e9f-4ce8-9872-430776621b09",
           "buildingName": "road",
           "buildingId": 1,
           "level": 1,
@@ -199,10 +259,15 @@
             "z": 24,
             "magnitude": 44.1021538,
             "sqrMagnitude": 1945
-          }
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
         },
         {
-          "uuid": "35b57283-325d-4be6-82b3-a8d0e026d0cd",
+          "uuid": "fd46ef08-5a19-4fdc-b2fe-fb8a4f6ecb7a",
           "buildingName": "road",
           "buildingId": 1,
           "level": 1,
@@ -213,10 +278,15 @@
             "z": 25,
             "magnitude": 44.65423,
             "sqrMagnitude": 1994
-          }
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
         },
         {
-          "uuid": "1fa66952-049e-4788-b6d5-b24c426dbe4e",
+          "uuid": "ee12b40a-91bf-4ad4-a54c-de03e83e4315",
           "buildingName": "road",
           "buildingId": 1,
           "level": 1,
@@ -227,10 +297,15 @@
             "z": 26,
             "magnitude": 45.2216759,
             "sqrMagnitude": 2045
-          }
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
         },
         {
-          "uuid": "a9cb120e-0bb4-4520-aa7f-b2b3e5d5efae",
+          "uuid": "38cdcbef-e077-4064-9f70-16d8b984d0ce",
           "buildingName": "road",
           "buildingId": 1,
           "level": 1,
@@ -241,10 +316,15 @@
             "z": 29,
             "magnitude": 47.0106354,
             "sqrMagnitude": 2210
-          }
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
         },
         {
-          "uuid": "19854de7-beff-4359-8c68-9fd42438c556",
+          "uuid": "aa08254e-bc6e-43b8-baf2-7c96a28950da",
           "buildingName": "road",
           "buildingId": 1,
           "level": 1,
@@ -255,10 +335,15 @@
             "z": 25,
             "magnitude": 45.4862633,
             "sqrMagnitude": 2069
-          }
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
         },
         {
-          "uuid": "e3952805-31bc-4df9-9d5a-db892abac068",
+          "uuid": "2382eaf7-65fb-4b0d-8902-19913900a451",
           "buildingName": "road",
           "buildingId": 1,
           "level": 1,
@@ -269,10 +354,15 @@
             "z": 27,
             "magnitude": 46.615448,
             "sqrMagnitude": 2173
-          }
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
         },
         {
-          "uuid": "34f7de44-17a3-4d7e-89db-ac4df115dc97",
+          "uuid": "d964d1c6-15ba-4b55-bbe9-8ccef3e469e4",
           "buildingName": "road",
           "buildingId": 1,
           "level": 1,
@@ -283,10 +373,15 @@
             "z": 28,
             "magnitude": 47.2016945,
             "sqrMagnitude": 2228
-          }
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
         },
         {
-          "uuid": "a03bcad6-5971-4200-9256-3dfd6e57d190",
+          "uuid": "a0026d24-dd4a-492c-bf75-ef73539123d4",
           "buildingName": "road",
           "buildingId": 1,
           "level": 1,
@@ -297,10 +392,15 @@
             "z": 29,
             "magnitude": 47.8016739,
             "sqrMagnitude": 2285
-          }
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
         },
         {
-          "uuid": "37d5bc13-9d45-4aaa-830b-87d9308e1c47",
+          "uuid": "ece438bf-d336-4f11-8cd3-5bd3088dc89c",
           "buildingName": "road",
           "buildingId": 1,
           "level": 1,
@@ -311,10 +411,15 @@
             "z": 27,
             "magnitude": 47.434166,
             "sqrMagnitude": 2250
-          }
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
         },
         {
-          "uuid": "2142c978-5e6c-4e39-868f-5b93a0c9fd2e",
+          "uuid": "42552f86-7e36-492e-846e-0bc3a594ab49",
           "buildingName": "road",
           "buildingId": 1,
           "level": 1,
@@ -325,7 +430,12 @@
             "z": 28,
             "magnitude": 48.0104141,
             "sqrMagnitude": 2305
-          }
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
         }
       ]
     },
@@ -343,7 +453,7 @@
       "economy": 30000,
       "width": 100,
       "length": 100,
-      "cityLevel": 1,
+      "cityLevel": 0,
       "buildingsData": []
     },
     {
@@ -360,7 +470,7 @@
       "economy": 30000,
       "width": 100,
       "length": 100,
-      "cityLevel": 1,
+      "cityLevel": 0,
       "buildingsData": []
     },
     {
@@ -377,7 +487,7 @@
       "economy": 30000,
       "width": 100,
       "length": 100,
-      "cityLevel": 1,
+      "cityLevel": 0,
       "buildingsData": []
     },
     {
@@ -394,7 +504,7 @@
       "economy": 30000,
       "width": 100,
       "length": 100,
-      "cityLevel": 1,
+      "cityLevel": 0,
       "buildingsData": []
     },
     {
@@ -411,7 +521,7 @@
       "economy": 30000,
       "width": 100,
       "length": 100,
-      "cityLevel": 1,
+      "cityLevel": 0,
       "buildingsData": []
     },
     {
@@ -428,11 +538,11 @@
       "economy": 30000,
       "width": 100,
       "length": 100,
-      "cityLevel": 1,
+      "cityLevel": 0,
       "buildingsData": []
     }
   ],
   "playerName": null,
-  "currentTime": 13.3337593,
+  "currentTime": 13.8226929,
   "timeScale": 1.0
 }

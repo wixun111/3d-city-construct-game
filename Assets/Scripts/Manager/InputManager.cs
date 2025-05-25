@@ -15,18 +15,30 @@ namespace Manager
             {
                 ToggleMenu();
             }
-            // 未来可以扩展更多键盘输入
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                BuildManager.Instance.RotatingBuilding();
+            }
+
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                BuildManager.Instance.ChangeBuildingStyle();
+            }
         }
 
         private void HandleMouseInput()
         {
             if (Input.GetMouseButtonDown(0))
             {
-                GameManager.Instance.HandleClick();
+                GameManager.Instance.HandleMouseClick();
+            }
+
+            if (BuildManager.Instance.IsBuildMode())
+            {   
+                GameManager.Instance.HandleMouseMove();
             }
             // 未来可以扩展鼠标右键等输入
         }
-
         private void ToggleMenu()
         {
             var isActive = UIManager.Instance.GetGameMenuActive();

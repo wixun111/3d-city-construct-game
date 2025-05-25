@@ -9,7 +9,8 @@ namespace Entity.Buildings
 {
     public class Building : MonoBehaviour
     {
-        [SerializeField] private string uuid;
+        //基本属性
+        [SerializeField] private string uuid; 
         [SerializeField] protected string buildingName;
         [SerializeField] protected int buildingId;
         protected Dictionary<string,int> cost; 
@@ -18,13 +19,20 @@ namespace Entity.Buildings
         [SerializeField] protected float maxHealth;
         [SerializeField] protected float currentHealth;
         [SerializeField] protected Vector3Int position;
-        [SerializeField] protected bool isProductive;
-        [SerializeField] protected List<string> produceResourceType;
-        [SerializeField] protected float productionRate; // 每次生产的资源数量
-        [SerializeField] protected bool buildable; // 每次生产的资源数量
+        [SerializeField] protected Quaternion rotation;
+        [SerializeField] protected bool buildable;             
         [SerializeField] private int[] size;
         [SerializeField] private int existLimit;
-        
+        //建筑属性
+        [SerializeField] protected bool isProductive;
+        [SerializeField] protected List<string> produceResourceType;
+        [SerializeField] protected float productionRate;        // 每次生产的资源数量
+        [SerializeField] protected float maintenanceCost;       // 每回合/时间单位维护消耗资源
+        [SerializeField] protected float upkeepPower;           // 需要消耗的电力
+        [SerializeField] protected float upkeepWater;           // 需要消耗的水
+        [SerializeField] protected float pollution;             // 该建筑造成的污染值
+        [SerializeField] protected bool needsRoadAccess;
+
         private void Awake()
         {
             if (string.IsNullOrEmpty(uuid)) // 只在第一次初始化时生成
@@ -39,6 +47,7 @@ namespace Entity.Buildings
             level = buildingData.Level;
             currentHealth = buildingData.CurrentHealth;
             position = buildingData.Position;
+            rotation = Quaternion.Euler(buildingData.Rotation[0], buildingData.Rotation[1], buildingData.Rotation[2]);
             LoadData(BuildingLoader.Instance.GetBuildingData(buildingId));
         }
 
@@ -68,6 +77,7 @@ namespace Entity.Buildings
             }
             level = 1;
             position = pos;
+            rotation = gameObject.transform.rotation;
         }
 
         public void LoadData(Dictionary<string, object> data)
@@ -140,6 +150,11 @@ namespace Entity.Buildings
             set => position = value;
         }
 
+        public Quaternion Rotation
+        {
+            get => rotation;
+            set => rotation = value;
+        }
         public float CurrentHealth
         {
             get => currentHealth;

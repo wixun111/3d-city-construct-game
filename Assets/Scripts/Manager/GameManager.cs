@@ -26,10 +26,10 @@ namespace Manager
             CityManager.Instance.CreateCity();
             PlaneManager.Instance.GenerateCity();
             WeatherManager.Instance.Init();
-            TrafficManager.Instance.InitRoad();
+            TrafficManager.Instance.Init();
             UIManager.Instance.ShowTimeControlPanel();
         }
-        public void HandleClick()
+        public void HandleMouseClick()
         {
             if (!UIManager.Instance.IsUIOn())
             {
@@ -39,6 +39,11 @@ namespace Manager
             {
                 UIManager.Instance.HandleClick();
             }
+        }
+
+        public void HandleMouseMove()
+        {
+            PlaneManager.Instance.HandleMove();
         }
     }
 }

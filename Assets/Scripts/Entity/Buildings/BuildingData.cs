@@ -13,6 +13,7 @@ namespace Entity.Buildings
         [SerializeField][JsonProperty] protected int level;
         [SerializeField][JsonProperty] protected float currentHealth;
         [SerializeField][JsonProperty] protected Vector3Int position;
+        [SerializeField][JsonProperty] protected float[] rotation;
         public BuildingData(){}
         public BuildingData(Building building)
         {
@@ -22,6 +23,11 @@ namespace Entity.Buildings
             level = building.Level;
             currentHealth = building.CurrentHealth;
             position = building.Position;
+            rotation = new[] {
+                building.Rotation.eulerAngles.x,
+                building.Rotation.eulerAngles.y,
+                building.Rotation.eulerAngles.z
+            };
         }
         public string Uuid
         {
@@ -49,6 +55,11 @@ namespace Entity.Buildings
             set => position = value;
         }
 
+        public float[] Rotation
+        {
+            get => rotation;
+            set => rotation = value;
+        }
         public float CurrentHealth
         {
             get => currentHealth;

@@ -43,8 +43,6 @@ namespace Controller
             Debug.Log("ShowRoadPanel called");
             roadButton.gameObject.SetActive(false);
             exitRoadButton.gameObject.SetActive(true);
-            
-            BuildManager.Instance.StartRoadMode();
         }
 
         // 隐藏道路建造面板
@@ -53,8 +51,6 @@ namespace Controller
             Debug.Log("HideRoadPanel called");
             roadButton.gameObject.SetActive(true);
             exitRoadButton.gameObject.SetActive(false);
-            
-            BuildManager.Instance.ExitRoadMode();
         }
 
         // 当其他建造模式激活时，确保退出道路建造模式

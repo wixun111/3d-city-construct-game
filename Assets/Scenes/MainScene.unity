@@ -96,7 +96,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 7c79679e81ddcc040857969d70f33b1a, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: 4fb054fdfe7241b42b4380cbfbe6454e, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -393,7 +393,9 @@ MonoBehaviour:
   threeWay: {fileID: 2384947387477557946, guid: 2524a8437a2d4394da7f7a0546a71f3d, type: 3}
   fourWay: {fileID: 3351635067702010651, guid: f4402828bce58b54791119f89fa2df61, type: 3}
   selectedBuildingId: 0
-  isRoadMode: 0
+  styleIndex: 0
+  buildingStyleCount: 0
+  currentRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!114 &18644032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -523,8 +525,9 @@ MonoBehaviour:
   - {fileID: 3459943297488821090, guid: 382530f7edc04c84caa254da3645369f, type: 3}
   - {fileID: 7290462172319653990, guid: d7b32c2525065f14ebd1b933360a9fbf, type: 3}
   - {fileID: 9098241587463343295, guid: debe4d5ec12f3514aa5f9389b9800cbb, type: 3}
-  maxCarCount: 50
-  spawnInterval: 1
+  cars: []
+  maxCarCount: 100
+  spawnInterval: 0.2
   currentCarCount: 0
 --- !u!1 &29418259
 GameObject:
@@ -1771,10 +1774,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 29418260}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0000076293945, y: -0.0003222043}
-  m_SizeDelta: {x: 0, y: 300}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -960, y: 9.999678}
+  m_SizeDelta: {x: 1920, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &346242424
 GameObject:
@@ -2320,6 +2323,28 @@ RectTransform:
   m_AnchoredPosition: {x: -662.7, y: 430.6}
   m_SizeDelta: {x: 320, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!64 &454579037
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 460881405}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 465807bd42797a647be4b85039bded4b, type: 3}
 --- !u!1 &454752803
 GameObject:
   m_ObjectHideFlags: 0
@@ -2435,6 +2460,90 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!33 &457941501
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 460881405}
+  m_Mesh: {fileID: 4300000, guid: 465807bd42797a647be4b85039bded4b, type: 3}
+--- !u!23 &458941245
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 460881405}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: d236dfe7d2e277a499d8d1dcb5a16ab8, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &460881405
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 461365725}
+  - component: {fileID: 457941501}
+  - component: {fileID: 458941245}
+  - component: {fileID: 454579037}
+  m_Layer: 0
+  m_Name: Building 05
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &461365725
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 460881405}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -72.4731, y: 5.1298757, z: 25.668072}
+  m_LocalScale: {x: 3.5590746, y: 3.5590746, z: 3.5590746}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &501247924
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4860,7 +4969,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &1119389258
 Light:
   m_ObjectHideFlags: 0
@@ -5387,7 +5496,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -150.00008}
+  m_AnchoredPosition: {x: 0, y: -150.00006}
   m_SizeDelta: {x: 1920, y: 300}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1187652222
@@ -6072,7 +6181,7 @@ MonoBehaviour:
   m_Content: {fileID: 1187652220}
   m_Horizontal: 1
   m_Vertical: 1
-  m_MovementType: 0
+  m_MovementType: 1
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
@@ -8180,7 +8289,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &1708870084
 Light:
   m_ObjectHideFlags: 0
@@ -9852,3 +9961,4 @@ SceneRoots:
   - {fileID: 114943575}
   - {fileID: 275981947}
   - {fileID: 1653319853}
+  - {fileID: 461365725}

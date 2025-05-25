@@ -49,10 +49,14 @@ namespace Manager
             if (normalizedTime < 0.5f | normalizedTime>0.8f) // 白天
             {
                 RenderSettings.skybox = daySkybox;
+                sunLight.enabled = true;
+                moonLight.enabled = false;
             }
             else // 夜晚
             {
                 RenderSettings.skybox = nightSkybox;
+                sunLight.enabled = false;
+                moonLight.enabled = true;
             };
         }
     }
