@@ -9,6 +9,7 @@ namespace UI
         [SerializeField] private Button startButton; 
         [SerializeField] private Button loadButton; 
         [SerializeField] private Button quitButton;
+        [SerializeField] private GameObject ChatUI;
 
         private void Start()
         {
@@ -21,6 +22,7 @@ namespace UI
         public void StartGame()
         {
             gameObject.SetActive(false);
+            ChatUI.SetActive(true); // 显示聊天界面
             GameManager.Instance.StartGame();
         }
         public void LoadGame()
