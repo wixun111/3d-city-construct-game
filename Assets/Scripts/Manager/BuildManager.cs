@@ -5,6 +5,7 @@ using Controller;
 using Loader;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using Entity.Buildings;
 
 namespace Manager
 {
@@ -60,13 +61,47 @@ namespace Manager
 
         public GameObject SetBuilding(Vector3 position,Quaternion rotation,string buildingName)
         {
-            
-            return InstantiatePrefab(position,rotation,buildingName);
+            var buildingObject = InstantiatePrefab(position,rotation,buildingName);
+            if (buildingObject != null)
+            {
+                var building = buildingObject.GetComponent<Entity.Buildings.Building>();
+                if (building == null)
+                {
+                    building = buildingObject.AddComponent<Entity.Buildings.Building>();
+                }
+            }
+            return buildingObject;
         }
         public GameObject SetBuilding(Vector3 position,Quaternion rotation,int buildingId)
         {
-            var buildingName = buildingData[buildingId]["buildingName"].ToString();
-            return InstantiatePrefab(position,rotation,buildingName);
+            if (buildingId != -1 && buildingData.ContainsKey(buildingId))
+            {
+                var buildingName = buildingData[buildingId]["buildingName"].ToString();
+                var buildingObject = InstantiatePrefab(position,rotation,buildingName);
+                if (buildingObject != null)
+                {
+                    var building = buildingObject.GetComponent<Entity.Buildings.Building>();
+                    if (building == null)
+                    {
+                        building = buildingObject.AddComponent<Entity.Buildings.Building>();
+                    }
+                }
+                return buildingObject;
+            }
+            else
+            {
+                // 使用默认建筑
+                var buildingObject = InstantiatePrefab(position, rotation, "default");
+                if (buildingObject != null)
+                {
+                    var building = buildingObject.GetComponent<Entity.Buildings.Building>();
+                    if (building == null)
+                    {
+                        building = buildingObject.AddComponent<Entity.Buildings.Building>();
+                    }
+                }
+                return buildingObject;
+            }
         }
 
         private GameObject InstantiatePrefab(Vector3 position, Quaternion rotation, string buildingName) {
@@ -81,6 +116,31 @@ namespace Manager
             }
             var newBuilding = Instantiate(buildingPrefab, position, rotation);
             newBuilding.transform.SetParent(CityManager.Instance.CurrentCity.gameObject.transform);
+            
+            // 检查是否已经有 Building 组件
+            var building = newBuilding.GetComponent<Entity.Buildings.Building>();
+            if (building == null)
+            {
+                building = newBuilding.AddComponent<Entity.Buildings.Building>();
+            }
+            
+            // 初始化建筑数据
+            if (selectedBuildingId != -1 && buildingData.ContainsKey(selectedBuildingId)) {
+                building.InitData(buildingData[selectedBuildingId], new Vector3Int(Mathf.RoundToInt(position.x), Mathf.RoundToInt(position.y), Mathf.RoundToInt(position.z)));
+            } else {
+                // 使用默认数据初始化
+                var defaultData = new Dictionary<string, object> {
+                    { "buildingName", buildingName },
+                    { "buildingId", -1 },
+                    { "level", 1 },
+                    { "maxHealth", 100f },
+                    { "currentHealth", 100f },
+                    { "buildable", true },
+                    { "size", new int[] { 1, 1 } }
+                };
+                building.InitData(defaultData, new Vector3Int(Mathf.RoundToInt(position.x), Mathf.RoundToInt(position.y), Mathf.RoundToInt(position.z)));
+            }
+            
             return newBuilding;
         }
 
