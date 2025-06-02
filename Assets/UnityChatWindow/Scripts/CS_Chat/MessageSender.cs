@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 using Manager;
 using Loader;
 using Entity;
+using Entity.Buildings;
 
 public class MessageSender : MonoBehaviour
 {
@@ -182,6 +183,33 @@ public class MessageSender : MonoBehaviour
         var buildingObject = BuildManager.Instance.SetBuilding(position, Quaternion.identity, buildingId);
         if (buildingObject != null)
         {
+            // 添加Building组件并初始化数据
+            var building = buildingObject.AddComponent<Building>();
+            
+            // 确保建筑数据包含所有必要字段
+            if (!buildingData.ContainsKey("buildingId"))
+                buildingData["buildingId"] = buildingId;
+            if (!buildingData.ContainsKey("buildingName"))
+                buildingData["buildingName"] = buildingName;
+            if (!buildingData.ContainsKey("level"))
+                buildingData["level"] = 1;
+            if (!buildingData.ContainsKey("maxHealth"))
+                buildingData["maxHealth"] = 200f;
+            if (!buildingData.ContainsKey("currentHealth"))
+                buildingData["currentHealth"] = 200f;
+            if (!buildingData.ContainsKey("buildable"))
+                buildingData["buildable"] = true;
+            if (!buildingData.ContainsKey("size"))
+                buildingData["size"] = new int[] { 1, 1 };
+            
+            building.InitData(buildingData, position);
+            
+            // 将建筑添加到城市系统中
+            CityManager.Instance.CurrentCity.AddBuilding(building, position);
+            
+            // 保存游戏状态
+            SaveManager.Instance.SaveGame(1, "save1"); // 保存到第一个存档
+            
             CreateSystemMessage($"Successfully built {buildingName} at {position}.");
         }
         else

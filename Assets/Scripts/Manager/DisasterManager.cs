@@ -1,0 +1,153 @@
+using UnityEngine;
+using System.Collections.Generic;
+using System;
+
+public class DisasterManager : Singleton<DisasterManager>
+{
+    [Serializable]
+    public class DisasterConfig
+    {
+        public string disasterName;
+        public float minInterval = 300f;
+        public float maxInterval = 900f;
+        public float warningTime = 30f;
+        public float duration = 60f;
+        public float damageRadius = 50f;
+        public float damageIntensity = 0.5f;
+    }
+
+    [SerializeField] private List<DisasterConfig> disasterConfigs = new List<DisasterConfig>
+    {
+        new DisasterConfig
+        {
+            disasterName = "Earthquake",
+            minInterval = 300f,
+            maxInterval = 900f,
+            warningTime = 30f,
+            duration = 60f,
+            damageRadius = 50f,
+            damageIntensity = 0.5f
+        }
+    };
+    private Dictionary<string, DisasterConfig> disasterConfigDict;
+    private float nextDisasterTime;
+    private string currentDisaster;
+    private float disasterStartTime;
+    private bool isDisasterActive;
+    private float warningStartTime;
+
+    public event Action<string> OnDisasterWarning;
+    public event Action<string> OnDisasterStart;
+    public event Action<string> OnDisasterEnd;
+
+    private void Start()
+    {
+        InitializeDisasterConfigs();
+        TriggerRandomDisaster();
+    }
+
+    private void InitializeDisasterConfigs()
+    {
+        disasterConfigDict = new Dictionary<string, DisasterConfig>();
+        foreach (var config in disasterConfigs)
+        {
+            disasterConfigDict[config.disasterName] = config;
+        }
+    }
+
+    private void Update()
+    {
+        if (!isDisasterActive)
+        {
+            if (Time.time >= nextDisasterTime)
+            {
+                TriggerRandomDisaster();
+            }
+        }
+        else
+        {
+            if (Time.time >= disasterStartTime + GetCurrentDisasterConfig().duration)
+            {
+                EndCurrentDisaster();
+            }
+        }
+    }
+
+    private void TriggerRandomDisaster()
+    {
+        if (disasterConfigs.Count == 0) return;
+
+        int randomIndex = UnityEngine.Random.Range(0, disasterConfigs.Count);
+        currentDisaster = disasterConfigs[randomIndex].disasterName;
+        warningStartTime = Time.time;
+        isDisasterActive = true;
+
+        OnDisasterWarning?.Invoke(currentDisaster);
+        Invoke(nameof(StartDisaster), GetCurrentDisasterConfig().warningTime);
+    }
+
+    private void StartDisaster()
+    {
+        disasterStartTime = Time.time;
+        OnDisasterStart?.Invoke(currentDisaster);
+        ApplyDisasterEffects();
+    }
+
+    private void EndCurrentDisaster()
+    {
+        isDisasterActive = false;
+        OnDisasterEnd?.Invoke(currentDisaster);
+        currentDisaster = null;
+        ScheduleNextDisaster();
+    }
+
+    private void ScheduleNextDisaster()
+    {
+        if (disasterConfigs.Count == 0) return;
+
+        float minInterval = float.MaxValue;
+        foreach (var config in disasterConfigs)
+        {
+            minInterval = Mathf.Min(minInterval, config.minInterval);
+        }
+
+        nextDisasterTime = Time.time + minInterval;
+    }
+
+    private void ApplyDisasterEffects()
+    {
+        // 具体灾难效果由各个灾难类实现
+    }
+
+    private DisasterConfig GetCurrentDisasterConfig()
+    {
+        return disasterConfigDict[currentDisaster];
+    }
+
+    public bool IsDisasterActive()
+    {
+        return isDisasterActive;
+    }
+
+    public string GetCurrentDisaster()
+    {
+        return currentDisaster;
+    }
+
+    public float GetDisasterProgress()
+    {
+        if (!isDisasterActive) return 0f;
+        return (Time.time - disasterStartTime) / GetCurrentDisasterConfig().duration;
+    }
+
+    public float GetWarningProgress()
+    {
+        if (!isDisasterActive || Time.time >= disasterStartTime) return 1f;
+        return (Time.time - warningStartTime) / GetCurrentDisasterConfig().warningTime;
+    }
+
+    public DisasterConfig GetDisasterConfig(string disasterName)
+    {
+        return disasterConfigDict.TryGetValue(disasterName, out var config) ? config : null;
+    }
+} 

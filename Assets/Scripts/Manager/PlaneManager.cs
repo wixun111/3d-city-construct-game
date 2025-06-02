@@ -90,14 +90,10 @@ namespace Manager
 
         public void HandleClick()
         {
-            var ray = Camera.main.ScreenPointToRay(Input.mousePosition); // 生成射线
-            if (!Physics.Raycast(ray, out var hit)) return; // 进行射线检测
-
-            Debug.Log("点击到了物体: " + hit.collider.gameObject.name);
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (!Physics.Raycast(ray, out var hit)) return;
             var hitPosition = hit.point;
-            // 计算点击位置的平面坐标（可以转换为相应的 Tile 位置）
             var tilePosition = new Vector3Int(Mathf.RoundToInt(hitPosition.x), 0, Mathf.RoundToInt(hitPosition.z));
-            Debug.Log("点击 Tile 位置: " + tilePosition);
 
             // 判断是否点击到合适的物体
             if (BuildManager.Instance.IsBuildMode() && Input.mousePosition.y < 300) return;
@@ -109,6 +105,15 @@ namespace Manager
             if (hit.collider.gameObject.name != "PlaneBox")
             {
                 UIManager.Instance.ShowBuildingPanel();
+                var building = hit.collider.GetComponent<Building>();
+                if (building != null)
+                {
+                    var disasterUI = FindObjectOfType<DisasterUI>();
+                    if (disasterUI != null)
+                    {
+                        disasterUI.SelectBuilding(building);
+                    }
+                }
             }
             // 调用建筑管理器进行建造判断
             BuildManager.Instance.BuildJudge();

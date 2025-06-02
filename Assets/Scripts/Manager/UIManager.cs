@@ -21,8 +21,31 @@ namespace Manager
         [SerializeField] private GameObject weatherPanel;
         [SerializeField] private GameObject settingPanel;
         [SerializeField] private GameObject aiSettingPanel;
+        [SerializeField] private GameObject disasterImpactPanel;
         [SerializeField] private List<GameObject> displayUI;
 
+        private DisasterImpactPanel impactPanel;
+
+        private void Start()
+        {
+            if (disasterImpactPanel != null)
+            {
+                impactPanel = disasterImpactPanel.GetComponent<DisasterImpactPanel>();
+                if (impactPanel != null)
+                {
+                    disasterImpactPanel.SetActive(true);
+                    ShowDisasterImpactPanel();
+                }
+                else
+                {
+                    Debug.LogError("DisasterImpactPanel component not found on disasterImpactPanel GameObject");
+                }
+            }
+            else
+            {
+                Debug.LogError("disasterImpactPanel reference is missing in UIManager");
+            }
+        }
 
         public void UpdateBuildingPanel()
         {
@@ -189,6 +212,31 @@ namespace Manager
             return displayUI.Count != 0;
         }
 
+        public void UpdateDisasterImpact(float fireImpact, float earthquakeImpact)
+        {
+            if (impactPanel != null)
+            {
+                impactPanel.UpdateFireImpact(fireImpact);
+                impactPanel.UpdateEarthquakeImpact(earthquakeImpact);
+            }
+        }
 
+        public void ShowDisasterImpactPanel()
+        {
+            if (disasterImpactPanel != null)
+            {
+                displayUI.Add(disasterImpactPanel);
+                disasterImpactPanel.SetActive(true);
+            }
+        }
+
+        public void HideDisasterImpactPanel()
+        {
+            if (disasterImpactPanel != null)
+            {
+                displayUI.Remove(disasterImpactPanel);
+                disasterImpactPanel.SetActive(false);
+            }
+        }
     }
 }
