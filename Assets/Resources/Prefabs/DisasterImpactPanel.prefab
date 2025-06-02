@@ -274,8 +274,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u5730\u9707\u5F71\u54CD\u5EA6: 58.2%\n\u4F24\u5BB3\u7CFB\u6570: 0.58\n\u6700\u7EC8\u4F24\u5BB3:
-    582"
+  m_text: "\u5730\u9707\u5F71\u54CD\u5EA6: 57.2%\n\u4F24\u5BB3\u7CFB\u6570: 0.57\n\u6700\u7EC8\u4F24\u5BB3:
+    572"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8ff14fbf50116b040a7d34f68e055c84, type: 2}
   m_sharedMaterial: {fileID: 3331233108086629934, guid: 8ff14fbf50116b040a7d34f68e055c84, type: 2}
@@ -511,7 +511,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 0.58186567
+  m_FillAmount: 0.57226735
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0

@@ -5932,6 +5932,12 @@ MonoBehaviour:
     duration: 30
     damageRadius: 80000
     damageIntensity: 0.5
+  time: 0
+  nextDisasterTime: 0
+  currentDisaster: 
+  disasterStartTime: 0
+  isDisasterActive: 0
+  warningStartTime: 0
 --- !u!4 &1138385099
 Transform:
   m_ObjectHideFlags: 0
@@ -6782,6 +6788,7 @@ MonoBehaviour:
   volumeSlider: {fileID: 658428710}
   aiSettingButton: {fileID: 1468504309}
   confirmButton: {fileID: 1524952546}
+  languageDropdown: {fileID: 0}
 --- !u!1 &1253560431
 GameObject:
   m_ObjectHideFlags: 0
@@ -7600,11 +7607,13 @@ MonoBehaviour:
   buildPanel: {fileID: 4974695}
   toggleContainer: {fileID: 1187652220}
   buildingTogglePrefab: {fileID: 643278359996560497, guid: 29cba68a0349ef049ba2827a5cbb75de, type: 3}
+  categoryButtonContainer: {fileID: 0}
+  categoryButtonPrefab: {fileID: 0}
   toggleGroup: {fileID: 1187652222}
   buildingIds: 
-  scrollRect: {fileID: 1426279547}
   buildButton: {fileID: 1903701082}
   exitBuildButton: {fileID: 634532614}
+  buildingCategories: []
 --- !u!114 &1455933339
 MonoBehaviour:
   m_ObjectHideFlags: 0
