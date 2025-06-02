@@ -13,7 +13,7 @@ namespace Manager
         [SerializeField] private GameObject previewInstance;
         [SerializeField] private GameObject buildingPrefab;
         [SerializeField] private GameObject roadStraight, deadEnd, corner, threeWay, fourWay;
-        [SerializeField] private Dictionary<int, Dictionary<string, object>> buildingData = new Dictionary<int, Dictionary<string, object>>();
+        [SerializeField] private List<Dictionary<string, object>> buildingData = new List<Dictionary<string, object>>();
         [SerializeField] private int selectedBuildingId;
         [SerializeField] private int styleIndex;
         [SerializeField] private int buildingStyleCount;
@@ -47,8 +47,7 @@ namespace Manager
         public void Build()
         {
             // 获取建筑的数据
-            if (!buildingData.TryGetValue(selectedBuildingId, value: out var buildingInfo)) return;
-
+            var buildingInfo = buildingData[selectedBuildingId];
             var currentCity = CityManager.Instance.CurrentCity;
             var position = PlaneManager.Instance.GetTilePosition();
             Debug.Log(position);
@@ -65,6 +64,8 @@ namespace Manager
         }
         public GameObject SetBuilding(Vector3 position,Quaternion rotation,int buildingId)
         {
+            Debug.Log(buildingData.Count);
+            Debug.Log(buildingId);
             var buildingName = buildingData[buildingId]["buildingName"].ToString();
             return InstantiatePrefab(position,rotation,buildingName);
         }
@@ -119,7 +120,7 @@ namespace Manager
             var pos = PlaneManager.Instance.GetTilePosition();
             var city = CityManager.Instance.CurrentCity;
             var buildings = city.Buildings;
-            var directions = new Vector3Int[]
+            var directions = new[]
             {
                 new Vector3Int(1, 0, 0),   // 右
                 new Vector3Int(0, 0, 1),   // 上

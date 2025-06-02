@@ -77,6 +77,10 @@ namespace Entity
                 var pos = new Vector3Int(posData[0],0,posData[1]);
                 var rotData = JsonConvert.DeserializeObject<float[]>(buildingData["rotation"].ToString());
                 var rot = Quaternion.Euler(rotData[0], rotData[1], rotData[2]);
+                if (buildings[pos.x,pos.z])
+                {
+                    continue;
+                }
                 var buildingObject = BuildManager.Instance.SetBuilding(pos,rot, JsonConvert.DeserializeObject<int>(buildingData["buildingId"].ToString()));
                 var building = buildingObject.AddComponent<Building>();
                 building.InitData(BuildingLoader.Instance.BuildingsData[JsonConvert.DeserializeObject<int>(buildingData["buildingId"].ToString())],pos);

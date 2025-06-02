@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5998193868813697323}
   m_Layer: 0
-  m_Name: building 21
+  m_Name: supermaket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,16 +45,28 @@ PrefabInstance:
       value: Building 21
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 88d9e570a89dbe442843b634d654f1ae, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 88d9e570a89dbe442843b634d654f1ae, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 88d9e570a89dbe442843b634d654f1ae, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 88d9e570a89dbe442843b634d654f1ae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -49.69443
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 88d9e570a89dbe442843b634d654f1ae, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.3184824
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 88d9e570a89dbe442843b634d654f1ae, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 17.388163
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 88d9e570a89dbe442843b634d654f1ae, type: 3}
       propertyPath: m_LocalRotation.w

@@ -1,0 +1,16 @@
+﻿[
+  { "key": "build", "value": "建造" },
+  { "key": "exit", "value": "退出" },
+  { "key": "all", "value": "全部" },
+  { "key": "commercial", "value": "商业" },
+  { "key": "cultural", "value": "文化" },
+  { "key": "entertainment", "value": "娱乐" },
+  { "key": "government", "value": "政府" },
+  { "key": "education", "value": "教育" },
+  { "key": "industrial", "value": "工业" },
+  { "key": "medical", "value": "医疗" },
+  { "key": "residential", "value": "居住" },
+  { "key": "special", "value": "特殊" },
+  { "key": "terrain", "value": "地形" },
+  { "key": "transport", "value": "交通" }
+]

@@ -52,10 +52,10 @@ namespace Entity
             {
                 var targetYAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
                 var currentYAngle = transform.eulerAngles.y;
-                var yAngle = Mathf.LerpAngle(currentYAngle, targetYAngle, turnSpeed * Time.deltaTime);
+                var yAngle = Mathf.LerpAngle(currentYAngle, targetYAngle, turnSpeed * Time.deltaTime * TimeManager.Instance.TimeScale);
                 transform.rotation = Quaternion.Euler(-90f, yAngle, 0f);
             }
-            transform.position = Vector3.MoveTowards(transform.position, target + offset, moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, target + offset, moveSpeed * Time.deltaTime * TimeManager.Instance.TimeScale);
 
             if (!(Vector3.Distance(transform.position, target) < reachThreshold)) return;
             currentIndex++;

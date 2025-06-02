@@ -8,12 +8,13 @@ namespace Loader
 {
     public class BuildingLoader : Singleton<BuildingLoader>
     {
-        private Dictionary<int, Dictionary<string, object>> _buildingsData = new Dictionary<int, Dictionary<string, object>>();
+        private List<Dictionary<string, object>> _buildingsData = new List<Dictionary<string, object>>();
         private readonly Dictionary<int, Sprite> _buildingIcons = new Dictionary<int, Sprite>();
 
         public void Awake()
         {
             LoadBuildingData();
+            
         }
 
         private void LoadBuildingData()
@@ -21,7 +22,7 @@ namespace Loader
             var jsonFile = Resources.Load<TextAsset>("Json/Buildings");
             if (jsonFile != null)
             {
-                _buildingsData = JsonConvert.DeserializeObject<Dictionary<int, Dictionary<string, object>>>(jsonFile.text);
+                _buildingsData = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(jsonFile.text);
                 Debug.Log("Building data loaded successfully.");
                 LoadBuildingIcons(); // 加载图标
             }
@@ -32,7 +33,7 @@ namespace Loader
         }
         private void LoadBuildingIcons()
         {
-            foreach (var buildingId in _buildingsData.Keys)
+            foreach (var buildingId in Enumerable.Range(1, _buildingsData.Count).ToList())
             {
                 var iconPath = "Icons/" + (string)_buildingsData[buildingId]["buildingName"] + "Icon"; // 确保路径正确
                 
@@ -52,13 +53,13 @@ namespace Loader
         {
             return _buildingIcons.TryGetValue(buildingId, out var icon) ? icon : null;
         }
+        public string GetBuildingCategory(int buildingId)
+        {
+            return _buildingsData[buildingId]["classType"].ToString().Split(".")[1];
+        }
         public List<int> GetBuildingIds()
         {
-            return new List<int>(_buildingsData.Keys);
-        }
-        public List<string> GetBuildingNames()
-        {
-            return _buildingsData.Keys.Select(buildingId => _buildingsData[buildingId]["buildingName"].ToString()).ToList();
+            return Enumerable.Range(0, _buildingsData.Count-1).ToList();
         }
         public string GetBuildingName(int buildingId)
         {
@@ -66,13 +67,13 @@ namespace Loader
         }
         public Dictionary<string, object> GetBuildingData(int buildingId)
         {
-            return _buildingsData != null && _buildingsData.TryGetValue(buildingId, out var value) ? value : null;
+            return _buildingsData[buildingId];
         }
-        public Dictionary<int, Dictionary<string, object>> GetBuildingData()
+        public List<Dictionary<string, object>> GetBuildingData()
         {
             return _buildingsData;
         }
-        public Dictionary<int, Dictionary<string, object>> BuildingsData
+        public List<Dictionary<string, object>> BuildingsData
         {
             get => _buildingsData;
             set => _buildingsData = value;

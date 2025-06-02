@@ -28,7 +28,7 @@ namespace Manager
             foreach (var car in cars)
             {
                 Destroy(car);
-            }
+            }   
             InitRoad();
             currentCarCount = 0;
             timer = 0;
@@ -54,7 +54,7 @@ namespace Manager
         void Update()   
         {
             if (currentCarCount >= maxCarCount) return;
-            timer += Time.deltaTime;
+            timer += Time.deltaTime * TimeManager.Instance.CurrentTime;
             if (timer < spawnInterval) return;
             TrySpawnCar();
             timer = 0f;

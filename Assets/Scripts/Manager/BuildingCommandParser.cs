@@ -40,7 +40,7 @@ public class BuildingCommandParser : MonoBehaviour
     }
 
     // 建筑类型映射
-    private Dictionary<string, int> buildingTypeMap = new Dictionary<string, int>
+    private Dictionary<string, int> buildingTypeMap = new()
     {
         {"住宅", 1},
         {"商业", 2},

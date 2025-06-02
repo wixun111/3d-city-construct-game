@@ -29,10 +29,10 @@ namespace Manager
             var mesh = new Mesh();
             var vertices = new Vector3[4]
             {
-                new Vector3(0.5f, 0, 0.5f),
-                new Vector3(cityLength + 0.5f, 0, 0.5f),
-                new Vector3(cityLength + 0.5f, 0, cityWidth + 0.5f),
-                new Vector3(0.5f, 0, cityWidth + 0.5f)
+                new Vector3(-0.5f, 0, -0.5f),
+                new Vector3(cityLength - 0.5f, 0, -0.5f),
+                new Vector3(cityLength - 0.5f, 0, cityWidth - 0.5f),
+                new Vector3(-0.5f, 0, cityWidth - 0.5f)
             };
 
             var triangles = new int[6]
@@ -128,10 +128,18 @@ namespace Manager
         private void OnDrawGizmos()
         {
             if (!isTileSelected) return;
-
-            Gizmos.color = Color.green;
-            var worldPos = new Vector3(selectedTilePosition.x, 0, selectedTilePosition.z);
-            Gizmos.DrawWireCube(worldPos, grid.cellSize); // 绘制一个简单的立方体
+            Vector3 worldPos;
+            if (CityManager.Instance.CurrentCity.GetBuilding(selectedTilePosition)) {
+                Gizmos.color = Color.green;
+                var building = CityManager.Instance.CurrentCity.GetBuilding(selectedTilePosition);
+                worldPos = new Vector3(building.Position.x - building.Size[0]/2f + 0.5f, 0, building.Position.z - building.Size[1]/2f + 0.5f);
+                Gizmos.DrawWireCube(worldPos, new Vector3(grid.cellSize.x * building.Size[0], grid.cellSize.y, grid.cellSize.z * building.Size[1]));
+            }   
+            else {
+                Gizmos.color = Color.yellow;
+                worldPos = new Vector3(selectedTilePosition.x, 0, selectedTilePosition.z);
+                Gizmos.DrawWireCube(worldPos, grid.cellSize);
+            }
         }
 
         // 获取选中的 Tile 位置

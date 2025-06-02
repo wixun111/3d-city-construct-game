@@ -1,0 +1,16 @@
+﻿[
+  { "key": "build", "value": "Build" },
+  { "key": "exit", "value": "Exit" },
+  { "key": "all", "value": "All" },
+  { "key": "commercial", "value": "Commercial" },
+  { "key": "cultural", "value": "Cultural" },
+  { "key": "entertainment", "value": "Entertainment" },
+  { "key": "government", "value": "Government" },
+  { "key": "education", "value": "Education" },
+  { "key": "industrial", "value": "Industrial" },
+  { "key": "medical", "value": "Medical" },
+  { "key": "residential", "value": "Residential" },
+  { "key": "special", "value": "Special" },
+  { "key": "terrain", "value": "Terrain" },
+  { "key": "transport", "value": "Transport" }
+]

@@ -13,6 +13,7 @@ namespace Entity.Buildings
         [SerializeField] private string uuid; 
         [SerializeField] protected string buildingName;
         [SerializeField] protected int buildingId;
+        [SerializeField] protected string buildingType;
         protected Dictionary<string,int> cost; 
         [SerializeField] protected int level;
         [SerializeField] protected int maxLevel;
@@ -108,6 +109,7 @@ namespace Entity.Buildings
                     Debug.LogError($"Error converting field {field.Name}: {ex.Message}");
                 }
             }
+            buildingType = data["classType"].ToString().Split(".")[1];
         }
         public bool IsProductive
         {
@@ -184,6 +186,7 @@ namespace Entity.Buildings
         public virtual string GetBuildingInfo()
         {
             return $"建筑名: {buildingName}\n" +
+                   $"建筑类别: {buildingType}\n" +
                    $"等级: {level}\n" +
                    $"耐久值: {currentHealth}/{maxHealth}\n" +
                    $"位置: {position}\n";
@@ -192,5 +195,19 @@ namespace Entity.Buildings
             // $"生产类型: {string.Join(", ", produceResourceType)}\n" +
             // $"建筑消耗: {string.Join(", ", cost.Select(kvp => $"{kvp.Key}: {kvp.Value}"))}";
         }
+    }
+    public enum BuildingCategory
+    {
+        Residential,
+        Cultural,
+        Commercial,
+        Industrial,
+        Governmental,
+        Medical,
+        Natural,
+        Entertainment,
+        Transport,
+        Special,
+        Other
     }
 }
