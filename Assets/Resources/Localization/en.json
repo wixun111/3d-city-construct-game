@@ -38,5 +38,10 @@
   { "key": "seniorHighSchool", "value": "Senior High School" },
   { "key": "university", "value": "University" },
   { "key": "researchInstitution", "value": "Research Institution" },
-  { "key": "laboratory", "value": "Laboratory" }
+  { "key": "laboratory", "value": "Laboratory" },
+  { "key": "startGame", "value": "Start Game" },
+  { "key": "loadGame", "value": "Load Game" },
+  { "key": "quitGame", "value": "Quit Game" },
+  { "key": "language", "value": "Language" },
+  { "key": "volume", "value": "Volume" }
 ]

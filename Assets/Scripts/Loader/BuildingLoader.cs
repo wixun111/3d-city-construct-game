@@ -33,7 +33,7 @@ namespace Loader
         }
         private void LoadBuildingIcons()
         {
-            foreach (var buildingId in Enumerable.Range(1, _buildingsData.Count).ToList())
+            foreach (var buildingId in Enumerable.Range(0, _buildingsData.Count-1).ToList())
             {
                 var iconPath = "Icons/" + (string)_buildingsData[buildingId]["buildingName"] + "Icon"; // 确保路径正确
                 

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Loader;
 using Manager;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -76,7 +77,7 @@ namespace Controller
             button.onClick.AddListener(() =>
             {
                 currentCategory = category;
-                GenerateBuildingButtons(); // 根据分类刷新建筑按钮
+                GenerateBuildingButtons();
             });
         }
         // 生成建筑按钮
@@ -93,23 +94,21 @@ namespace Controller
             // 创建新按钮
             foreach (var buildingId in filteredIds)
             {
-                var toggleObj  = Instantiate(buildingTogglePrefab, toggleContainer);
+                var toggleObj = Instantiate(buildingTogglePrefab, toggleContainer);
+                toggleObj.name = BuildingLoader.Instance.GetBuildingName(buildingId);
+
+                var toggleScript = toggleObj.GetComponent<BuildingToggle>();
+                if (toggleScript == null) continue;
                 var buildingName = BuildingLoader.Instance.GetBuildingName(buildingId);
-                toggleObj.name = buildingName;
+                buildingIcons.TryGetValue(buildingId, out var icon);
 
-                var toggle = toggleObj.GetComponent<Toggle>();
-                toggle.group = toggleGroup;  // 让 Toggle 互斥
-                toggle.onValueChanged.AddListener((isSelected) => OnBuildingSelected(buildingId, isSelected));
-
-                
-                // 设置文本
-                var toggleText = toggleObj.GetComponentInChildren<Text>();
-                if (toggleText) toggleText.text = buildingName;
-
-                // 设置图标
-                var toggleImage = toggleObj.GetComponentInChildren<Image>();
-                if (toggleImage && buildingIcons.TryGetValue(buildingId, out var icon))
-                    toggleImage.sprite = icon;
+                toggleScript.Initialize(
+                    buildingId,
+                    buildingName,
+                    icon,
+                    toggleGroup,
+                    OnBuildingSelected
+                );
             }
             toggleContainer.sizeDelta = new Vector2(200 * buildingIds.Count, 300);
         }

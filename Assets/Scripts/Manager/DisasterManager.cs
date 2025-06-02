@@ -1,153 +1,155 @@
-using UnityEngine;
-using System.Collections.Generic;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
-public class DisasterManager : Singleton<DisasterManager>
+namespace Manager
 {
-    [Serializable]
-    public class DisasterConfig
+    public class DisasterManager : Singleton<DisasterManager>
     {
-        public string disasterName;
-        public float minInterval = 300f;
-        public float maxInterval = 900f;
-        public float warningTime = 30f;
-        public float duration = 60f;
-        public float damageRadius = 50f;
-        public float damageIntensity = 0.5f;
-    }
-
-    [SerializeField] private List<DisasterConfig> disasterConfigs = new List<DisasterConfig>
-    {
-        new DisasterConfig
+        [Serializable]
+        public class DisasterConfig
         {
-            disasterName = "Earthquake",
-            minInterval = 300f,
-            maxInterval = 900f,
-            warningTime = 30f,
-            duration = 60f,
-            damageRadius = 50f,
-            damageIntensity = 0.5f
+            public string disasterName;
+            public float minInterval = 300f;
+            public float maxInterval = 900f;
+            public float warningTime = 30f;
+            public float duration = 60f;
+            public float damageRadius = 50f;
+            public float damageIntensity = 0.5f;
         }
-    };
-    private Dictionary<string, DisasterConfig> disasterConfigDict;
-    private float nextDisasterTime;
-    private string currentDisaster;
-    private float disasterStartTime;
-    private bool isDisasterActive;
-    private float warningStartTime;
 
-    public event Action<string> OnDisasterWarning;
-    public event Action<string> OnDisasterStart;
-    public event Action<string> OnDisasterEnd;
-
-    private void Start()
-    {
-        InitializeDisasterConfigs();
-        TriggerRandomDisaster();
-    }
-
-    private void InitializeDisasterConfigs()
-    {
-        disasterConfigDict = new Dictionary<string, DisasterConfig>();
-        foreach (var config in disasterConfigs)
+        [SerializeField] private List<DisasterConfig> disasterConfigs = new List<DisasterConfig>
         {
-            disasterConfigDict[config.disasterName] = config;
-        }
-    }
-
-    private void Update()
-    {
-        if (!isDisasterActive)
-        {
-            if (Time.time >= nextDisasterTime)
+            new DisasterConfig
             {
-                TriggerRandomDisaster();
+                disasterName = "Earthquake",
+                minInterval = 300f,
+                maxInterval = 900f,
+                warningTime = 30f,
+                duration = 60f,
+                damageRadius = 50f,
+                damageIntensity = 0.5f
+            }
+        };
+        private Dictionary<string, DisasterConfig> disasterConfigDict;
+        [SerializeField] private float time;
+        [SerializeField] private float nextDisasterTime;
+        [SerializeField] private string currentDisaster;
+        [SerializeField] private float disasterStartTime;
+        [SerializeField] private bool isDisasterActive;
+        [SerializeField] private float warningStartTime;
+
+        public event Action<string> OnDisasterWarning;
+        public event Action<string> OnDisasterStart;
+        public event Action<string> OnDisasterEnd;
+
+        private void Start()
+        {
+            InitializeDisasterConfigs();
+            // TriggerRandomDisaster();
+        }
+
+        private void InitializeDisasterConfigs()
+        {
+            disasterConfigDict = new Dictionary<string, DisasterConfig>();
+            foreach (var config in disasterConfigs)
+            {
+                disasterConfigDict[config.disasterName] = config;
             }
         }
-        else
+
+        private void Update()
         {
-            if (Time.time >= disasterStartTime + GetCurrentDisasterConfig().duration)
+            time = TimeManager.Instance.CurrentTime;
+            if (!isDisasterActive)
             {
-                EndCurrentDisaster();
+                if (time >= nextDisasterTime)
+                {
+                    TriggerRandomDisaster();
+                }
+            }
+            else
+            {
+                if (time >= disasterStartTime + GetCurrentDisasterConfig().duration)
+                {
+                    EndCurrentDisaster();
+                }
             }
         }
-    }
 
-    private void TriggerRandomDisaster()
-    {
-        if (disasterConfigs.Count == 0) return;
-
-        int randomIndex = UnityEngine.Random.Range(0, disasterConfigs.Count);
-        currentDisaster = disasterConfigs[randomIndex].disasterName;
-        warningStartTime = Time.time;
-        isDisasterActive = true;
-
-        OnDisasterWarning?.Invoke(currentDisaster);
-        Invoke(nameof(StartDisaster), GetCurrentDisasterConfig().warningTime);
-    }
-
-    private void StartDisaster()
-    {
-        disasterStartTime = Time.time;
-        OnDisasterStart?.Invoke(currentDisaster);
-        ApplyDisasterEffects();
-    }
-
-    private void EndCurrentDisaster()
-    {
-        isDisasterActive = false;
-        OnDisasterEnd?.Invoke(currentDisaster);
-        currentDisaster = null;
-        ScheduleNextDisaster();
-    }
-
-    private void ScheduleNextDisaster()
-    {
-        if (disasterConfigs.Count == 0) return;
-
-        float minInterval = float.MaxValue;
-        foreach (var config in disasterConfigs)
+        private void TriggerRandomDisaster()
         {
-            minInterval = Mathf.Min(minInterval, config.minInterval);
+            if (disasterConfigs.Count == 0) return;
+
+            int randomIndex = UnityEngine.Random.Range(0, disasterConfigs.Count);
+            currentDisaster = disasterConfigs[randomIndex].disasterName;
+            warningStartTime = time;
+            isDisasterActive = true;
+
+            OnDisasterWarning?.Invoke(currentDisaster);
+            Invoke(nameof(StartDisaster), GetCurrentDisasterConfig().warningTime);
         }
 
-        nextDisasterTime = Time.time + minInterval;
-    }
+        private void StartDisaster()
+        {
+            disasterStartTime = time;
+            OnDisasterStart?.Invoke(currentDisaster);
+            ApplyDisasterEffects();
+        }
 
-    private void ApplyDisasterEffects()
-    {
-        // 具体灾难效果由各个灾难类实现
-    }
+        private void EndCurrentDisaster()
+        {
+            isDisasterActive = false;
+            OnDisasterEnd?.Invoke(currentDisaster);
+            currentDisaster = null;
+            ScheduleNextDisaster();
+        }
 
-    private DisasterConfig GetCurrentDisasterConfig()
-    {
-        return disasterConfigDict[currentDisaster];
-    }
+        private void ScheduleNextDisaster()
+        {
+            if (disasterConfigs.Count == 0) return;
 
-    public bool IsDisasterActive()
-    {
-        return isDisasterActive;
-    }
+            var minInterval = disasterConfigs.Aggregate(float.MaxValue, (current, config) => Mathf.Min(current, current));
 
-    public string GetCurrentDisaster()
-    {
-        return currentDisaster;
-    }
+            nextDisasterTime = time + minInterval;
+        }
 
-    public float GetDisasterProgress()
-    {
-        if (!isDisasterActive) return 0f;
-        return (Time.time - disasterStartTime) / GetCurrentDisasterConfig().duration;
-    }
+        private void ApplyDisasterEffects()
+        {
+            // 具体灾难效果由各个灾难类实现
+        }
 
-    public float GetWarningProgress()
-    {
-        if (!isDisasterActive || Time.time >= disasterStartTime) return 1f;
-        return (Time.time - warningStartTime) / GetCurrentDisasterConfig().warningTime;
-    }
+        private DisasterConfig GetCurrentDisasterConfig()
+        {
+            return disasterConfigDict[currentDisaster];
+        }
 
-    public DisasterConfig GetDisasterConfig(string disasterName)
-    {
-        return disasterConfigDict.TryGetValue(disasterName, out var config) ? config : null;
+        public bool IsDisasterActive()
+        {
+            return isDisasterActive;
+        }
+
+        public string GetCurrentDisaster()
+        {
+            return currentDisaster;
+        }
+
+        public float GetDisasterProgress()
+        {
+            if (!isDisasterActive) return 0f;
+            return (time - disasterStartTime) / GetCurrentDisasterConfig().duration;
+        }
+
+        public float GetWarningProgress()
+        {
+            if (!isDisasterActive || time >= disasterStartTime) return 1f;
+            return (time - warningStartTime) / GetCurrentDisasterConfig().warningTime;
+        }
+
+        public DisasterConfig GetDisasterConfig(string disasterName)
+        {
+            return disasterConfigDict.TryGetValue(disasterName, out var config) ? config : null;
+        }
     }
 } 

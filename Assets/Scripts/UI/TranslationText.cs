@@ -9,6 +9,7 @@ namespace UI
     public class TranslationText : MonoBehaviour
     {
         [SerializeField] private string translationKey;
+        private static List<TranslationText> all = new();
         private Text uiText;
         
 
@@ -16,12 +17,25 @@ namespace UI
         {
             uiText = GetComponent<Text>();
             translationKey = uiText.text;
+            all.Add(this);
         }
 
         private void Start()
         {
             ApplyTranslation();
         }
+        private void OnDestroy()
+        {
+            all.Remove(this);
+        }
+        public static void RefreshAll()
+        {
+            foreach (var t in all)
+            {
+                t.ApplyTranslation();
+            }
+        }
+
         public void ApplyTranslation()
         {
             if (string.IsNullOrEmpty(translationKey)) return;

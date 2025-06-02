@@ -19,9 +19,12 @@ namespace Entity
             controlMode = "Keyboard";
             aiControl = false;
         }
-        public Setting(float volume)
+        public Setting(string language,float volume)
         {
+            this.language = language;
             this.volume = volume;
+            this.controlMode = "Keyboard";
+            this.aiControl = false;
         }
         public Setting(Dictionary<string, object> settingData)
         {

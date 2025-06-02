@@ -96,9 +96,9 @@ namespace Manager
             }
         }
 
-        public void SaveSetting(float volumeSliderValue)
+        public void SaveSetting(string language,float volumeSliderValue)
         {
-            var data = new Setting(volumeSliderValue);
+            var data = new Setting(language,volumeSliderValue);
             var settings = new JsonSerializerSettings
             {
                 ContractResolver = new DefaultContractResolver

@@ -7,15 +7,11 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     {
         get
         {
-            if (_instance == null)
-            {
-                _instance = FindObjectOfType<T>();
-                if (_instance == null)
-                {
-                    GameObject singletonObject = new GameObject(typeof(T).Name);
-                    _instance = singletonObject.AddComponent<T>();
-                }
-            }
+            if (_instance) return _instance;
+            _instance = FindObjectOfType<T>();
+            if (_instance) return _instance;
+            var singletonObject = new GameObject(typeof(T).Name);
+            _instance = singletonObject.AddComponent<T>();
             return _instance;
         }
     }

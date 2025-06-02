@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Entity.Buildings;
+using Manager;
 
 public class DisasterUI : MonoBehaviour
 {
@@ -189,7 +190,7 @@ public class DisasterUI : MonoBehaviour
 
     public void UpdateBuildingHealth(Building building)
     {
-        if (building == null) return;
+        if (!building) return;
 
         // 更新建筑物信息
         buildingNameText.text = building.BuildingName;
@@ -197,7 +198,7 @@ public class DisasterUI : MonoBehaviour
         repairCostText.text = $"修复费用: {building.GetRepairCost():F0}";
 
         // 更新耐久度条
-        if (healthBar != null)
+        if (healthBar)
         {
             healthBar.fillAmount = building.CurrentHealth / building.MaxHealth;
         }

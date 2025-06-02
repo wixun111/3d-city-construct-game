@@ -361,7 +361,7 @@ public class MessageSender : MonoBehaviour
     }
 
     private void SaveChatHistory()
-    {
+    {   
         if (!Directory.Exists(SaveFolder)) Directory.CreateDirectory(SaveFolder);
         string json = JsonConvert.SerializeObject(chatHistory, Formatting.Indented);
         File.WriteAllText(SaveFilePath, json);

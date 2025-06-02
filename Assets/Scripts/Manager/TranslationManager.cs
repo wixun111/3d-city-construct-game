@@ -51,6 +51,19 @@ namespace Manager
         {
             return translations.TryGetValue(key, out string value) ? value : key;
         }
+        public void SetLanguage(string lang)
+        {
+            lang = lang switch
+            {
+                "English" => "en",
+                "Chinese" => "zh",
+                _ => lang
+            };
+            currentLanguage = lang;
+            LoadLanguage(lang);
+            TranslationText.RefreshAll();
+        }
+
 
         [System.Serializable]
         private class TranslationData

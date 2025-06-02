@@ -38,5 +38,10 @@
   { "key": "seniorHighSchool", "value": "高中" },
   { "key": "university", "value": "大学" },
   { "key": "researchInstitution", "value": "研究所" },
-  { "key": "laboratory", "value": "实验室" }
+  { "key": "laboratory", "value": "实验室" },
+  { "key": "startGame", "value": "开始游戏" },
+  { "key": "loadGame", "value": "读取游戏" },
+  { "key": "quitGame", "value": "退出游戏" },
+  { "key": "language", "value": "语言" },
+  { "key": "volume", "value": "音量" }
 ]

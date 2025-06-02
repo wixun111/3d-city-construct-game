@@ -22,7 +22,7 @@ namespace UI
         private void Start()
         {
             // 初始化面板
-            if (panel == null)
+            if (!panel)
             {
                 panel = gameObject;
             }
@@ -31,11 +31,11 @@ namespace UI
             SetupImpactBars();
 
             // 初始化文本
-            if (fireImpactText != null)
+            if (fireImpactText)
             {
                 fireImpactText.text = "火灾影响度: 0%";
             }
-            if (earthquakeImpactText != null)
+            if (earthquakeImpactText)
             {
                 earthquakeImpactText.text = "地震影响度: 0%";
             }
@@ -43,7 +43,7 @@ namespace UI
 
         private void SetupImpactBars()
         {
-            if (fireImpactBar != null)
+            if (fireImpactBar)
             {
                 fireImpactBar.type = Image.Type.Filled;
                 fireImpactBar.fillMethod = Image.FillMethod.Horizontal;
@@ -51,7 +51,7 @@ namespace UI
                 fireImpactBar.fillAmount = 0f;
             }
 
-            if (earthquakeImpactBar != null)
+            if (earthquakeImpactBar)
             {
                 earthquakeImpactBar.type = Image.Type.Filled;
                 earthquakeImpactBar.fillMethod = Image.FillMethod.Horizontal;
@@ -62,11 +62,11 @@ namespace UI
 
         public void UpdateFireImpact(float impact)
         {
-            if (fireImpactBar != null)
+            if (fireImpactBar)
             {
                 fireImpactBar.fillAmount = impact;
             }
-            if (fireImpactText != null)
+            if (fireImpactText)
             {
                 // 将影响度转换为百分比显示
                 float percentage = impact * 100f;
@@ -76,11 +76,11 @@ namespace UI
 
         public void UpdateEarthquakeImpact(float impact)
         {
-            if (earthquakeImpactBar != null)
+            if (earthquakeImpactBar)
             {
                 earthquakeImpactBar.fillAmount = impact;
             }
-            if (earthquakeImpactText != null)
+            if (earthquakeImpactText)
             {
                 // 将影响度转换为百分比显示
                 float percentage = impact * 100f;
