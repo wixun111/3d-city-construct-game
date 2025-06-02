@@ -54,7 +54,11 @@ namespace Entity
                 var pos = buildingData.Position;
                 var rot = Quaternion.Euler(buildingData.Rotation[0], buildingData.Rotation[1], buildingData.Rotation[2]);
                 var buildingObject = cityId == currentCityId ? BuildManager.Instance.SetBuilding(pos,rot,buildingData.BuildingName) : gameObject;
-                var building = buildingObject.AddComponent<Building>();
+                var building = buildingObject.GetComponent<Entity.Buildings.Building>();
+                if (building == null)
+                {
+                    building = buildingObject.AddComponent<Entity.Buildings.Building>();
+                }
                 building.Load(buildingData);
                 buildingList.Add(building);
                 AddBuilding(building,pos);
@@ -77,9 +81,28 @@ namespace Entity
                 var pos = new Vector3Int(posData[0],0,posData[1]);
                 var rotData = JsonConvert.DeserializeObject<float[]>(buildingData["rotation"].ToString());
                 var rot = Quaternion.Euler(rotData[0], rotData[1], rotData[2]);
-                var buildingObject = BuildManager.Instance.SetBuilding(pos,rot, JsonConvert.DeserializeObject<int>(buildingData["buildingId"].ToString()));
-                var building = buildingObject.AddComponent<Building>();
-                building.InitData(BuildingLoader.Instance.BuildingsData[JsonConvert.DeserializeObject<int>(buildingData["buildingId"].ToString())],pos);
+                var buildingId = JsonConvert.DeserializeObject<int>(buildingData["buildingId"].ToString());
+                var buildingObject = BuildManager.Instance.SetBuilding(pos,rot, buildingId);
+                var building = buildingObject.GetComponent<Entity.Buildings.Building>();
+                if (building == null)
+                {
+                    building = buildingObject.AddComponent<Entity.Buildings.Building>();
+                }
+                if (buildingId != -1 && BuildingLoader.Instance.BuildingsData.ContainsKey(buildingId)) {
+                    building.InitData(BuildingLoader.Instance.BuildingsData[buildingId], pos);
+                } else {
+                    // 使用默认数据初始化
+                    var defaultData = new Dictionary<string, object> {
+                        { "buildingName", buildingData.ContainsKey("buildingName") ? buildingData["buildingName"].ToString() : "Default Building" },
+                        { "buildingId", buildingId },
+                        { "level", 1 },
+                        { "maxHealth", 100f },
+                        { "currentHealth", 100f },
+                        { "buildable", true },
+                        { "size", new int[] { 1, 1 } }
+                    };
+                    building.InitData(defaultData, pos);
+                }
                 buildingList.Add(building);
                 AddBuilding(building,pos);
             }

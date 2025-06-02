@@ -10,6 +10,12 @@ namespace UI
         [SerializeField] private Text cityNameText; 
         [SerializeField] private Text infoText;      
         [SerializeField] private Button cityPanelButton;      
+
+        private void Awake()
+        {
+            enabled = true;  // 在 Awake 中启用组件
+        }
+
         private void Start()
         {
             cityPanelButton.onClick.AddListener(ShowCityPanel);
@@ -33,6 +39,16 @@ namespace UI
         }
         public void UpdateCityUI(City city)
         {
+            if (city == null)
+            {
+                Debug.LogError("City is null in UpdateCityUI");
+                return;
+            }
+            if (infoText == null)
+            {
+                Debug.LogError("infoText is null in CityUI");
+                return;
+            }
             infoText.text = $"人口: {city.Population}\n 经济: {city.Economy}";
             foreach (var resourceName in city.Resources.Keys)
             {
