@@ -1,8 +1,8 @@
 ﻿using Entity.Buildings;
 
-namespace Entity.Buildings.Government
+namespace Entity.Buildings.Governmental
 {
-    public class GovernmentBuilding:Building
+    public class GovernmentalBuilding:Building
     {
         
     }
