@@ -394,7 +394,7 @@
     "isProductive": false
   },
   {
-    "buildingId": 21,
+    "buildingId": 22,
     "buildingName": "university",
     "chineseName": "大学",
     "classType": "Buildings.Education.University",
@@ -411,7 +411,7 @@
     "isProductive": false
   },
   {
-    "buildingId": 21,
+    "buildingId": 23,
     "buildingName": "researchInstitution",
     "chineseName": "研究所",
     "classType": "Buildings.Education.ResearchInstitution",
@@ -428,7 +428,7 @@
     "isProductive": false
   },
   {
-    "buildingId": 21,
+    "buildingId": 24,
     "buildingName": "laboratory",
     "chineseName": "实验室",
     "classType": "Buildings.Education.Laboratory",
