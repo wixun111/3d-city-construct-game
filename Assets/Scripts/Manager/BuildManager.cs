@@ -96,6 +96,7 @@ namespace Manager
                 0 => Resources.Load<GameObject>("Prefabs/Buildings/" + buildingName),
                 _ => Resources.Load<GameObject>("Prefabs/Buildings/" + buildingName + style)
             };
+            print(buildingName);
             var newBuilding = Instantiate(buildingPrefab, position, rotation);
             newBuilding.transform.SetParent(CityManager.Instance.CurrentCity.gameObject.transform);
             return newBuilding;

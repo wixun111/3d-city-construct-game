@@ -7,6 +7,7 @@ using Loader;
 using Manager;
 using Newtonsoft.Json;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Entity
 {
@@ -272,6 +273,36 @@ namespace Entity
         {
             return Buildings[getTilePosition.x, getTilePosition.z].GetBuildingInfo();
         }
+
+        public void FireSpread(Vector3Int position)
+        {
+            var directions = new[]
+            {
+                new Vector3Int(-1, 0, 0),   // 左
+                new Vector3Int(1, 0, 0),    // 右
+                new Vector3Int(0, 0, -1),   // 下
+                new Vector3Int(0, 0, 1),    // 上
+                new Vector3Int(-1, 0, -1),  // 左下
+                new Vector3Int(-1, 0, 1),   // 左上
+                new Vector3Int(1, 0, -1),   // 右下
+                new Vector3Int(1, 0, 1),    // 右上
+            };
+            foreach (var direction in directions)
+            {
+                var pos = position + direction;
+                var building = Buildings[pos.x, pos.z];
+                if (!building) continue;
+                building.TakeDamage(3f);
+                var ratio = building.CurrentHealth / building.MaxHealth;
+                    
+                var fireChance = Mathf.Pow(1f - ratio, 1.5f); // 耐久低 → 概率高（非线性）
+                if (!building.IsOnFire && Random.value < fireChance)
+                {
+                    building.TriggerFire();
+                }
+            }
+        }
+
         public string CityName
         {
             get => cityName;

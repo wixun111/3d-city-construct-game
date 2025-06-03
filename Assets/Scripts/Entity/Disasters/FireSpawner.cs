@@ -2,22 +2,23 @@ using UnityEngine;
 using Entity.Buildings;
 using UI;
 using System.Collections.Generic;
+using System.Linq;
 using Manager;
 
 namespace Entity.Disasters
 {
-    public class FireSpawner : MonoBehaviour
+    public class FireSpawner : Singleton<FireSpawner>
     {
         [SerializeField] private GameObject fireSystemPrefab; // 火灾持续时间
         [SerializeField] private LayerMask groundLayer; // 地面层
         [SerializeField] private float fireRadius = 2f; // 火灾影响范围
-        [SerializeField] private Color fireRangeColor = new(1f, 0.3f, 0.3f, 0.3f); // 火灾范围显示颜色
+        [SerializeField] private Color fireRangeColor = new(1f, 0.3f, 0.3f, 0.2f); // 火灾范围显示颜色
         [SerializeField] private float buildingDamageInterval = 1f; // 建筑物伤害间隔
-        [SerializeField] private float buildingDamageAmount = 20f; // 每次伤害量
-        [SerializeField] private float fireDuration = 30f; // 火灾持续时间
+        [SerializeField] private float buildingDamageAmount = 10f; // 每次伤害量
+        [SerializeField] private float fireDuration = 10f; // 火灾持续时间
         private Camera mainCamera;
         private GameObject fireRangeIndicator; // 用于显示火灾范围的指示器
-        private float currentFireImpact = 0f; // 当前火灾影响度
+        private float currentFireImpact; // 当前火灾影响度
         private readonly List<GameObject> activeFires = new(); // 当前活动的火灾列表
 
         private void Start()
@@ -27,24 +28,7 @@ namespace Entity.Disasters
             Debug.Log("FireSpawner 初始化完成");
         }
 
-        private void Update()
-        {
-            // 按G键生成火灾
-            if (Input.GetKeyDown(KeyCode.G))
-            {
-                SpawnFire();
-            }
-            // 右键点击熄灭火灾
-            else if (Input.GetMouseButtonDown(1))
-            {
-                ExtinguishFire();
-            }
-
-            // 更新火灾范围指示器位置
-            UpdateFireRangeIndicator();
-        }
-
-        private void SpawnFire()
+        public void SpawnFire()
         {
             var ray = mainCamera.ScreenPointToRay(Input.mousePosition);
 
@@ -81,8 +65,7 @@ namespace Entity.Disasters
             yield return new WaitForSeconds(fireDuration);
             if (!fireObj) yield break;
             var fireSystem = fireObj.GetComponent<FireSystem>();
-            if (fireSystem)
-            {
+            if (fireSystem) {
                 fireSystem.StopFire();
             }
             activeFires.Remove(fireObj);
@@ -104,39 +87,27 @@ namespace Entity.Disasters
                 foreach (var collider in colliders)
                 {
                     // 检查是否是建筑物
-                    var building = collider.GetComponentInParent<Entity.Buildings.Building>();
+                    var building = collider.GetComponentInParent<Building>();
                     if (!building) continue;
                     affectedBuildings++;
                     // 对建筑物造成伤害
                     building.TakeDamage(buildingDamageAmount);
+                    if (!building.IsOnFire) building.TriggerFire();
                     totalDamage += buildingDamageAmount;
                         
                     // 如果建筑物健康度低于阈值，销毁建筑物
-                    if (!(building.CurrentHealth <= 0)) continue;
+                    if (building.CurrentHealth > 0) continue;
+                    
                     Debug.Log($"建筑物 {building.name} 被摧毁");
-                    // 获取建筑物所在的位置
-                    var buildingPos = building.transform.position;
                             
                     // 销毁建筑物
                     Destroy(building.gameObject);
-                            
-                    // 在建筑物位置生成新的火灾（但不会递归检测）
-                    var newFire = new GameObject("Fire");
-                    newFire.transform.position = buildingPos;
-                    var newFireSystem = newFire.AddComponent<FireSystem>();
-                    newFireSystem.TriggerFire();
-                            
-                    // 添加到活动火灾列表
-                    activeFires.Add(newFire);
-                            
-                    // 设置新火灾自动熄灭
-                    StartCoroutine(AutoExtinguishFire(newFire));
                 }
 
                 // 更新火灾影响度
                 UpdateFireImpact(affectedBuildings, totalDamage);
 
-                yield return new WaitForSeconds(buildingDamageInterval);
+                yield return new WaitForSeconds(buildingDamageInterval/TimeManager.Instance.TimeScale);
             }
         }
 
@@ -154,7 +125,7 @@ namespace Entity.Disasters
             UIManager.Instance.UpdateDisasterImpact(currentFireImpact, 0f);
         }
 
-        private void ExtinguishFire()
+        public void ExtinguishFire()
         {
             var ray = mainCamera.ScreenPointToRay(Input.mousePosition);
 
@@ -166,13 +137,11 @@ namespace Entity.Disasters
             foreach (var collider in colliders)
             {
                 var fireSystem = collider.GetComponent<FireSystem>();
-                if (fireSystem)
-                {
-                    fireSystem.StopFire();
-                    activeFires.Remove(collider.gameObject);
-                    Destroy(collider.gameObject);
-                    extinguishedCount++;
-                }
+                if (!fireSystem) continue;
+                fireSystem.StopFire();
+                activeFires.Remove(collider.gameObject);
+                Destroy(collider.gameObject);
+                extinguishedCount++;
             }
             Debug.Log($"熄灭了 {extinguishedCount} 个火灾");
 
@@ -186,8 +155,8 @@ namespace Entity.Disasters
 
         private void CreateFireRangeIndicator()
         {
-            fireRangeIndicator = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-            fireRangeIndicator.transform.localScale = new Vector3(fireRadius * 2, 0.1f, fireRadius * 2);
+            fireRangeIndicator = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            fireRangeIndicator.transform.localScale = new Vector3(fireRadius * 2, fireRadius * 2, fireRadius * 2);
             
             // 设置材质
             var renderer = fireRangeIndicator.GetComponent<Renderer>();
@@ -219,15 +188,6 @@ namespace Entity.Disasters
             Debug.Log("隐藏火灾范围指示器");
         }
 
-        private void UpdateFireRangeIndicator()
-        {
-            if (fireRangeIndicator.activeSelf)
-            {
-                // 让范围指示器始终面向摄像机
-                fireRangeIndicator.transform.forward = Vector3.up;
-            }
-        }
-
         private void OnDestroy()
         {
             if (fireRangeIndicator != null)
@@ -235,12 +195,9 @@ namespace Entity.Disasters
                 Destroy(fireRangeIndicator);
             }
             // 清理所有活动的火灾
-            foreach (var fire in activeFires)
+            foreach (var fire in activeFires.Where(fire => fire != null))
             {
-                if (fire != null)
-                {
-                    Destroy(fire);
-                }
+                Destroy(fire);
             }
             activeFires.Clear();
         }

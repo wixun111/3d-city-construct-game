@@ -106,10 +106,10 @@ namespace Manager
             {
                 UIManager.Instance.ShowBuildingPanel();
                 var building = hit.collider.GetComponent<Building>();
-                if (building != null)
+                if (building)
                 {
                     var disasterUI = FindObjectOfType<DisasterUI>();
-                    if (disasterUI != null)
+                    if (disasterUI)
                     {
                         disasterUI.SelectBuilding(building);
                     }

@@ -12,8 +12,8 @@ public class DisasterTrigger : MonoBehaviour
 
     IEnumerator PostDisaster()
     {
-        string url = "http://localhost:8080/start_disaster";
-        UnityWebRequest request = UnityWebRequest.PostWwwForm(url, "");
+        var url = "http://localhost:8080/start_disaster";
+        var request = UnityWebRequest.PostWwwForm(url, "");
 
         yield return request.SendWebRequest();
 

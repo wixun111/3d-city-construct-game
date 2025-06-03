@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Entity.Disasters;
+using UnityEngine;
 namespace Manager
 {
     public class InputManager : Singleton<InputManager>
@@ -24,6 +25,11 @@ namespace Manager
             {
                 BuildManager.Instance.ChangeBuildingStyle();
             }
+            // 按G键生成火灾
+            if (Input.GetKeyDown(KeyCode.G))
+            {
+                FireSpawner.Instance.SpawnFire();
+            }
         }
 
         private void HandleMouseInput()
@@ -36,6 +42,11 @@ namespace Manager
             if (BuildManager.Instance.IsBuildMode())
             {   
                 GameManager.Instance.HandleMouseMove();
+            }
+            // 右键点击熄灭火灾
+            if (Input.GetMouseButtonDown(1))
+            {
+                FireSpawner.Instance.ExtinguishFire();
             }
             // 未来可以扩展鼠标右键等输入
         }

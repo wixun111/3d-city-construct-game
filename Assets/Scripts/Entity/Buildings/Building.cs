@@ -83,8 +83,7 @@ namespace Entity.Buildings
             UpdateDamageState();
 
             // 如果损坏严重，可能引发火灾
-            if (currentHealth < maxHealth * 0.3f && !isOnFire)
-            {
+            if (currentHealth < maxHealth * 0.3f && !isOnFire) {
                 StartFire();
             }
 
@@ -92,8 +91,7 @@ namespace Entity.Buildings
 
             // 通知 UI 更新
             var disasterUI = FindObjectOfType<DisasterUI>();
-            if (disasterUI)
-            {
+            if (disasterUI) {
                 disasterUI.UpdateBuildingHealth(this);
             }
         }
@@ -310,22 +308,33 @@ namespace Entity.Buildings
         {
             isOnFire = true;
             if (fireEffect) {
-                var fireObj = new GameObject("FireEffect");
-                fireObj.transform.SetParent(transform);
-                fireObj.transform.localPosition = new Vector3(0, 0.5f, 0);
-                var newFireEffect = Instantiate(fireEffect, fireObj.transform);
-                newFireEffect.transform.localPosition = Vector3.zero;
-                fireEffect.Play();
+                for (var i = 0; i < size[0]; i++)
+                {
+                    for (var j = 0; j < size[1]; j++)
+                    {
+                        var fireObj = new GameObject("FireEffect");
+                        fireObj.transform.SetParent(transform);
+                        fireObj.transform.localPosition = new Vector3(-i, 0f, -j);
+                        var newFireEffect = Instantiate(fireEffect, fireObj.transform);
+                        newFireEffect.transform.localPosition = Vector3.zero;
+                        fireEffect.Play();
+                    }
+                }
             }
             if (smokeEffect) {
-                var smokeObj = new GameObject("SmokeEffect");
-                smokeObj.transform.SetParent(transform);
-                smokeObj.transform.localPosition = new Vector3(0, 1.0f, 0);
-                var newSmokeEffect = Instantiate(smokeEffect, smokeObj.transform);
-                newSmokeEffect.transform.localPosition = Vector3.zero;
-                smokeEffect.Play();
+                for (var i = 0; i < size[0]; i++)
+                {
+                    for (var j = 0; j < size[1]; j++)
+                    {
+                        var smokeObj = new GameObject("SmokeEffect");
+                        smokeObj.transform.SetParent(transform);
+                        smokeObj.transform.localPosition = new Vector3(-i, 0.5f, -j);
+                        var newSmokeEffect = Instantiate(smokeEffect, smokeObj.transform);
+                        newSmokeEffect.transform.localPosition = Vector3.zero;
+                        smokeEffect.Play();
+                    }
+                }
             }
-
             StartCoroutine(FireDamageRoutine());
         }
 
@@ -334,7 +343,8 @@ namespace Entity.Buildings
             while (isOnFire && currentHealth > 0)
             {
                 TakeDamage(5f); // 每秒造成5点伤害
-                yield return new WaitForSeconds(1f);
+                CityManager.Instance.CurrentCity.FireSpread(position);
+                yield return new WaitForSeconds(1f/TimeManager.Instance.TimeScale);
             }
         }
 
