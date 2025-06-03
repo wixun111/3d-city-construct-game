@@ -64,7 +64,7 @@ namespace Manager
         }
         public List<GameObject> SetDefaultFloor(int width, int length)
         {
-            var floorPrefab = Resources.Load<GameObject>("Prefabs/Floor/GrassFloor");
+            var floorPrefab = Resources.Load<GameObject>("Prefabs/Floor/DefaultFloor");
             var objs = new List<GameObject>();
             for (var i = 0; i < width; i++)
             {

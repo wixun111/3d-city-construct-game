@@ -30,7 +30,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4270430533526101330}
-  - {fileID: 8993351805570160949}
   m_Father: {fileID: 5998193868813697323}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1768572418040561988
@@ -59,11 +58,11 @@ Transform:
   m_GameObject: {fileID: 1768572418040561988}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.3333335, y: 3.3333335, z: 3.3333335}
+  m_LocalPosition: {x: 0.059999995, y: -0.37499997, z: -0.29999998}
+  m_LocalScale: {x: 0.4, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7285999786820642623}
+  m_Father: {fileID: 4270430533526101330}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &3469755127906271274
 BoxCollider:
@@ -96,7 +95,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5998193868813697323}
   m_Layer: 0
-  m_Name: hall
+  m_Name: church
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -140,7 +139,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1369e2db997f9054d8acb543335b9a20, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.5
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1369e2db997f9054d8acb543335b9a20, type: 3}
       propertyPath: m_LocalPosition.y
@@ -148,7 +147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1369e2db997f9054d8acb543335b9a20, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1369e2db997f9054d8acb543335b9a20, type: 3}
       propertyPath: m_LocalRotation.w
@@ -206,7 +205,10 @@ PrefabInstance:
     - {fileID: 2052339846146669090, guid: 1369e2db997f9054d8acb543335b9a20, type: 3}
     - {fileID: -7983953652350004039, guid: 1369e2db997f9054d8acb543335b9a20, type: 3}
     - {fileID: 3645836440456348336, guid: 1369e2db997f9054d8acb543335b9a20, type: 3}
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1369e2db997f9054d8acb543335b9a20, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8993351805570160949}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1369e2db997f9054d8acb543335b9a20, type: 3}
 --- !u!4 &4270430533526101330 stripped
