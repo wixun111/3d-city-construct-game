@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Reflection;
 using Loader;
+using Manager;
 using Newtonsoft.Json;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Entity.Buildings
@@ -51,6 +53,8 @@ namespace Entity.Buildings
             {
                 uuid = Guid.NewGuid().ToString();
             }
+            smokeEffect = ParticleManager.Instance.GetParticleSystem(Constant.SmokeEffect);
+            fireEffect = ParticleManager.Instance.GetParticleSystem(Constant.FireEffect);
         }
         public void Load(BuildingData buildingData)
         {
@@ -72,7 +76,7 @@ namespace Entity.Buildings
         {
             if (isRepairing) return;
 
-            float oldHealth = currentHealth;
+            var oldHealth = currentHealth;
             currentHealth = Mathf.Max(0f, currentHealth - damage);
             Debug.Log($"{buildingName} 受到伤害: {damage}, 健康值变化: {oldHealth} -> {currentHealth}, 最大健康值: {maxHealth}");
 
@@ -88,7 +92,7 @@ namespace Entity.Buildings
 
             // 通知 UI 更新
             var disasterUI = FindObjectOfType<DisasterUI>();
-            if (disasterUI != null)
+            if (disasterUI)
             {
                 disasterUI.UpdateBuildingHealth(this);
             }
@@ -260,21 +264,19 @@ namespace Entity.Buildings
 
         private void UpdateDamageState()
         {
-            float healthPercentage = currentHealth / maxHealth;
-            int newState = 0;
+            var healthPercentage = currentHealth / maxHealth;
 
-            if (healthPercentage < 0.25f)
-                newState = 3;  // 严重损坏
-            else if (healthPercentage < 0.5f)
-                newState = 2;  // 中度损坏
-            else if (healthPercentage < 0.75f)
-                newState = 1;  // 轻微损坏
-
-            if (newState != currentDamageState)
+            var newState = healthPercentage switch
             {
-                currentDamageState = newState;
-                UpdateVisuals();
-            }
+                < 0.25f => 3,
+                < 0.5f => 2,
+                < 0.75f => 1,
+                _ => 0
+            };
+
+            if (newState == currentDamageState) return;
+            currentDamageState = newState;
+            UpdateVisuals();
         }
 
         private void UpdateVisuals()
@@ -284,7 +286,7 @@ namespace Entity.Buildings
             // 隐藏所有损坏状态模型
             foreach (var state in damageStates)
             {
-                if (state != null)
+                if (state)
                     state.SetActive(false);
             }
 
@@ -307,103 +309,24 @@ namespace Entity.Buildings
         private void StartFire()
         {
             isOnFire = true;
-            
-            // 如果没有设置粒子效果，创建默认的
-            if (fireEffect == null)
-            {
-                CreateDefaultFireEffect();
-            }
-            if (smokeEffect == null)
-            {
-                CreateDefaultSmokeEffect();
-            }
-
-            if (fireEffect != null)
+            if (fireEffect) {
+                var fireObj = new GameObject("FireEffect");
+                fireObj.transform.SetParent(transform);
+                fireObj.transform.localPosition = new Vector3(0, 0.5f, 0);
+                var newFireEffect = Instantiate(fireEffect, fireObj.transform);
+                newFireEffect.transform.localPosition = Vector3.zero;
                 fireEffect.Play();
-            if (smokeEffect != null)
+            }
+            if (smokeEffect) {
+                var smokeObj = new GameObject("SmokeEffect");
+                smokeObj.transform.SetParent(transform);
+                smokeObj.transform.localPosition = new Vector3(0, 1.0f, 0);
+                var newSmokeEffect = Instantiate(smokeEffect, smokeObj.transform);
+                newSmokeEffect.transform.localPosition = Vector3.zero;
                 smokeEffect.Play();
+            }
 
             StartCoroutine(FireDamageRoutine());
-        }
-
-        private void CreateDefaultFireEffect()
-        {
-            // 创建火焰粒子系统
-            GameObject fireObj = new GameObject("FireEffect");
-            fireObj.transform.SetParent(transform);
-            fireObj.transform.localPosition = new Vector3(0, 1, 0); // 在建筑顶部
-
-            fireEffect = fireObj.AddComponent<ParticleSystem>();
-            var main = fireEffect.main;
-            main.startColor = new Color(1f, 0.5f, 0f); // 橙色火焰
-            main.startSize = 0.5f;
-            main.startSpeed = 2f;
-            main.startLifetime = 1f;
-            main.simulationSpace = ParticleSystemSimulationSpace.World;
-
-            var emission = fireEffect.emission;
-            emission.rateOverTime = 20;
-
-            var shape = fireEffect.shape;
-            shape.shapeType = ParticleSystemShapeType.Circle;
-            shape.radius = 0.5f;
-
-            // 添加颜色渐变
-            var colorOverLifetime = fireEffect.colorOverLifetime;
-            colorOverLifetime.enabled = true;
-            Gradient gradient = new Gradient();
-            gradient.SetKeys(
-                new GradientColorKey[] { 
-                    new GradientColorKey(Color.yellow, 0.0f),
-                    new GradientColorKey(Color.red, 0.5f),
-                    new GradientColorKey(Color.red, 1.0f)
-                },
-                new GradientAlphaKey[] { 
-                    new GradientAlphaKey(1.0f, 0.0f),
-                    new GradientAlphaKey(1.0f, 0.5f),
-                    new GradientAlphaKey(0.0f, 1.0f)
-                }
-            );
-            colorOverLifetime.color = gradient;
-        }
-
-        private void CreateDefaultSmokeEffect()
-        {
-            // 创建烟雾粒子系统
-            GameObject smokeObj = new GameObject("SmokeEffect");
-            smokeObj.transform.SetParent(transform);
-            smokeObj.transform.localPosition = new Vector3(0, 2, 0); // 在火焰上方
-
-            smokeEffect = smokeObj.AddComponent<ParticleSystem>();
-            var main = smokeEffect.main;
-            main.startColor = new Color(0.5f, 0.5f, 0.5f, 0.5f); // 灰色烟雾
-            main.startSize = 1f;
-            main.startSpeed = 1f;
-            main.startLifetime = 2f;
-            main.simulationSpace = ParticleSystemSimulationSpace.World;
-
-            var emission = smokeEffect.emission;
-            emission.rateOverTime = 10;
-
-            var shape = smokeEffect.shape;
-            shape.shapeType = ParticleSystemShapeType.Circle;
-            shape.radius = 0.3f;
-
-            // 添加颜色渐变
-            var colorOverLifetime = smokeEffect.colorOverLifetime;
-            colorOverLifetime.enabled = true;
-            Gradient gradient = new Gradient();
-            gradient.SetKeys(
-                new GradientColorKey[] { 
-                    new GradientColorKey(new Color(0.5f, 0.5f, 0.5f, 0.5f), 0.0f),
-                    new GradientColorKey(new Color(0.5f, 0.5f, 0.5f, 0.0f), 1.0f)
-                },
-                new GradientAlphaKey[] { 
-                    new GradientAlphaKey(0.5f, 0.0f),
-                    new GradientAlphaKey(0.0f, 1.0f)
-                }
-            );
-            colorOverLifetime.color = gradient;
         }
 
         private System.Collections.IEnumerator FireDamageRoutine()
@@ -428,18 +351,18 @@ namespace Entity.Buildings
             if (isOnFire)
             {
                 isOnFire = false;
-                if (fireEffect != null)
+                if (fireEffect)
                     fireEffect.Stop();
-                if (smokeEffect != null)
+                if (smokeEffect)
                     smokeEffect.Stop();
             }
 
-            float repairStartTime = Time.time;
-            float initialHealth = currentHealth;
+            var repairStartTime = Time.time;
+            var initialHealth = currentHealth;
 
             while (Time.time < repairStartTime + repairTime)
             {
-                float progress = (Time.time - repairStartTime) / repairTime;
+                var progress = (Time.time - repairStartTime) / repairTime;
                 currentHealth = Mathf.Lerp(initialHealth, maxHealth, progress);
                 UpdateDamageState();
                 yield return null;

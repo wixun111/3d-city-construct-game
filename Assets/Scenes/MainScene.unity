@@ -408,6 +408,7 @@ GameObject:
   - component: {fileID: 18644037}
   - component: {fileID: 18644038}
   - component: {fileID: 18644039}
+  - component: {fileID: 18644040}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -652,6 +653,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0919b5c01109479d8670ed8cf88f8deb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &18644040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18644023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf546cb1242a4f8e81494e9e40779723, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleSystems:
+  - {fileID: 19800002, guid: 06a7735096a49064bac4963673c4f0b3, type: 3}
+  - {fileID: 19800000, guid: 6bd48b8ad8246424db56d2beee2f8611, type: 3}
 --- !u!1 &87486505
 GameObject:
   m_ObjectHideFlags: 0
@@ -9075,6 +9091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52ecc8ecfc70a824a9775a772d1071b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireSystemPrefab: {fileID: 3887751801538222879, guid: fec03ca3c747fe2448b811d2be27c794, type: 3}
   groundLayer:
     serializedVersion: 2
     m_Bits: 1

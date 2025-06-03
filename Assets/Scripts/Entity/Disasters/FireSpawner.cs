@@ -8,16 +8,17 @@ namespace Entity.Disasters
 {
     public class FireSpawner : MonoBehaviour
     {
+        [SerializeField] private GameObject fireSystemPrefab; // 火灾持续时间
         [SerializeField] private LayerMask groundLayer; // 地面层
         [SerializeField] private float fireRadius = 2f; // 火灾影响范围
-        [SerializeField] private Color fireRangeColor = new Color(1f, 0.3f, 0.3f, 0.3f); // 火灾范围显示颜色
+        [SerializeField] private Color fireRangeColor = new(1f, 0.3f, 0.3f, 0.3f); // 火灾范围显示颜色
         [SerializeField] private float buildingDamageInterval = 1f; // 建筑物伤害间隔
         [SerializeField] private float buildingDamageAmount = 20f; // 每次伤害量
         [SerializeField] private float fireDuration = 30f; // 火灾持续时间
         private Camera mainCamera;
         private GameObject fireRangeIndicator; // 用于显示火灾范围的指示器
         private float currentFireImpact = 0f; // 当前火灾影响度
-        private List<GameObject> activeFires = new List<GameObject>(); // 当前活动的火灾列表
+        private readonly List<GameObject> activeFires = new(); // 当前活动的火灾列表
 
         private void Start()
         {
@@ -45,31 +46,29 @@ namespace Entity.Disasters
 
         private void SpawnFire()
         {
-            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
+            var ray = mainCamera.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, groundLayer))
+            if (Physics.Raycast(ray, out var hit, Mathf.Infinity, groundLayer))
             {
                 Debug.Log($"在位置 {hit.point} 生成火灾");
                 // 在点击位置创建火灾
-                GameObject fireObj = new GameObject("Fire");
-                fireObj.transform.position = hit.point;
                 
                 // 添加火灾系统组件
-                var fireSystem = fireObj.AddComponent<FireSystem>();
-                fireSystem.TriggerFire();
+                var fireSystem = Instantiate(fireSystemPrefab,hit.point,Quaternion.identity, transform);
+                var fireSystemScript = fireSystem.GetComponent<FireSystem>();
+                fireSystemScript.TriggerFire();
 
                 // 添加到活动火灾列表
-                activeFires.Add(fireObj);
+                activeFires.Add(fireSystem);
 
                 // 显示火灾范围
                 ShowFireRange(hit.point);
 
                 // 开始检测并伤害建筑物
-                StartCoroutine(DamageBuildingsInRange(fireObj));
+                StartCoroutine(DamageBuildingsInRange(fireSystem));
 
-                // 设置火灾自动熄灭
-                StartCoroutine(AutoExtinguishFire(fireObj));
+                // fireSystem
+                StartCoroutine(AutoExtinguishFire(fireSystem));
             }
             else
             {
@@ -80,16 +79,14 @@ namespace Entity.Disasters
         private System.Collections.IEnumerator AutoExtinguishFire(GameObject fireObj)
         {
             yield return new WaitForSeconds(fireDuration);
-            if (fireObj != null)
+            if (!fireObj) yield break;
+            var fireSystem = fireObj.GetComponent<FireSystem>();
+            if (fireSystem)
             {
-                var fireSystem = fireObj.GetComponent<FireSystem>();
-                if (fireSystem != null)
-                {
-                    fireSystem.StopFire();
-                }
-                activeFires.Remove(fireObj);
-                Destroy(fireObj);
+                fireSystem.StopFire();
             }
+            activeFires.Remove(fireObj);
+            Destroy(fireObj);
         }
 
         private System.Collections.IEnumerator DamageBuildingsInRange(GameObject fireObj)
@@ -98,46 +95,42 @@ namespace Entity.Disasters
             while (fireObj != null)
             {
                 // 检测火灾范围内的建筑物
-                Collider[] colliders = Physics.OverlapSphere(fireObj.transform.position, fireRadius);
+                var colliders = Physics.OverlapSphere(fireObj.transform.position, fireRadius);
                 Debug.Log($"火灾范围内检测到 {colliders.Length} 个碰撞体");
 
-                int affectedBuildings = 0;
-                float totalDamage = 0f;
+                var affectedBuildings = 0;
+                var totalDamage = 0f;
 
-                foreach (Collider collider in colliders)
+                foreach (var collider in colliders)
                 {
                     // 检查是否是建筑物
                     var building = collider.GetComponentInParent<Entity.Buildings.Building>();
-                    if (building != null)
-                    {
-                        affectedBuildings++;
-                        // 对建筑物造成伤害
-                        building.TakeDamage(buildingDamageAmount);
-                        totalDamage += buildingDamageAmount;
+                    if (!building) continue;
+                    affectedBuildings++;
+                    // 对建筑物造成伤害
+                    building.TakeDamage(buildingDamageAmount);
+                    totalDamage += buildingDamageAmount;
                         
-                        // 如果建筑物健康度低于阈值，销毁建筑物
-                        if (building.CurrentHealth <= 0)
-                        {
-                            Debug.Log($"建筑物 {building.name} 被摧毁");
-                            // 获取建筑物所在的位置
-                            Vector3 buildingPos = building.transform.position;
+                    // 如果建筑物健康度低于阈值，销毁建筑物
+                    if (!(building.CurrentHealth <= 0)) continue;
+                    Debug.Log($"建筑物 {building.name} 被摧毁");
+                    // 获取建筑物所在的位置
+                    var buildingPos = building.transform.position;
                             
-                            // 销毁建筑物
-                            Destroy(building.gameObject);
+                    // 销毁建筑物
+                    Destroy(building.gameObject);
                             
-                            // 在建筑物位置生成新的火灾（但不会递归检测）
-                            GameObject newFire = new GameObject("Fire");
-                            newFire.transform.position = buildingPos;
-                            var newFireSystem = newFire.AddComponent<FireSystem>();
-                            newFireSystem.TriggerFire();
+                    // 在建筑物位置生成新的火灾（但不会递归检测）
+                    var newFire = new GameObject("Fire");
+                    newFire.transform.position = buildingPos;
+                    var newFireSystem = newFire.AddComponent<FireSystem>();
+                    newFireSystem.TriggerFire();
                             
-                            // 添加到活动火灾列表
-                            activeFires.Add(newFire);
+                    // 添加到活动火灾列表
+                    activeFires.Add(newFire);
                             
-                            // 设置新火灾自动熄灭
-                            StartCoroutine(AutoExtinguishFire(newFire));
-                        }
-                    }
+                    // 设置新火灾自动熄灭
+                    StartCoroutine(AutoExtinguishFire(newFire));
                 }
 
                 // 更新火灾影响度
@@ -150,13 +143,12 @@ namespace Entity.Disasters
         private void UpdateFireImpact(int affectedBuildings, float totalDamage)
         {
             // 直接使用伤害系数和最终伤害来更新影响度
-            float damageCoefficient = affectedBuildings > 0 ? totalDamage / (affectedBuildings * buildingDamageAmount) : 0f;
-            float finalDamage = totalDamage;
-            
-            Debug.Log($"火灾影响度 - 伤害系数: {damageCoefficient:F2}, 最终伤害: {finalDamage:F2}");
+            var damageCoefficient = affectedBuildings > 0 ? totalDamage / (affectedBuildings * buildingDamageAmount) : 0f;
+
+            Debug.Log($"火灾影响度 - 伤害系数: {damageCoefficient:F2}, 最终伤害: {totalDamage:F2}");
             
             // 计算综合影响度 (0-1之间)
-            currentFireImpact = Mathf.Clamp01((damageCoefficient + finalDamage / 1000f) / 2f);
+            currentFireImpact = Mathf.Clamp01((damageCoefficient + totalDamage / 1000f) / 2f);
             
             // 通过 UIManager 更新UI
             UIManager.Instance.UpdateDisasterImpact(currentFireImpact, 0f);
@@ -164,34 +156,31 @@ namespace Entity.Disasters
 
         private void ExtinguishFire()
         {
-            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
+            var ray = mainCamera.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, groundLayer))
+            if (!Physics.Raycast(ray, out var hit, Mathf.Infinity, groundLayer)) return;
+            Debug.Log($"尝试熄灭位置 {hit.point} 附近的火灾");
+            // 检查点击位置附近的火灾
+            var colliders = Physics.OverlapSphere(hit.point, fireRadius);
+            var extinguishedCount = 0;
+            foreach (var collider in colliders)
             {
-                Debug.Log($"尝试熄灭位置 {hit.point} 附近的火灾");
-                // 检查点击位置附近的火灾
-                Collider[] colliders = Physics.OverlapSphere(hit.point, fireRadius);
-                int extinguishedCount = 0;
-                foreach (Collider collider in colliders)
+                var fireSystem = collider.GetComponent<FireSystem>();
+                if (fireSystem)
                 {
-                    var fireSystem = collider.GetComponent<FireSystem>();
-                    if (fireSystem != null)
-                    {
-                        fireSystem.StopFire();
-                        activeFires.Remove(collider.gameObject);
-                        Destroy(collider.gameObject);
-                        extinguishedCount++;
-                    }
+                    fireSystem.StopFire();
+                    activeFires.Remove(collider.gameObject);
+                    Destroy(collider.gameObject);
+                    extinguishedCount++;
                 }
-                Debug.Log($"熄灭了 {extinguishedCount} 个火灾");
+            }
+            Debug.Log($"熄灭了 {extinguishedCount} 个火灾");
 
-                // 如果熄灭了火灾，重置影响度
-                if (extinguishedCount > 0)
-                {
-                    currentFireImpact = 0f;
-                    UIManager.Instance.UpdateDisasterImpact(currentFireImpact, 0f);
-                }
+            // 如果熄灭了火灾，重置影响度
+            if (extinguishedCount > 0)
+            {
+                currentFireImpact = 0f;
+                UIManager.Instance.UpdateDisasterImpact(currentFireImpact, 0f);
             }
         }
 
@@ -202,7 +191,7 @@ namespace Entity.Disasters
             
             // 设置材质
             var renderer = fireRangeIndicator.GetComponent<Renderer>();
-            var material = new Material(Shader.Find("Transparent/Diffuse"));
+            var material = new Material(Shader.Find($"Transparent/Diffuse"));
             material.color = fireRangeColor;
             renderer.material = material;
 

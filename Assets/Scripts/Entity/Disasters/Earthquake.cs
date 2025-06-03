@@ -114,9 +114,9 @@ public class Earthquake : MonoBehaviour
         {
             if (building != null)
             {
-                float distance = Vector3.Distance(transform.position, building.transform.position);
-                float damageFactor = 1f - (distance / config.damageRadius);
-                float damage = currentIntensity * damageFactor * config.damageIntensity;
+                var distance = Vector3.Distance(transform.position, building.transform.position);
+                var damageFactor = 1f - (distance / config.damageRadius);
+                var damage = currentIntensity * damageFactor * config.damageIntensity;
 
                 Debug.Log($"建筑物 {building.BuildingName} 距离: {distance}, 伤害系数: {damageFactor}, 最终伤害: {damage}");
 

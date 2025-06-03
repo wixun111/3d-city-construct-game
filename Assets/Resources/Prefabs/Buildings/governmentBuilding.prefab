@@ -42,7 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5998193868813697323}
   m_Layer: 0
-  m_Name: government
+  m_Name: governmentBuilding
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,7 +90,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 99a49906637b03b42b3c0fdf0e02bc10, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 99a49906637b03b42b3c0fdf0e02bc10, type: 3}
       propertyPath: m_LocalPosition.y
@@ -98,7 +98,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 99a49906637b03b42b3c0fdf0e02bc10, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.6
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 99a49906637b03b42b3c0fdf0e02bc10, type: 3}
       propertyPath: m_LocalRotation.w

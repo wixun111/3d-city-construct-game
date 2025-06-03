@@ -1,1 +1,28 @@
-[]
+[
+  {
+    "position": [
+      37,
+      29
+    ],
+    "rotation": [
+      0.0,
+      180.0,
+      0.0
+    ],
+    "buildingId": 2,
+    "style": 1
+  },
+  {
+    "position": [
+      39,
+      29
+    ],
+    "rotation": [
+      0.0,
+      270.0,
+      0.0
+    ],
+    "buildingId": 2,
+    "style": 1
+  }
+]
