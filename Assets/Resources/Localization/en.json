@@ -17,7 +17,7 @@
   { "key": "road", "value": "Road" },
   { "key": "apartment", "value": "Apartment" },
   { "key": "factory", "value": "Factory" },
-  { "key": "government", "value": "Government" },
+  { "key": "governmentBuilding", "value": "Government Building" },
   { "key": "hospital", "value": "Hospital" },
   { "key": "primarySchool", "value": "Primary School" },
   { "key": "policeOffice", "value": "Police Office" },
@@ -39,9 +39,23 @@
   { "key": "university", "value": "University" },
   { "key": "researchInstitution", "value": "Research Institution" },
   { "key": "laboratory", "value": "Laboratory" },
+  { "key": "tenementHouse", "value": "Tenement House" },
+  { "key": "artGallery", "value": "Art Gallery" },
+  { "key": "culturalPalace", "value": "Cultural Palace" },
+  { "key": "bank", "value": "Bank" },
+  { "key": "exhibitionCenter", "value": "Exhibition Center" },
+  { "key": "canteen", "value": "Canteen" },
+  { "key": "dormitory", "value": "Dormitory" },
+  { "key": "hotel", "value": "Hotel" },
+  { "key": "cinema", "value": "Cinema" },
   { "key": "startGame", "value": "Start Game" },
   { "key": "loadGame", "value": "Load Game" },
   { "key": "quitGame", "value": "Quit Game" },
   { "key": "language", "value": "Language" },
-  { "key": "volume", "value": "Volume" }
+  { "key": "volume", "value": "Volume" },
+  { "key": "upgrade", "value": "Upgrade" },
+  { "key": "repair", "value": "Repair" },
+  { "key": "dismantle", "value": "Dismantle" },
+  { "key": "changeStyle", "value": "Change Style" }
+  
 ]

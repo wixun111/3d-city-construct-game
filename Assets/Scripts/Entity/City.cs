@@ -77,13 +77,14 @@ namespace Entity
                 var pos = new Vector3Int(posData[0],0,posData[1]);
                 var rotData = JsonConvert.DeserializeObject<float[]>(buildingData["rotation"].ToString());
                 var rot = Quaternion.Euler(rotData[0], rotData[1], rotData[2]);
+                var style = JsonConvert.DeserializeObject<int>(buildingData["style"].ToString());
                 if (buildings[pos.x,pos.z])
                 {
                     continue;
                 }
-                var buildingObject = BuildManager.Instance.SetBuilding(pos,rot, JsonConvert.DeserializeObject<int>(buildingData["buildingId"].ToString()));
+                var buildingObject = BuildManager.Instance.SetBuilding(pos,rot, JsonConvert.DeserializeObject<int>(buildingData["buildingId"].ToString()),style);
                 var building = buildingObject.AddComponent<Building>();
-                building.InitData(BuildingLoader.Instance.BuildingsData[JsonConvert.DeserializeObject<int>(buildingData["buildingId"].ToString())],pos);
+                building.InitData(BuildingLoader.Instance.BuildingsData[JsonConvert.DeserializeObject<int>(buildingData["buildingId"].ToString())],pos,style);
                 buildingList.Add(building);
                 AddBuilding(building,pos);
             }
@@ -114,14 +115,14 @@ namespace Entity
             return true;
         }
 
-        public void Build(Dictionary<string, object> buildingInfo, Vector3Int position,GameObject newBuilding)
+        public void Build(Dictionary<string, object> buildingInfo, Vector3Int position,GameObject newBuilding,int style)
         {
             // var buildingName = (string)buildingInfo["buildingName"];  // 获取建筑名称
             // var classType = (string)buildingInfo["classType"];  // 获取建筑名称
             // var buildingType = GetBuildingTypeByName(classType);
 
             var building = newBuilding.AddComponent<Building>();
-            building.InitData(buildingInfo,position);
+            building.InitData(buildingInfo,position,style);
             buildingList.Add(building);
             AddBuilding(building,position);
             ConsumeResource(buildingInfo);

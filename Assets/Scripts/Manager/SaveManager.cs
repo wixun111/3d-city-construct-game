@@ -42,17 +42,18 @@ namespace Manager
             Debug.Log("Game Saved: " + path);
         }
 
-        public void SaveBuilding()
+        public static void SaveBuilding()
         {
             var currentCity = CityManager.Instance.CurrentCity;
             var buildingList = currentCity.BuildingList;
             var buildingInfoList = buildingList.Select(building => new BuildingInfo
             {
-                position = new int[] { building.Position.x, building.Position.z },
-                rotation = new float[] { building.Rotation.eulerAngles.x,
+                position = new[] { building.Position.x, building.Position.z },
+                rotation = new[] { building.Rotation.eulerAngles.x,
                     building.Rotation.eulerAngles.y,
                     building.Rotation.eulerAngles.z },
-                BuildingId = building.BuildingId
+                BuildingId = building.BuildingId,
+                Style = building.Style
             }).ToList();
             var settings = new JsonSerializerSettings
             {
@@ -117,5 +118,6 @@ namespace Manager
         public int[] position;
         public float[] rotation;
         public int BuildingId;
+        public int Style;
     }
 }

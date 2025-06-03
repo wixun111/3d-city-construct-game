@@ -202,7 +202,7 @@ public class MessageSender : MonoBehaviour
             if (!buildingData.ContainsKey("size"))
                 buildingData["size"] = new int[] { 1, 1 };
             
-            building.InitData(buildingData, position);
+            building.InitData(buildingData, position,0);
             
             // 将建筑添加到城市系统中
             CityManager.Instance.CurrentCity.AddBuilding(building, position);

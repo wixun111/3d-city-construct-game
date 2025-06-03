@@ -42,7 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5998193868813697323}
   m_Layer: 0
-  m_Name: building 23
+  m_Name: commercialCenter2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

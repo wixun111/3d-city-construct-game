@@ -190,7 +190,7 @@ public class BuildingCommandParser : MonoBehaviour
         // 执行建造
         var buildingObject = BuildManager.Instance.SetBuilding(position, Quaternion.identity, buildingId);
         var building = buildingObject.AddComponent<Building>();
-        building.InitData(BuildingLoader.Instance.BuildingsData[buildingId], position);
+        building.InitData(BuildingLoader.Instance.BuildingsData[buildingId], position,0);
         CityManager.Instance.CurrentCity.AddBuilding(building, position);
 
         return true;

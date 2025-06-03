@@ -29,9 +29,9 @@ namespace Manager
         public void SetBuildingPrefab()
         {
             var buildingName = buildingData[selectedBuildingId]["buildingName"].ToString();
-            styleIndex = 1;
+            styleIndex = 0;
             buildingStyleCount = GetBuildingStyleCount(buildingName);
-            if (buildingStyleCount == 1) {
+            if (styleIndex == 0) {
                 buildingPrefab = Resources.Load<GameObject>("Prefabs/Buildings/" + buildingName);
             }
             else {
@@ -53,14 +53,8 @@ namespace Manager
             Debug.Log(position);
             // 判断是否可以建造（例如，检查是否有足够资源等）
             if (!currentCity.CanBuild(buildingInfo, position)) return;
-            currentCity.Build(buildingInfo,position, SetBuilding(position,currentRotation, (string)buildingInfo["buildingName"]));
+            currentCity.Build(buildingInfo,position, SetBuilding(position,currentRotation, (string)buildingInfo["buildingName"],styleIndex),styleIndex);
             UIManager.Instance.UpdateCityUI(currentCity);
-        }
-
-        public GameObject SetBuilding(Vector3 position,Quaternion rotation,string buildingName)
-        {
-            
-            return InstantiatePrefab(position,rotation,buildingName);
         }
         public List<GameObject> SetDefaultFloor(int width, int length)
         {
@@ -75,27 +69,37 @@ namespace Manager
             }
             return objs;
         }
-        public GameObject SetBuilding(Vector3 position,Quaternion rotation,int buildingId)
+        public GameObject SetBuilding(Vector3 position,Quaternion rotation,string buildingName,int style = 0)
+        {
+            
+            return InstantiatePrefab(position,rotation,buildingName,style);
+        }
+        public void ReplaceBuildingStyle(GameObject buildingObj,string buildingName,int style = 0)
+        {
+            buildingPrefab = style switch
+            {
+                0 => Resources.Load<GameObject>("Prefabs/Buildings/" + buildingName),
+                _ => Resources.Load<GameObject>("Prefabs/Buildings/" + buildingName + style)
+            };
+            Destroy(buildingObj.transform.GetChild(0).gameObject);
+            Instantiate(buildingPrefab.transform.GetChild(0),buildingObj.transform);
+        }
+        public GameObject SetBuilding(Vector3 position,Quaternion rotation,int buildingId,int style = 0)
         {
             var buildingName = buildingData[buildingId]["buildingName"].ToString();
-            return InstantiatePrefab(position,rotation,buildingName);
+            return InstantiatePrefab(position,rotation,buildingName,style);
         }
 
-        private GameObject InstantiatePrefab(Vector3 position, Quaternion rotation, string buildingName) {
-            if (buildingStyleCount == 1) {
-                buildingPrefab = Resources.Load<GameObject>("Prefabs/Buildings/" + buildingName);
-            }
-            else {
-                buildingPrefab = Resources.Load<GameObject>("Prefabs/Buildings/" + buildingName + styleIndex);
-            }
-            if (!buildingPrefab) {
-                buildingPrefab = Resources.Load<GameObject>("Prefabs/Buildings/default");
-            }
+        private GameObject InstantiatePrefab(Vector3 position, Quaternion rotation, string buildingName,int style) {
+            buildingPrefab = style switch
+            {
+                0 => Resources.Load<GameObject>("Prefabs/Buildings/" + buildingName),
+                _ => Resources.Load<GameObject>("Prefabs/Buildings/" + buildingName + style)
+            };
             var newBuilding = Instantiate(buildingPrefab, position, rotation);
             newBuilding.transform.SetParent(CityManager.Instance.CurrentCity.gameObject.transform);
             return newBuilding;
         }
-
         public void StartBuildingMode(int buildingId)
         {
             selectedBuildingId = buildingId;
@@ -269,9 +273,13 @@ namespace Manager
         }
         public void ChangeBuildingStyle()
         {
-            styleIndex = styleIndex % buildingStyleCount + 1;
+            styleIndex = (styleIndex + 1) % buildingStyleCount ;
             var buildingName = buildingData[selectedBuildingId]["buildingName"].ToString();
-            buildingPrefab = Resources.Load<GameObject>("Prefabs/Buildings/" + buildingName + styleIndex);
+            if (styleIndex == 0) {
+                buildingPrefab = Resources.Load<GameObject>("Prefabs/Buildings/" + buildingName);
+            }else {
+                buildingPrefab = Resources.Load<GameObject>("Prefabs/Buildings/" + buildingName + styleIndex);
+            }
             var oldInstace = previewInstance;
             previewInstance = Instantiate(buildingPrefab, oldInstace.transform.position, oldInstace.transform.rotation);
             previewInstance.transform.rotation = currentRotation;
@@ -283,7 +291,7 @@ namespace Manager
             previewInstance.transform.position = position;
         }
 
-        public void DisableCollider()
+        private void DisableCollider()
         {
             var boxCollider = previewInstance.GetComponentInChildren<BoxCollider>();
             if (boxCollider) {

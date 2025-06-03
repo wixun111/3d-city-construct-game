@@ -23,6 +23,7 @@ namespace Entity.Buildings
         [SerializeField] protected Quaternion rotation;
         [SerializeField] protected bool buildable;             
         [SerializeField] private int[] size;
+        [SerializeField] private int style;
         [SerializeField] private int existLimit;
         //建筑属性
         [SerializeField] protected bool isProductive;
@@ -98,9 +99,10 @@ namespace Entity.Buildings
             Destroy(gameObject);
         }
 
-        public void InitData(Dictionary<string, object> data,Vector3Int pos)
+        public void InitData(Dictionary<string, object> data,Vector3Int pos,int style)
         {
             LoadData(data);
+            this.style = style;
             currentHealth = maxHealth;
             if (existLimit != 0)
             {
@@ -215,6 +217,12 @@ namespace Entity.Buildings
             get => size;
             set => size = value;
         }
+
+        public int Style
+        {
+            get => style;
+            set => style = value;
+        }
         public string Uuid => uuid;
 
         public bool IsOnFire => isOnFire;
@@ -246,6 +254,7 @@ namespace Entity.Buildings
                    $"等级: {level}\n" +
                    $"耐久值: {currentHealth}/{maxHealth}\n" +
                    $"位置: {position}\n" +
+                   $"样式: {style}\n" +
                    $"状态: {(isOnFire ? "着火" : isRepairing ? "修复中" : "正常")}\n";
         }
 
@@ -440,19 +449,5 @@ namespace Entity.Buildings
             UpdateDamageState();
             isRepairing = false;
         }
-    }
-    public enum BuildingCategory
-    {
-        Residential,
-        Cultural,
-        Commercial,
-        Industrial,
-        Governmental,
-        Medical,
-        Natural,
-        Entertainment,
-        Transport,
-        Special,
-        Other
     }
 }

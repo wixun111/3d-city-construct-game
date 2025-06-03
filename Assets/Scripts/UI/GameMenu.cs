@@ -29,21 +29,22 @@ namespace UI
 
         private void SaveBuilding()
         {
-            SaveManager.Instance.SaveBuilding();
+            SaveManager.SaveBuilding();
         }
 
-        public void BackGame()
+        private void BackGame()
         {
             gameObject.SetActive(false);
             TimeManager.Instance.ResumeGame();
         }
 
-        public void SaveGame()
+        private void SaveGame()
         {
             gameObject.SetActive(false);
             UIManager.Instance.ShowSavePanel();
         }
-        public void QuitMenu()
+
+        private void QuitMenu()
         {
             gameObject.SetActive(false);
             UIManager.Instance.ShowStartMenu();
@@ -51,12 +52,12 @@ namespace UI
             TimeManager.Instance.HideTime();
         }
 
-        public void QuitGame()
+        private void QuitGame()
         {
             Application.Quit();
         }
 
-        public void Setting()
+        private void Setting()
         {
             UIManager.Instance.ShowSettingPanel();
             UIManager.Instance.HideGameMenu();

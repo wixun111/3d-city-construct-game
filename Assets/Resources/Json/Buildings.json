@@ -71,9 +71,9 @@
   },
   {
     "buildingId": 4,
-    "buildingName": "government",
+    "buildingName": "governmentBuilding",
     "chineseName": "政府大楼",
-    "classType": "Buildings.Government.Government",
+    "classType": "Buildings.Government.governmentBuilding",
     "cost":{
       "money": 10,
       "time": 1
@@ -432,6 +432,159 @@
     "buildingName": "laboratory",
     "chineseName": "实验室",
     "classType": "Buildings.Education.Laboratory",
+    "cost":{
+      "money": 10,
+      "time": 1
+    },
+    "size": [2,1],
+    "maxLevel": 10,
+    "maxHealth": 200,
+    "residentsNumber": 0,
+    "residentsCapacity": 10,
+    "buildable": true,
+    "isProductive": false
+  },
+  {
+    "buildingId": 25,
+    "buildingName": "tenementHouse",
+    "chineseName": "廉租房",
+    "classType": "Buildings.Residential.TenementHouse",
+    "cost":{
+      "money": 10,
+      "time": 1
+    },
+    "size": [2,1],
+    "maxLevel": 10,
+    "maxHealth": 200,
+    "residentsNumber": 0,
+    "residentsCapacity": 10,
+    "buildable": true,
+    "isProductive": false
+  },
+  {
+    "buildingId": 26,
+    "buildingName": "artGallery",
+    "chineseName": "美术馆",
+    "classType": "Buildings.Cultural.ArtGallery",
+    "cost":{
+      "money": 10,
+      "time": 1
+    },
+    "size": [2,1],
+    "maxLevel": 10,
+    "maxHealth": 200,
+    "residentsNumber": 0,
+    "residentsCapacity": 10,
+    "buildable": true,
+    "isProductive": false
+  },
+  {
+    "buildingId": 27,
+    "buildingName": "culturalPalace",
+    "chineseName": "文化宫",
+    "classType": "Buildings.Cultural.CulturalPalace",
+    "cost":{
+      "money": 10,
+      "time": 1
+    },
+    "size": [1,1],
+    "maxLevel": 10,
+    "maxHealth": 200,
+    "residentsNumber": 0,
+    "residentsCapacity": 10,
+    "buildable": true,
+    "isProductive": false
+  },
+  {
+    "buildingId": 28,
+    "buildingName": "bank",
+    "chineseName": "银行",
+    "classType": "Buildings.Commercial.Bank",
+    "cost":{
+      "money": 10,
+      "time": 1
+    },
+    "size": [1,1],
+    "maxLevel": 10,
+    "maxHealth": 200,
+    "residentsNumber": 0,
+    "residentsCapacity": 10,
+    "buildable": true,
+    "isProductive": false
+  },
+  {
+    "buildingId": 29,
+    "buildingName": "exhibitionCenter",
+    "chineseName": "展览中心",
+    "classType": "Buildings.Cultural.ExhibitionCenter",
+    "cost":{
+      "money": 10,
+      "time": 1
+    },
+    "size": [1,1],
+    "maxLevel": 10,
+    "maxHealth": 200,
+    "residentsNumber": 0,
+    "residentsCapacity": 10,
+    "buildable": true,
+    "isProductive": false
+  },
+  {
+    "buildingId": 30,
+    "buildingName": "canteen",
+    "chineseName": "餐厅",
+    "classType": "Buildings.Commercial.Canteen",
+    "cost":{
+      "money": 10,
+      "time": 1
+    },
+    "size": [1,1],
+    "maxLevel": 10,
+    "maxHealth": 200,
+    "residentsNumber": 0,
+    "residentsCapacity": 10,
+    "buildable": true,
+    "isProductive": false
+  },
+  {
+    "buildingId": 31,
+    "buildingName": "dormitory",
+    "chineseName": "宿舍",
+    "classType": "Buildings.Residential.Dormitory",
+    "cost":{
+      "money": 10,
+      "time": 1
+    },
+    "size": [2,1],
+    "maxLevel": 10,
+    "maxHealth": 200,
+    "residentsNumber": 0,
+    "residentsCapacity": 10,
+    "buildable": true,
+    "isProductive": false
+  },
+  {
+    "buildingId": 32,
+    "buildingName": "hotel",
+    "chineseName": "酒店",
+    "classType": "Buildings.Commercial.Hotel",
+    "cost":{
+      "money": 10,
+      "time": 1
+    },
+    "size": [1,1],
+    "maxLevel": 10,
+    "maxHealth": 200,
+    "residentsNumber": 0,
+    "residentsCapacity": 10,
+    "buildable": true,
+    "isProductive": false
+  },
+  {
+    "buildingId": 33,
+    "buildingName": "cinema",
+    "chineseName": "电影院",
+    "classType": "Buildings.Commercial.Cinema",
     "cost":{
       "money": 10,
       "time": 1

@@ -49,10 +49,8 @@ namespace Manager
 
         public void UpdateBuildingPanel()
         {
-            var buildingInfo = buildingPanel.GetComponentInChildren<Text>();
-            var currentCity = CityManager.Instance.CurrentCity;
-            Debug.Log(PlaneManager.Instance.GetTilePosition());
-            buildingInfo.text = currentCity.GetBuildingInfo(PlaneManager.Instance.GetTilePosition());
+            var buildingPanelScript = buildingPanel.GetComponentInChildren<BuildingPanel>();
+            buildingPanelScript.SetBuilding(CityManager.Instance.CurrentCity.GetBuilding(PlaneManager.Instance.GetTilePosition()));
         }
         public void UpdateCityUI(City currentCity)
         {

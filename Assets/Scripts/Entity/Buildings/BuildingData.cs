@@ -14,6 +14,7 @@ namespace Entity.Buildings
         [SerializeField][JsonProperty] protected float currentHealth;
         [SerializeField][JsonProperty] protected Vector3Int position;
         [SerializeField][JsonProperty] protected float[] rotation;
+        [SerializeField][JsonProperty] protected int style;
         public BuildingData(){}
         public BuildingData(Building building)
         {
@@ -28,6 +29,7 @@ namespace Entity.Buildings
                 building.Rotation.eulerAngles.y,
                 building.Rotation.eulerAngles.z
             };
+            style = building.Style;
         }
         public string Uuid
         {
