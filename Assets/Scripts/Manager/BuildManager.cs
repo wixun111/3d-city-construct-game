@@ -62,10 +62,21 @@ namespace Manager
             
             return InstantiatePrefab(position,rotation,buildingName);
         }
+        public List<GameObject> SetDefaultFloor(int width, int length)
+        {
+            var floorPrefab = Resources.Load<GameObject>("Prefabs/Floor/GrassFloor");
+            var objs = new List<GameObject>();
+            for (var i = 0; i < width; i++)
+            {
+                for (var j = 0; j < length; j++)
+                {
+                    objs.Add(Instantiate(floorPrefab, new Vector3(i, 0.01f, j), Quaternion.Euler(-90, 0, 0)));
+                }
+            }
+            return objs;
+        }
         public GameObject SetBuilding(Vector3 position,Quaternion rotation,int buildingId)
         {
-            Debug.Log(buildingData.Count);
-            Debug.Log(buildingId);
             var buildingName = buildingData[buildingId]["buildingName"].ToString();
             return InstantiatePrefab(position,rotation,buildingName);
         }
@@ -99,7 +110,6 @@ namespace Manager
             Destroy(previewInstance);
             selectedBuildingId = -1;
             TrafficManager.Instance.InitRoad();
-            Debug.Log("退出建造模式");
             // 这里可以隐藏建筑预览等
         }
         public void BuildJudge()

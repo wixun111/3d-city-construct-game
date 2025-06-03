@@ -5571,7 +5571,7 @@ MonoBehaviour:
     damageRadius: 80000
     damageIntensity: 0.5
   time: 0
-  nextDisasterTime: 10
+  nextDisasterTime: 900
   currentDisaster: 
   disasterStartTime: 0
   isDisasterActive: 0

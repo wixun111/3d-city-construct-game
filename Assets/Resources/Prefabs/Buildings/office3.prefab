@@ -77,20 +77,28 @@ PrefabInstance:
       value: Building 08
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1b8267bcdc84e35419dda6ee1fda06ee, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 1b8267bcdc84e35419dda6ee1fda06ee, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3.0883644
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 1b8267bcdc84e35419dda6ee1fda06ee, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1b8267bcdc84e35419dda6ee1fda06ee, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.8776894
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1b8267bcdc84e35419dda6ee1fda06ee, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.3184824
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1b8267bcdc84e35419dda6ee1fda06ee, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.3128226
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1b8267bcdc84e35419dda6ee1fda06ee, type: 3}
       propertyPath: m_LocalRotation.w

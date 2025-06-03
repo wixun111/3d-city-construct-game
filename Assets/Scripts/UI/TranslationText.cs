@@ -15,13 +15,13 @@ namespace UI
 
         private void Awake()
         {
-            uiText = GetComponent<Text>();
-            translationKey = uiText.text;
             all.Add(this);
         }
 
         private void Start()
         {
+            uiText = GetComponent<Text>();
+            translationKey = uiText.text;
             ApplyTranslation();
         }
         private void OnDestroy()

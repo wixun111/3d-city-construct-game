@@ -27,7 +27,7 @@ namespace Manager
         private Mesh GeneratePlaneMesh(int cityLength,int cityWidth)
         {
             var mesh = new Mesh();
-            var vertices = new Vector3[4]
+            var vertices = new[]
             {
                 new Vector3(-0.5f, 0, -0.5f),
                 new Vector3(cityLength - 0.5f, 0, -0.5f),

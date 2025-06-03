@@ -87,6 +87,7 @@ namespace Entity
                 buildingList.Add(building);
                 AddBuilding(building,pos);
             }
+            BuildManager.Instance.SetDefaultFloor(width, length);
         }
         public bool CanBuild(Dictionary<string, object> buildingInfo,Vector3Int position)
         {

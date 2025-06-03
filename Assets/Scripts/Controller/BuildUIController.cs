@@ -98,10 +98,9 @@ namespace Controller
                 toggleObj.name = BuildingLoader.Instance.GetBuildingName(buildingId);
 
                 var toggleScript = toggleObj.GetComponent<BuildingToggle>();
-                if (toggleScript == null) continue;
                 var buildingName = BuildingLoader.Instance.GetBuildingName(buildingId);
                 buildingIcons.TryGetValue(buildingId, out var icon);
-
+                
                 toggleScript.Initialize(
                     buildingId,
                     buildingName,
