@@ -97,7 +97,8 @@ namespace Manager
                 _ => Resources.Load<GameObject>("Prefabs/Buildings/" + buildingName + style)
             };
             print(buildingName);
-            var newBuilding = Instantiate(buildingPrefab, position, rotation);
+            var newBuilding = Instantiate(buildingPrefab, position, Quaternion.identity);
+            newBuilding.transform.GetChild(0).rotation = rotation;
             newBuilding.transform.SetParent(CityManager.Instance.CurrentCity.gameObject.transform);
             return newBuilding;
         }
@@ -105,7 +106,8 @@ namespace Manager
         {
             selectedBuildingId = buildingId;
             SetBuildingPrefab();
-            previewInstance = Instantiate(buildingPrefab,PlaneManager.Instance.GetTilePosition(), currentRotation);
+            previewInstance = Instantiate(buildingPrefab,PlaneManager.Instance.GetTilePosition(), Quaternion.identity);
+            previewInstance.transform.GetChild(0).rotation = currentRotation;
             DisableCollider();
             Debug.Log("进入建造模式: " + buildingId);
             // 这里可以显示建筑预览，或者改变鼠标光标等
@@ -270,7 +272,7 @@ namespace Manager
         public void RotatingBuilding()
         {
             currentRotation *= Quaternion.Euler(0, 90, 0);
-            previewInstance.transform.rotation = currentRotation;
+            previewInstance.transform.GetChild(0).rotation = currentRotation;
         }
         public void ChangeBuildingStyle()
         {

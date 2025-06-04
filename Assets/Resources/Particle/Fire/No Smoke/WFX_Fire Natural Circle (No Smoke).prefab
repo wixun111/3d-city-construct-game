@@ -799,7 +799,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 98.85447
+      scalar: 100
       minScalar: 100
       maxCurve:
         serializedVersion: 2
