@@ -8,17 +8,1728 @@
       "cityName": "深圳",
       "population": 5000,
       "resources": {
-        "human": 199780.0,
-        "wood": 97800.0,
-        "stone": 78900.0,
-        "money": 120000.0,
-        "food": 119340.0
+        "human": 200000.0,
+        "wood": 100000.0,
+        "stone": 80000.0,
+        "money": 119100.0,
+        "food": 120000.0
       },
       "economy": 30000,
       "width": 100,
       "length": 100,
-      "cityLevel": 0,
-      "buildingsData": []
+      "cityLevel": 1,
+      "buildingsData": [
+        {
+          "uuid": "e7ec2f6d-9c26-4c3d-ba54-242884a6bae4",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 1,
+            "y": 0,
+            "z": 34,
+            "magnitude": 34.0147,
+            "sqrMagnitude": 1157
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "dae20d83-d8a9-4181-9102-1cfe565ee825",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 2,
+            "y": 0,
+            "z": 34,
+            "magnitude": 34.058773,
+            "sqrMagnitude": 1160
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "0ccd3e53-0b2a-4fb3-9200-aeeb6ad18fd9",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 3,
+            "y": 0,
+            "z": 34,
+            "magnitude": 34.1320953,
+            "sqrMagnitude": 1165
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "850f337e-dbb1-4831-983a-1bb1b940f724",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 4,
+            "y": 0,
+            "z": 34,
+            "magnitude": 34.2344856,
+            "sqrMagnitude": 1172
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "012a4f38-99ab-4bdb-8978-d7683757ee9b",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 5,
+            "y": 0,
+            "z": 34,
+            "magnitude": 34.36568,
+            "sqrMagnitude": 1181
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "1f478231-0864-4afb-ae5b-6e5873fc51bd",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 6,
+            "y": 0,
+            "z": 34,
+            "magnitude": 34.5253525,
+            "sqrMagnitude": 1192
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "48a3e4a1-6381-459e-9a94-37bb713f57f6",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 7,
+            "y": 0,
+            "z": 34,
+            "magnitude": 34.7131081,
+            "sqrMagnitude": 1205
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "937e0ae3-2c64-4ef4-b7b3-0e0c2d8fe981",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 8,
+            "y": 0,
+            "z": 34,
+            "magnitude": 34.9284973,
+            "sqrMagnitude": 1220
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "646a7713-f35b-4e68-9598-dc7fee75d9e8",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 9,
+            "y": 0,
+            "z": 34,
+            "magnitude": 35.17101,
+            "sqrMagnitude": 1237
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "1df0bfab-73b3-49e7-b6aa-4b30975bb7c7",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 10,
+            "y": 0,
+            "z": 34,
+            "magnitude": 35.44009,
+            "sqrMagnitude": 1256
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "4d07ce77-19af-4f08-9f57-435e1882459c",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 11,
+            "y": 0,
+            "z": 34,
+            "magnitude": 35.7351379,
+            "sqrMagnitude": 1277
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "6c32a4d2-fcf7-4b49-b329-c913fda258c0",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 12,
+            "y": 0,
+            "z": 34,
+            "magnitude": 36.05551,
+            "sqrMagnitude": 1300
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "4b6484d1-6df4-4e28-b347-56da18238d95",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 13,
+            "y": 0,
+            "z": 34,
+            "magnitude": 36.40055,
+            "sqrMagnitude": 1325
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "788127e2-4ce6-4507-86b2-99f3e2008dd3",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 14,
+            "y": 0,
+            "z": 34,
+            "magnitude": 36.7695541,
+            "sqrMagnitude": 1352
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "84b521bf-6413-4248-9512-a55806ebc32f",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 15,
+            "y": 0,
+            "z": 34,
+            "magnitude": 37.161808,
+            "sqrMagnitude": 1381
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "ee1c3e6d-f2d8-43b8-8e14-e8b33a500b6d",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 16,
+            "y": 0,
+            "z": 34,
+            "magnitude": 37.5765877,
+            "sqrMagnitude": 1412
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "44f6e921-2c52-4b4e-9beb-0fef296226e9",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 17,
+            "y": 0,
+            "z": 34,
+            "magnitude": 38.0131569,
+            "sqrMagnitude": 1445
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "cbb655c3-d5c7-460b-8457-e3b4150c8e67",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 18,
+            "y": 0,
+            "z": 34,
+            "magnitude": 38.470768,
+            "sqrMagnitude": 1480
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "272a232f-de6b-4fd0-a688-2f5bd32478f3",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 19,
+            "y": 0,
+            "z": 34,
+            "magnitude": 38.9486847,
+            "sqrMagnitude": 1517
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "82e089f2-f607-4b3b-8016-f3423658195f",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 20,
+            "y": 0,
+            "z": 34,
+            "magnitude": 39.446167,
+            "sqrMagnitude": 1556
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "65f78bc7-ed0e-460f-895b-e549716333c9",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 21,
+            "y": 0,
+            "z": 34,
+            "magnitude": 39.9624825,
+            "sqrMagnitude": 1597
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "178233ac-e120-44a6-98cf-c010578973b7",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 22,
+            "y": 0,
+            "z": 34,
+            "magnitude": 40.4969139,
+            "sqrMagnitude": 1640
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "5f7d38d6-8dd8-4851-9b9f-ee892802e3db",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 23,
+            "y": 0,
+            "z": 34,
+            "magnitude": 41.04875,
+            "sqrMagnitude": 1685
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "ddc0ea35-568b-4763-8d9e-a92dfa2b1417",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 24,
+            "y": 0,
+            "z": 34,
+            "magnitude": 41.6173058,
+            "sqrMagnitude": 1732
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "54e03aee-a8c3-4139-a54a-1b7a18b881e9",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 25,
+            "y": 0,
+            "z": 34,
+            "magnitude": 42.2018967,
+            "sqrMagnitude": 1781
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "935b53af-7d84-4388-84e7-8efb87149854",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 26,
+            "y": 0,
+            "z": 34,
+            "magnitude": 42.80187,
+            "sqrMagnitude": 1832
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "0b30f1f1-609f-4808-92ed-7b2900e5b050",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 27,
+            "y": 0,
+            "z": 34,
+            "magnitude": 43.4165878,
+            "sqrMagnitude": 1885
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "38c18353-75eb-4061-af32-4d3fb6099b2f",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 28,
+            "y": 0,
+            "z": 34,
+            "magnitude": 44.04543,
+            "sqrMagnitude": 1940
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "b1a42410-1a81-4ade-b76a-38a591ca540c",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 29,
+            "y": 0,
+            "z": 34,
+            "magnitude": 44.6878052,
+            "sqrMagnitude": 1997
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "d735b8d5-aad7-492a-8543-d82316dc46b6",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 30,
+            "y": 0,
+            "z": 34,
+            "magnitude": 45.3431358,
+            "sqrMagnitude": 2056
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "da980e46-ca03-4690-912a-5165de2872c5",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 31,
+            "y": 0,
+            "z": 34,
+            "magnitude": 46.0108681,
+            "sqrMagnitude": 2117
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "f877765a-6100-4f25-911d-2dc207bf9cf3",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 0,
+            "magnitude": 32.0,
+            "sqrMagnitude": 1024
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "71496c93-82f0-46cf-b744-24b9f633e54f",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 1,
+            "magnitude": 32.01562,
+            "sqrMagnitude": 1025
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "41f6cd59-4a25-4cfe-b422-fef5a06f9a01",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 2,
+            "magnitude": 32.06244,
+            "sqrMagnitude": 1028
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "4d2b92f3-5ddd-42ce-9043-82a06f9e4f78",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 3,
+            "magnitude": 32.140316,
+            "sqrMagnitude": 1033
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "ddd246df-c41f-484c-bdbb-a55f8da61f77",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 4,
+            "magnitude": 32.24903,
+            "sqrMagnitude": 1040
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "68e5d8f9-2a64-4751-889c-17785b769a56",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 5,
+            "magnitude": 32.38827,
+            "sqrMagnitude": 1049
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "65ddae57-e746-4ba9-ab24-bd87793b307d",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 6,
+            "magnitude": 32.55764,
+            "sqrMagnitude": 1060
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "4ab17a67-d740-4837-97df-374a24ed03f9",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 7,
+            "magnitude": 32.75668,
+            "sqrMagnitude": 1073
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "3d9c087b-048d-48b0-982a-2553166c4f79",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 8,
+            "magnitude": 32.9848442,
+            "sqrMagnitude": 1088
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "852be9e3-945a-4e38-8b47-04b44c5cf381",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 9,
+            "magnitude": 33.24154,
+            "sqrMagnitude": 1105
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "1f6f0f01-b73a-44ce-be4b-b97e03629e0c",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 10,
+            "magnitude": 33.5261078,
+            "sqrMagnitude": 1124
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "7e01b7d3-194c-40d6-9cfe-c518e34ac4fe",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 11,
+            "magnitude": 33.83785,
+            "sqrMagnitude": 1145
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "d5d517bf-6fb8-446b-bc9a-f56293b918c7",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 12,
+            "magnitude": 34.1760139,
+            "sqrMagnitude": 1168
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "abf28791-a0e5-46cd-bcc7-f02e6d1dc60e",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 13,
+            "magnitude": 34.5398331,
+            "sqrMagnitude": 1193
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "29c9160f-7686-4488-a9af-dd9cfe3cbb8a",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 14,
+            "magnitude": 34.9284973,
+            "sqrMagnitude": 1220
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "96d45a6e-f277-420e-836e-56e792510579",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 15,
+            "magnitude": 35.3411942,
+            "sqrMagnitude": 1249
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "a0b35484-be45-480f-b9e0-93218c37cc2c",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 16,
+            "magnitude": 35.77709,
+            "sqrMagnitude": 1280
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "ef699afa-7007-4a14-b543-df2f1c68ace1",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 17,
+            "magnitude": 36.23534,
+            "sqrMagnitude": 1313
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "fe9919ad-37e5-4c95-9a5a-f183ff2bd6e0",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 18,
+            "magnitude": 36.71512,
+            "sqrMagnitude": 1348
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "7314c5d7-9b04-4d90-8d71-fb9df437e0bc",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 19,
+            "magnitude": 37.2155876,
+            "sqrMagnitude": 1385
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "0fcfbe13-273e-4be4-a2f6-5a7283ed3c99",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 20,
+            "magnitude": 37.7359238,
+            "sqrMagnitude": 1424
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "ccdfb039-75c5-455d-b8b5-12741f86ff6e",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 21,
+            "magnitude": 38.27532,
+            "sqrMagnitude": 1465
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "7be6f2d2-9335-4b0a-8c14-9dac63382139",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 22,
+            "magnitude": 38.8329773,
+            "sqrMagnitude": 1508
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "beaa2f6c-998d-476b-af1f-d5860ea44743",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 23,
+            "magnitude": 39.40812,
+            "sqrMagnitude": 1553
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "25144b2e-803e-417d-b94c-63ae9a450717",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 24,
+            "magnitude": 40.0,
+            "sqrMagnitude": 1600
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "8bd26446-a6be-4c80-9669-ca11ede36804",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 25,
+            "magnitude": 40.60788,
+            "sqrMagnitude": 1649
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "87c2d231-cae2-41b4-91cc-881aa3347f26",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 26,
+            "magnitude": 41.2310562,
+            "sqrMagnitude": 1700
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "002eec2b-177f-44a7-9033-b4712ed74e18",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 27,
+            "magnitude": 41.8688431,
+            "sqrMagnitude": 1753
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "e4eb9b2b-6fb3-4175-91fd-05df101a4069",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 28,
+            "magnitude": 42.5205841,
+            "sqrMagnitude": 1808
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "c83e4b36-f0a0-49f6-bb86-029a04136a40",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 29,
+            "magnitude": 43.1856461,
+            "sqrMagnitude": 1865
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "b7fbc1b9-6ae5-498e-a79a-6a045d7dbf05",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 30,
+            "magnitude": 43.8634262,
+            "sqrMagnitude": 1924
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "f3e69a04-76ee-4ef5-b839-f64b65da0558",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 31,
+            "magnitude": 44.5533371,
+            "sqrMagnitude": 1985
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "c563484c-6998-4ab4-aeef-f89c174427b3",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 32,
+            "magnitude": 45.2548332,
+            "sqrMagnitude": 2048
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "c96341b5-8f30-4e23-9ec5-9c81d9b3c46c",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 33,
+            "magnitude": 45.96738,
+            "sqrMagnitude": 2113
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "61f6e2fb-3468-4a6d-bb22-8d75a5d34920",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 34,
+            "magnitude": 46.69047,
+            "sqrMagnitude": 2180
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "abe9b418-b548-46da-b4df-9bd8c786d830",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 35,
+            "magnitude": 47.4236221,
+            "sqrMagnitude": 2249
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "73a0f4a6-1a87-4742-af6a-d14b6a232a96",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 36,
+            "magnitude": 48.166378,
+            "sqrMagnitude": 2320
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "8076f563-c53a-4e9d-93fe-87b89634f567",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 37,
+            "magnitude": 48.9183,
+            "sqrMagnitude": 2393
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "0156eb7f-232f-4314-8766-041ae61ddadb",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 32,
+            "y": 0,
+            "z": 38,
+            "magnitude": 49.67897,
+            "sqrMagnitude": 2468
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "62d265a1-832c-4446-ac08-84cb376e8ec4",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 33,
+            "y": 0,
+            "z": 34,
+            "magnitude": 47.38143,
+            "sqrMagnitude": 2245
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "0c71a746-acca-4f54-bda4-14011a09f184",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 34,
+            "y": 0,
+            "z": 34,
+            "magnitude": 48.08326,
+            "sqrMagnitude": 2312
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "5c98178b-b4c2-4a4a-b1c5-06f7612b3fdc",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 35,
+            "y": 0,
+            "z": 34,
+            "magnitude": 48.79549,
+            "sqrMagnitude": 2381
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "bc39abb0-6db8-4f62-abba-97523f8a1a9b",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 36,
+            "y": 0,
+            "z": 34,
+            "magnitude": 49.5176735,
+            "sqrMagnitude": 2452
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "51e51d38-6eae-433f-a085-b2161d59ae2a",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 37,
+            "y": 0,
+            "z": 34,
+            "magnitude": 50.24938,
+            "sqrMagnitude": 2525
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "d39c64a8-c0bc-47d3-bc1b-8ddcb204b7d5",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 38,
+            "y": 0,
+            "z": 34,
+            "magnitude": 50.9901962,
+            "sqrMagnitude": 2600
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "7235bb7c-2e81-4f00-b7b6-dc9e6eb16a65",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 39,
+            "y": 0,
+            "z": 34,
+            "magnitude": 51.7397346,
+            "sqrMagnitude": 2677
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "0c17facf-d848-4178-845c-3f5f3f84809d",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 40,
+            "y": 0,
+            "z": 34,
+            "magnitude": 52.49762,
+            "sqrMagnitude": 2756
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "78938177-e316-4192-93ed-568e8ff22341",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 41,
+            "y": 0,
+            "z": 34,
+            "magnitude": 53.2634964,
+            "sqrMagnitude": 2837
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "70ecad5d-6f9c-4b8d-ba4c-0a0c5720c227",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 42,
+            "y": 0,
+            "z": 34,
+            "magnitude": 54.0370255,
+            "sqrMagnitude": 2920
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "8f2d93d3-2a93-4049-80ee-bde6bd453622",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 43,
+            "y": 0,
+            "z": 34,
+            "magnitude": 54.81788,
+            "sqrMagnitude": 3005
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "5cea9fee-1b8c-4a57-9cc0-a9c49a9b5249",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 44,
+            "y": 0,
+            "z": 34,
+            "magnitude": 55.6057549,
+            "sqrMagnitude": 3092
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "f2da7e97-7557-46a2-8f25-48f1ac91333c",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 45,
+            "y": 0,
+            "z": 34,
+            "magnitude": 56.4003563,
+            "sqrMagnitude": 3181
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "b473a55b-b9eb-4ab1-af2f-ad060d36b5c6",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 46,
+            "y": 0,
+            "z": 34,
+            "magnitude": 57.2013969,
+            "sqrMagnitude": 3272
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "7377e07b-f4e1-4831-9a94-5cf70b0f320c",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 47,
+            "y": 0,
+            "z": 34,
+            "magnitude": 58.00862,
+            "sqrMagnitude": 3365
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "826fcf13-3306-4043-b455-f2167f481de9",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 48,
+            "y": 0,
+            "z": 34,
+            "magnitude": 58.8217659,
+            "sqrMagnitude": 3460
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "504ada13-2695-40dd-89d0-64d6c2dfc21e",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 49,
+            "y": 0,
+            "z": 34,
+            "magnitude": 59.64059,
+            "sqrMagnitude": 3557
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "28e1d7a8-4296-4407-8686-46af16d3aa5d",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 50,
+            "y": 0,
+            "z": 34,
+            "magnitude": 60.4648666,
+            "sqrMagnitude": 3656
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "0fc43f50-6013-47e7-9ab9-3ba6528799ba",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 51,
+            "y": 0,
+            "z": 34,
+            "magnitude": 61.2943726,
+            "sqrMagnitude": 3757
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "uuid": "4474e520-d9ae-4136-82e6-87655472140a",
+          "buildingName": "road",
+          "buildingId": 1,
+          "level": 1,
+          "currentHealth": 200.0,
+          "position": {
+            "x": 52,
+            "y": 0,
+            "z": 34,
+            "magnitude": 62.1289,
+            "sqrMagnitude": 3860
+          },
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
     },
     {
       "cityId": 1,
@@ -34,7 +1745,7 @@
       "economy": 30000,
       "width": 100,
       "length": 100,
-      "cityLevel": 0,
+      "cityLevel": 1,
       "buildingsData": []
     },
     {
@@ -51,7 +1762,7 @@
       "economy": 30000,
       "width": 100,
       "length": 100,
-      "cityLevel": 0,
+      "cityLevel": 1,
       "buildingsData": []
     },
     {
@@ -68,7 +1779,7 @@
       "economy": 30000,
       "width": 100,
       "length": 100,
-      "cityLevel": 0,
+      "cityLevel": 1,
       "buildingsData": []
     },
     {
@@ -85,7 +1796,7 @@
       "economy": 30000,
       "width": 100,
       "length": 100,
-      "cityLevel": 0,
+      "cityLevel": 1,
       "buildingsData": []
     },
     {
@@ -102,7 +1813,7 @@
       "economy": 30000,
       "width": 100,
       "length": 100,
-      "cityLevel": 0,
+      "cityLevel": 1,
       "buildingsData": []
     },
     {
@@ -119,11 +1830,11 @@
       "economy": 30000,
       "width": 100,
       "length": 100,
-      "cityLevel": 0,
+      "cityLevel": 1,
       "buildingsData": []
     }
   ],
   "playerName": null,
-  "currentTime": 13.8226929,
+  "currentTime": 154.026169,
   "timeScale": 1.0
 }
